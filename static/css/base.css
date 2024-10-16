@@ -1,67 +1,157 @@
-html {
+html, body {
     height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-    background: url('/media/hero.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #ffffff;
-    font-family: 'Lato';
+    flex: 1;
 }
 
+/* Hero Section */
+.hero-section {
+    background-image: url('/media/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Maintain full height */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    color: white;
+    padding: 200px; /* Adjust top and bottom padding as needed */
+    text-align: center; /* Centers text within the box */
+}
+
+/* Hero Text Box */
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+    border-radius: 20px; /* Softer rounding */
+    color: #ffffff; /* Text color */
+    width: 90%; /* Set width to 90% to allow for responsiveness */
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Centers the box horizontally */
+    padding: 2rem; /* Uniform padding for spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    margin-top: 20px; /* Additional space above the text box */
+}
+
+/* Header Styling */
+.hero-text h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adjusted letter spacing */
+    font-weight: bold;
+    font-size: 2rem; /* Adjusted font size */
+    line-height: 1.2; /* Improved readability */
+    margin-bottom: 1rem; /* Space between header and subtitle */
+}
+
+/* Subtitle Styling */
+.hero-text p {
+    text-transform: none; /* Keep subtitle in normal case */
+    font-size: 1rem; /* Slightly smaller font size */
+    margin-top: 0.5rem; /* Add small space above the paragraph */
+}
+
+
+/* Navbar */
 .navbar-brand h1 {
-    font-size: 2rem; /* Increased font size for the brand */
+    font-size: 2rem; /* Adjust the brand font size */
     color: black; /* Set the brand color */
 }
 
 .nav-link {
-    color: black; /* Text color */
-    padding: 0.5rem 1.5rem; /* Add padding for a more spacious link */
-    transition: color 0.3s; /* Smooth transition for hover effect */
-    font-size: 1.2rem; /* Increased font size for nav links */
+    color: black;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: #d7a9bd; /* Change color on hover */
+    color: #d7a9bd;
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
-    border: none; /* Remove borders for a cleaner look */
+    border: none;
 }
 
 .dropdown-item {
-    font-size: 1rem; /* Font size for dropdown items */
+    font-size: 1rem;
 }
 
 .dropdown-item:hover {
-    background-color: #f8f9fa; /* Light background on hover */
+    background-color: #f8f9fa;
 }
 
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+/* Positive Statement Section */
+.positive-statement-section {
+    padding: 50px 0;
+    text-align: center;
 }
 
-.logo-font {
-    text-transform: uppercase;
+.positive-statement-section h2 {
+    font-size: 2.5rem;
+    color: black;
 }
 
-.main-logo-link {
-    width: fit-content;
+.positive-statement-section p {
+    font-size: 1.3rem;
+    margin-top: 10px;
 }
 
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
+.positive-statement-section .btn {
+    margin-top: 20px;
 }
 
+/* Best Sellers Section */
+.best-sellers-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.best-sellers-section h2 {
+    font-size: 2.5rem;
+    color: #FF6F61;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/* Subscription Section */
+.subscription-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.subscription-section h2 {
+    font-size: 2.5rem;
+}
+
+.subscription-section p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.subscription-section .input-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Convenience Classes */
 .btn-black {
     background: black;
     color: white;
@@ -69,167 +159,87 @@ body {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
     border: 1px solid black;
 }
 
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
+.btn-outline-black:hover {
     background: black;
     color: white !important;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 .text-black {
     color: #000 !important;
 }
 
-.border-black {
-    border: 1px solid black !important;
+/* Footer Styles */
+.footer {
+    background-color: black; /* Changed to black */
+    color: white; /* Changed text color to white */
+    text-align: left; /* Left align text */
+    padding: 2rem 1rem; /* Padding for spacing */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between copyright and social links */
+    align-items: center; /* Center vertically */
+    position: relative; /* Positioning */
+    bottom: 0; /* Stick to the bottom of the page */
+    width: 100%; /* Full width */
+    margin-top: auto; 
 }
 
-.bg-black {
-    background: #000 !important;
+/* Social Links */
+.social-links {
+    margin-top: 1rem; /* Space above social links */
 }
 
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
+.social-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    transition: color 0.3s; /* Smooth color transition on hover */
+    margin-left: 10px; /* Space between icons */
 }
 
-a.category-badge > span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
+.social-links a:hover {
+    color: #FF6F61; /* Change to your accent color on hover */
 }
 
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+/* Footer Text */
+.footer p {
+    margin: 0; /* Remove margin */
+    font-size: 0.9rem; /* Smaller font size */
 }
 
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-/* ------------------------------- bootstrap toasts */
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
-}
-
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
-
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .hero-section h1 {
+        font-size: 2.5rem; /* Smaller font for mobile */
     }
 
-    .header-container {
-        padding-top: 164px;
-    }
-}
-
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
+    .shop-now-button {
+        font-size: 1rem;
+        padding: 10px 20px;
     }
 
-    body {
-        height: calc(100vh - 116px);
+    .positive-statement-section h2, .best-sellers-section h2, .subscription-section h2 {
+        font-size: 2rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0; /* Adjust padding for smaller screens */
+        flex-direction: column; /* Stack content on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .footer p {
+        font-size: 0.8rem; /* Slightly smaller font for mobile */
+    }
+
+    .social-links {
+        justify-content: center; /* Center social links on mobile */
+    }
+
+    .social-links img {
+        width: 20px; /* Smaller icons on mobile */
+        height: 20px; /* Ensure consistent height */
     }
 }

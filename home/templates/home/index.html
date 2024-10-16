@@ -2,27 +2,36 @@
 {% load static %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font">The new collections are here.</h1>
-            <div class="my-5">
-                <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-            </div>
+
+<!-- Hero Section -->
+<section class="hero-section text-center d-flex align-items-center justify-content-center">
+    <div class="container h-100">  <!-- Ensure container takes full height -->
+        <div class="hero-text p-4">
+            <h1 class="display-3 logo-font">The new collections are here</h1>
+            <p class="lead">Discover the latest trends in healing gemstone jewellery.</p>
+            <a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase mt-3 px-5 py-3">Shop Now</a>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Featured Products Section -->
-<section class="featured-posts py-5">
+<!-- Positive Statement & Healing Gemstone jewellery CTA -->
+<section class="positive-statement-section py-5">
+    <div class="container text-center">
+        <h2 class="mb-3">Feel the Positive Energy</h2>
+        <p class="lead">Our healing gemstone jewellery is designed to inspire, empower, and elevate your style.</p>
+    </div>
+</section>
+
+<!-- Best Sellers Section -->
+<section class="best-sellers-section py-5 bg-light">
     <div class="container">
-        <h2 class="text-center mb-4" style="color: #FF6F61;">Featured Products</h2>
+        <h2 class="text-center mb-4" style="color: #FF6F61;">Best Sellers</h2>
         <div class="row">
-            {% for product in featured_products %}
+            {% for product in best_sellers %}
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description|truncatewords:20 }}</p>
                         <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">View Product</a>
@@ -31,18 +40,25 @@
             </div>
             {% empty %}
             <div class="col-12">
-                <p class="text-center">No featured products available.</p>
+                <p class="text-center">No best sellers available at the moment.</p>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
 
-{% block page_header %}
-<div class="header-container">
-    <div class="row">
-        <div class="col"></div>
+<!-- Subscription Section -->
+<section class="subscription-section py-5 text-center" style="background-color: #f8f9fa;">
+    <div class="container">
+        <h2 class="mb-4">Stay Connected</h2>
+        <p class="lead">Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers, and more.</p>
+        <form class="d-flex justify-content-center">
+            <div class="input-group" style="max-width: 500px;">
+                <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+            </div>
+        </form>
     </div>
-</div>
-{% endblock %}
+</section>
+
 {% endblock %}
