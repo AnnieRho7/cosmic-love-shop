@@ -1,5 +1,5 @@
-<div class="collapse navbar-collapse" id="main-nav"></div>
-    <ul class="navbar-nav w-auto mx-auto text-center">
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
         <!-- All Products Dropdown -->
         <li class="nav-item dropdown">
             <a class="logo-font fw-bold nav-link text-black me-5" href="#" id="all-products-link"
@@ -12,6 +12,52 @@
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
+        </li>
+
+        <!-- Clothing Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="logo-font fw-bold nav-link text-black me-5" href="#" id="clothing-link" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Clothing
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">Activewear &amp;
+                    Essentials</a>
+                <a href="{% url 'products' %}?category=jeans" class="dropdown-item">Jeans</a>
+                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">Shirts</a>
+                <a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts" class="dropdown-item">All
+                    Clothing</a>
+            </div>
+        </li>
+
+        <!-- Homeware Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="logo-font fw-bold nav-link text-black me-5" href="#" id="homeware-link" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Homeware
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="homeware-link">
+                <li><a href="{% url 'products' %}?category=bed_bath" class="dropdown-item">Bed &amp; Bath</a></li>
+                <li><a href="{% url 'products' %}?category=kitchen_dining" class="dropdown-item">Kitchen &amp;
+                        Dining</a></li>
+                <li><a href="{% url 'products' %}?category=bed_bath,kitchen_dining" class="dropdown-item">All
+                        Homeware</a></li>
+            </ul>
+        </li>
+
+        <!-- Specials Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="logo-font fw-bold nav-link text-black" href="#" id="specials-link" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Special Offers
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <li><a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a></li>
+                <li><a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a></li>
+                <li><a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a></li>
+                <li><a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All
+                        Specials</a></li>
+            </ul>
         </li>
     </ul>
 </div>

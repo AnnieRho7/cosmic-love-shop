@@ -2,9 +2,8 @@ from django.db import models
 
 
 class Category(models.Model):
-    
     class Meta:
-        verbose_name_plural = 'Categories' #changes the name in admin from categorys to categories
+        verbose_name_plural = 'Categories'  # Changes the name in admin from categorys to categories
     
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -25,7 +24,7 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    is_featured = models.BooleanField(default=False)  # Field to mark a product as featured
 
     def __str__(self):
         return self.name
-    

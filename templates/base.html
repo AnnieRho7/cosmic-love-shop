@@ -25,92 +25,112 @@
 
     {% block extra_css %}{% endblock %}
 
-
     <title>Cosmic Love - {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
-
     <header class="container-fluid fixed-top">
-        <!-- Top Navigation Row -->
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-            <!-- Logo -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Cosmic</strong> Love</h2>
-                </a>
-            </div>
-
-            <!-- Search Form -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q"
-                            placeholder="Search our site">
-                        <button class="btn btn-black border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Account & Cart Links -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                    <!-- Account Dropdown -->
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <i class="fas fa-user fa-lg"></i>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-
-                    <!-- Cart -->
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_cart' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                    $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Main Navigation Row -->
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <h1 class="logo-font text-black my-0"><strong>Cosmic</strong> Love</h1>
+                    </a>
+
+                    <!-- Hamburger Menu Button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Main Navigation -->
+                    <div class="collapse navbar-collapse" id="main-nav">
+                        <!-- Navigation Links -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'products' %}">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    More
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Gift Cards</a></li>
+                                    <li><a class="dropdown-item" href="#">Lookbook</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Right-aligned items (Search, Account, Cart) -->
+                        <div class="d-flex align-items-center">
+                            <!-- Search Form -->
+                            <form class="d-flex me-3" method="GET" action="{% url 'products' %}">
+                                <div class="input-group">
+                                    <input class="form-control border border-black rounded-0" type="text" name="q"
+                                        placeholder="Search our site">
+                                    <button class="btn btn-black border border-black rounded-0" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Account Dropdown -->
+                            <div class="nav-item dropdown me-3">
+                                <a class="nav-link dropdown-toggle text-black" href="#" id="user-options"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <i class="fas fa-user fa-lg"></i>
+                                        <span class="my-0" style="font-size: 0.9rem;">Account</span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Cart Dropdown -->
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-black" href="#" id="cart-options"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <i class="fas fa-shopping-bag fa-lg"></i>
+                                        <span class="my-0" style="font-size: 0.9rem;">
+                                            {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                            $0.00
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="cart-options">
+                                    <a href="" class="dropdown-item">View Cart</a>
+                                    <a href="" class="dropdown-item">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -121,43 +141,42 @@
                 </h4>
             </div>
         </div>
+    </header>
 
-
-        <!-- Message Container for Django messages -->
-        {% if messages %}
-        <div class="message-container">
-            <div class="container">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
+    <!-- Message Container for Django messages -->
+    {% if messages %}
+    <div class="message-container">
+        <div class="container">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
 
-        <!-- Header block for page-specific headers -->
-        {% block page_header %}{% endblock %}
+    <!-- Header block for page-specific headers -->
+    {% block page_header %}{% endblock %}
 
-        <!-- Main content block for each page -->
-        {% block content %}{% endblock %}
+    <!-- Main content block for each page -->
+    {% block content %}{% endblock %}
 
-        <!-- Bootstrap 5 & Core JS -->
-        {% block core_js %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        {% endblock %}
+    <!-- Bootstrap 5 & Core JS -->
+    {% block core_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    {% endblock %}
 
-        {% block extra_js %}{% endblock %}
+    {% block extra_js %}{% endblock %}
 
-        <!-- Optional post-load JavaScript for each page -->
-        {% block postload_js %}{% endblock %}
-
+    <!-- Optional post-load JavaScript for each page -->
+    {% block postload_js %}{% endblock %}
 </body>
 
 </html>
