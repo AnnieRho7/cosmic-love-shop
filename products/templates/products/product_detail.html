@@ -49,7 +49,8 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="input-group">
-                                <input type="number" name="quantity" min="1" value="1" class="form-control" id="quantity" required>
+                                <input type="number" name="quantity" min="1" value="1" class="form-control"
+                                    id="quantity" required>
                                 <span class="input-group-text">Qty</span>
                             </div>
                         </div>
@@ -60,7 +61,7 @@
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
-                
+
 
                 <!-- Add to Cart Form -->
                 <form method="post" action="{% url 'add_to_cart' product.id %}">
@@ -68,7 +69,8 @@
                     <div class="form-row">
                         <div class="form-group col">
                             <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1" required>
+                            <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1"
+                                required>
                         </div>
                         <div class="form-group col">
                             <button type="submit" class="btn btn-outline-black mt-4">Add to Cart</button>

@@ -151,6 +151,54 @@ body {
     margin: 0 auto;
 }
 
+/* About Section */
+.about-section {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 50px 0; /* Vertical padding for spacing */
+    color: #333; /* Text color */
+}
+
+/* Section Header */
+.about-section h2 {
+    font-size: 2.5rem; /* Larger font for the main header */
+    color: #FF6F61; /* Main color from your theme */
+}
+
+/* Lead Paragraph */
+.about-section .lead {
+    font-size: 1.2rem; /* Font size for the lead paragraph */
+    max-width: 800px; /* Max width for readability */
+    margin: 0 auto; /* Center the lead paragraph */
+}
+
+/* Subheading Styles */
+.about-section h3 {
+    font-size: 1.8rem; /* Font size for subheadings */
+    margin-top: 20px; /* Space above subheadings */
+}
+
+/* List Styles */
+.about-section ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.about-section ul li {
+    font-size: 1.1rem; /* Font size for list items */
+    margin: 10px 0; /* Space between list items */
+}
+
+/* Button Style */
+.about-section .btn {
+    background-color: #FF6F61; /* Button color */
+    color: white; /* Button text color */
+    transition: background-color 0.3s; /* Transition effect for hover */
+}
+
+.about-section .btn:hover {
+    background-color: #d57e7c; /* Lighter shade for hover effect */
+}
+
 /* Convenience Classes */
 .btn-black {
     background: black;
@@ -241,5 +289,17 @@ body {
     .social-links img {
         width: 20px; /* Smaller icons on mobile */
         height: 20px; /* Ensure consistent height */
+    }
+
+    .about-section h2 {
+        font-size: 2rem; /* Adjust header size for mobile */
+    }
+
+    .about-section .lead {
+        font-size: 1rem; /* Adjust lead font size for mobile */
+    }
+
+    .about-section h3 {
+        font-size: 1.5rem; /* Adjust subheading size for mobile */
     }
 }
