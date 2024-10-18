@@ -8,6 +8,7 @@ html, body {
 
 body {
     flex: 1;
+    padding-top: 120px;
 }
 
 /* Hero Section */
@@ -20,7 +21,7 @@ body {
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
     color: white;
-    padding: 200px; /* Adjust top and bottom padding as needed */
+    padding: 100px; /* Adjust top and bottom padding as needed */
     text-align: center; /* Centers text within the box */
 }
 
