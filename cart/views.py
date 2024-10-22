@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from products.models import Product
+from .contexts import cart_contents
 
 # Create your views here.
 
@@ -42,13 +43,11 @@ def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    quantity = int(request.POST.get('quantity', 1))  # Default to 1 if quantity is not provided
+    redirect_url = request.POST.get('redirect_url', reverse('view_cart'))  # Fallback to cart view
+    size = request.POST.get('product_size')  # Get size if available
     cart = request.session.get('cart', {})
-    
+
     if size:
         if item_id in list(cart.keys()):
             if size in cart[item_id]['items_by_size'].keys():
@@ -69,26 +68,25 @@ def add_to_cart(request, item_id):
             messages.success(request, f'Added {product.name} to your cart!')
 
     request.session['cart'] = cart
-    return redirect(redirect_url)
+    return redirect(redirect_url)  # Redirect to the specified URL
+
 
 def adjust_cart(request, item_id):
     """ Adjust the quantity of the specified product to the specified amount """
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    quantity = int(request.POST.get('quantity', 0))  # Default to 0 if quantity is not provided
+    size = request.POST.get('product_size')  # Get size if available
     cart = request.session.get('cart', {})
-    
+
     if size:
         if quantity > 0:
             cart[item_id]['items_by_size'][size] = quantity
             messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {cart[item_id]["items_by_size"][size]}')
         else:
             del cart[item_id]['items_by_size'][size]
-            if not cart[item_id['items_by_size']]:
-              cart.pop(item_id)
+            if not cart[item_id]['items_by_size']:  # If no sizes left, remove item
+                cart.pop(item_id)
             messages.success(request, f'Removed size {size.upper()} {product.name} from your cart')
     else:
         if quantity > 0:
@@ -98,31 +96,35 @@ def adjust_cart(request, item_id):
             cart.pop(item_id)
 
     request.session['cart'] = cart
-    return redirect(reverse('view_cart'))
+    return redirect(reverse('view_cart'))  # Redirect back to the cart view
+
 
 def remove_from_cart(request, item_id):
     """ Remove the item from the shopping cart """
-
     try:
-        product = get_object_or_404(Product, pk=item_id)
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
-        cart = request.session.get('cart', {})
-        
-        if size:
-            del cart[item_id]['items_by_size'][size]
-            if not cart[item_id]['items_by_size']:
-                cart.pop(item_id)
+        product = get_object_or_404(Product, pk=item_id)  # Ensure the product exists
+        size = request.POST.get('product_size')  # Get size if available
+        cart = request.session.get('cart', {})  # Retrieve cart from session
+
+        # Debugging: Print current cart state
+        print(f"Current cart before removal: {cart}")
+
+        # Handle size-based items
+        if size and item_id in cart and 'items_by_size' in cart[item_id]:
+            del cart[item_id]['items_by_size'][size]  # Remove the specific size
+            if not cart[item_id]['items_by_size']:  # Check if no sizes are left
+                cart.pop(item_id)  # Remove item from cart if no sizes left
             messages.success(request, f'Removed size {size.upper()} {product.name} from your cart')
         else:
-            cart.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your cart')
+            if item_id in cart:
+                cart.pop(item_id)  # Remove the item if it exists
+                messages.success(request, f'Removed {product.name} from your cart')
 
+        # Update session cart
         request.session['cart'] = cart
-        return HttpResponse(status=200)
+        print(f"Updated cart after removal: {cart}")  # Debugging output
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
-        return HttpResponse(status=500)
-    
+
+    return redirect(reverse('view_cart'))  # Redirect back to the cart view
