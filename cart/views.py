@@ -102,7 +102,7 @@ def adjust_cart(request, item_id):
 
 
 def remove_from_cart(request, item_id):
-    """ Remove the item from the shopping cart """
+    """ Remove a quantity of the specified product from the shopping cart """
     try:
         # Convert item_id to string for consistency
         item_id = str(item_id)
@@ -114,10 +114,16 @@ def remove_from_cart(request, item_id):
 
         # Check if the item exists in the cart
         if item_id in cart:
-            del cart[item_id]  # Remove the item if it exists
-            messages.success(request, f'Removed {item_id} from your cart.')
+            # If quantity is greater than 1, reduce it by 1
+            if cart[item_id] > 1:
+                cart[item_id] -= 1
+                messages.success(request, f'Reduced quantity of {item_id} to {cart[item_id]} in your cart.')
+            else:
+                # If only 1 item remains, remove it from the cart
+                del cart[item_id]
+                messages.success(request, f'Removed {item_id} from your cart.')
         else:
-            messages.warning(request, f'{item_id} not found in cart.')
+            messages.warning(request, f'{item_id} not found in your cart.')
 
         # Update session cart
         request.session['cart'] = cart
@@ -127,4 +133,3 @@ def remove_from_cart(request, item_id):
         messages.error(request, f'Error removing item: {e}')
 
     return redirect(reverse('view_cart'))  # Redirect back to the cart view
-
