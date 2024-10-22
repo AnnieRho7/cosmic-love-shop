@@ -41,12 +41,13 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity', 1))  # Default to 1 if quantity is not provided
     redirect_url = request.POST.get('redirect_url', reverse('view_cart'))  # Fallback to cart view
     size = request.POST.get('product_size')  # Get size if available
     cart = request.session.get('cart', {})
+
+    item_id = str(item_id)  # Ensure item_id is a string
 
     if size:
         if item_id in list(cart.keys()):
@@ -69,6 +70,7 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)  # Redirect to the specified URL
+
 
 
 def adjust_cart(request, item_id):
@@ -102,23 +104,20 @@ def adjust_cart(request, item_id):
 def remove_from_cart(request, item_id):
     """ Remove the item from the shopping cart """
     try:
-        product = get_object_or_404(Product, pk=item_id)  # Ensure the product exists
-        size = request.POST.get('product_size')  # Get size if available
+        # Convert item_id to string for consistency
+        item_id = str(item_id)
         cart = request.session.get('cart', {})  # Retrieve cart from session
 
         # Debugging: Print current cart state
         print(f"Current cart before removal: {cart}")
+        print(f"Attempting to remove item_id: {item_id}")
 
-        # Handle size-based items
-        if size and item_id in cart and 'items_by_size' in cart[item_id]:
-            del cart[item_id]['items_by_size'][size]  # Remove the specific size
-            if not cart[item_id]['items_by_size']:  # Check if no sizes are left
-                cart.pop(item_id)  # Remove item from cart if no sizes left
-            messages.success(request, f'Removed size {size.upper()} {product.name} from your cart')
+        # Check if the item exists in the cart
+        if item_id in cart:
+            del cart[item_id]  # Remove the item if it exists
+            messages.success(request, f'Removed {item_id} from your cart.')
         else:
-            if item_id in cart:
-                cart.pop(item_id)  # Remove the item if it exists
-                messages.success(request, f'Removed {product.name} from your cart')
+            messages.warning(request, f'{item_id} not found in cart.')
 
         # Update session cart
         request.session['cart'] = cart
@@ -128,3 +127,4 @@ def remove_from_cart(request, item_id):
         messages.error(request, f'Error removing item: {e}')
 
     return redirect(reverse('view_cart'))  # Redirect back to the cart view
+
