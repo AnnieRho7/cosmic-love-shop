@@ -1,131 +1,303 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Cosmic Love
 
-Welcome Annie Rhodes,
+Cosmic Love is an e-commerce website dedicated to offering beautifully handcrafted wire-wrapped jewellery featuring semi-precious stones. Our mission is to provide unique, high-quality pieces that enhance your natural beauty and connect you to the energy of the cosmos.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Live Site
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+A live version of the site can be found [here](insert-live-link-here).
 
-## Gitpod Reminders
+![Cosmic Love Responsiveness](readme-images/amirespon.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience - UX
 
-`python3 -m http.server`
+[Back to the top](#top)
 
-A blue button should appear to click: _Make Public_,
+### User Stories
 
-Another blue button should appear to click: _Open Browser_.
+* As a website user, I can:
+  - View a collection of handcrafted jewellery.
+  - Filter products by category, price, and stone type.
+  - View detailed product descriptions and images.
+  - Add products to my cart for easy checkout.
+  - Create and register an account to manage my orders.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+* As an authenticated website user, I can:
+  - Review my order history and track current orders.
+  - Save my favorite products for future purchases.
+  - Update my account information and shipping address.
 
-A blue button should appear to click: _Make Public_,
+* As an admin user, I can:
+  - Add, edit, and delete products from the inventory.
+  - Manage user accounts and orders.
+  - View analytics on sales and user activity.
+  
+### Agile Methodology
 
-Another blue button should appear to click: _Open Browser_.
+The Agile Methodology was used to plan this project, utilizing GitHub’s Project Board. You can view the project board [here](insert-project-board-link-here).
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### The Scope
 
-To log into the Heroku toolbelt CLI:
+* To create a user-friendly and visually appealing e-commerce platform for handmade jewellery.
+* To facilitate user interaction through reviews and a wishlist feature.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Design
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+The design of this project follows a modern and elegant aesthetic to ensure a seamless shopping experience. Below are the key design elements:
 
-### Connecting your Mongo database
+### Color Palette
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+| **Color**           | **Hex Code** | **Usage**                                           |
+|---------------------|--------------|-----------------------------------------------------|
+| **Primary Color**    | `#8A2BE2`    | Used for buttons, links, and key elements           |
+| **Secondary Color**  | `#FF69B4`    | Accent color for hover effects and highlights       |
 
-------
+### Fonts
 
-## Release History
+The site uses Google Fonts for consistent typography:
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- **Primary Font:** Montserrat (used for body text)
+- **Secondary Font:** Playfair Display (used for headings)
 
-**June 18, 2024,** Add Mongo back into template
+[Back to the top](#top)
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+## Wireframes
 
-**May 28 2024:** Fix Mongo and Links installs
+The wireframes below illustrate the initial layout and design for different sections of the website. These wireframes served as a blueprint during the development process to ensure a clean and user-friendly design.
 
-**April 26 2024:** Update node version to 16
+### Desktop Wireframes
 
-**September 20 2023:** Update Python version to 3.9.17.
+1. **Home Page**  
+   ![Home Wireframe](./readme-images/home-wireframe.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+2. **About Page**  
+   ![About Wireframe](./readme-images/about-wireframe.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+3. **Product Page**  
+   ![Product Wireframe](./readme-images/product-wireframe.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+4. **Cart Page**  
+   ![Cart Wireframe](./readme-images/cart-wireframe.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+5. **User Profile Page**  
+   ![Profile Wireframe](./readme-images/profile-wireframe.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Mobile Wireframe
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+1. **Mobile Layout**  
+   ![Mobile Wireframe](./readme-images/mobile-wireframe.png)
 
 ---
 
-Happy coding!
+The wireframes helped define the layout and functionality of the site, ensuring a user-friendly experience.
+
+## Entity-Relationship Diagram (ERD)
+
+The Entity-Relationship Diagram below illustrates the database structure and relationships between different entities in our e-commerce system. This ERD serves as a blueprint for our data model.
+
+### ERD Diagram
+
+![E-commerce System ERD](./readme-images/erd.png)
+
+### Entity Descriptions
+
+1. **User**
+   - Represents registered users of the site.
+   - Stores essential user information like username and email.
+   - Forms the basis for user authentication and authorization.
+
+2. **Product**
+   - Represents jewellery items available for sale.
+   - Contains product details, images, and pricing.
+
+3. **Cart**
+   - Represents the user's shopping cart.
+   - Stores items that the user intends to purchase.
+
+4. **Order**
+   - Represents completed purchases by users.
+   - Contains order details, status, and payment information.
+
+5. **Review**
+   - Represents user reviews for products.
+   - Linked to both User and Product.
+
+### Relationships
+
+- **User - Product**: One-to-Many relationship, where a user can leave multiple reviews for different products.
+- **User - Order**: One-to-Many relationship, where a user can have multiple orders.
+- **Product - Review**: One-to-Many relationship, where a product can have multiple reviews.
+
+---
+
+### Media
+
+* All images used on the site are sourced from [Pexels](https://www.pexels.com/).
+* Graphics were created in [Canva](https://www.canva.com/).
+
+## Features
+
+[Back to the top](#top)
+
+### Homepage
+
+* Displays featured products and collections.
+* Provides a hero image with a call-to-action button to explore the shop.
+
+![Homepage](readme-images/homepage.png)
+
+### Navigation Desktop
+
+* The navigation bar is consistent and responsive, adapting based on user authentication and roles.
+
+![Navigation Desktop](readme-images/nav-desk.png)
+
+### Navigation Mobile
+
+![Navigation Mobile](readme-images/nav-mob.png)
+
+### Product Details
+
+* Users can view detailed information and images of individual products. Authenticated users can also leave reviews.
+
+![Product Details](readme-images/product-detail.png)
+
+### Cart Functionality
+
+* Users can add items to their cart and proceed to checkout seamlessly.
+
+![Cart Page](readme-images/cart.png)
+
+### Admin Backend
+
+* Admin users manage products and view orders through the admin panel.
+
+![Admin Backend](readme-images/admin.png)
+
+## Known Bugs and Limitations
+
+During the development and testing phase, a few issues were identified. These are documented here for transparency and future improvement.
+
+### Validation Errors
+
+* Document any known HTML/CSS validation errors encountered.
+
+**Impact**: Low - May affect HTML validation scores.
+
+### Responsiveness Issues
+
+* Document any responsive design limitations, particularly on smaller screen sizes.
+
+**Impact**: Medium - Affects user experience on mobile devices.
+
+### Performance Optimization
+
+* Document any performance-related issues or areas for improvement.
+
+**Impact**: Low to Medium - Core functionality not affected.
+
+---
+
+### Possible Future Features
+
+* User profile management and enhanced account functionality.
+* Wishlist feature for users to save products for later.
+* Integration with payment gateways for easier checkout.
+* Enhanced search functionality for products.
+
+## Technologies
+
+[Back to the top](#top)
+
+### Languages Used
+
+* [HTML 5](https://en.wikipedia.org/wiki/HTML/)
+* [CSS 3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://www.javascript.com/)
+* [Python](https://www.python.org/)
+* [Django](https://www.djangoproject.com/)
+
+### Django Packages Used
+
+* List any Django packages you used for your project, e.g.,:
+  - [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Comprehensive authentication and account management.
+  - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - A Django app for beautiful forms styling.
+  - [whitenoise](http://whitenoise.evans.io/en/stable/) - Simplifies serving static files in production.
+
+### Frameworks - Libraries - Programs Used
+
+* [Bootstrap](https://getbootstrap.com/)
+* [JQuery](https://jquery.com/)
+* [Git](https://git-scm.com/)
+* [GitHub](https://github.com/)
+* [Heroku](https://id.heroku.com)
+* [VSCode](https://code.visualstudio.com/)
+* [Fontawesome](https://fontawesome.com/)
+
+## Development & Testing
+
+[Back to the top](#top)
+
+### Manual Testing
+
+For an overview of the manual tests conducted during the development of this project, please refer to the [Manual Testing Document](manual_testing.md).
+
+### Validation Results
+
+For detailed validation results, including screenshots from the HTML and PEP 8 validators, please refer to the following document:
+
+- [Validation Screenshots](./validation-screenshots.md)
+
+### Lighthouse Performance
+
+![Lighthouse Accessibility Score](./readme-images/light-house.png)
+
+## Deployment
+
+[Back to the top](#top)
+
+### Heroku
+
+The project was deployed via [Heroku](https://www.heroku.com/). The live link can be found [here](insert-live-link-here).
+
+To deploy:
+* Log in to Heroku and create a new app.
+* Add PostgreSQL database and set environment variables.
+* Configure static files with WhiteNoise.
+* Push code to Heroku and enable automatic deploys.
+
+### Forking the GitHub Repo
+
+To fork the repository:
+1. Log in to your GitHub account.
+2. Navigate to the repository [here](insert-repo-link-here).
+3. Click the 'Fork' button in the top right corner.
+
+### Cloning the Repo with GitPod
+
+1. Log in to GitHub.
+2. Navigate to the repository [here](insert-repo-link-here).
+3. Click 'Code' and copy the URL.
+4. Open a new workspace in GitPod and clone the repo.
+
+### Download and Extract the Zip Directly from GitHub
+
+1. Log in to GitHub.
+2. Navigate to the repository [here](insert-repo-link-here).
+3. Select 'Download Zip' and extract it.
+
+## Credits
+
+[Back to the top](#top)
+
+* The project was inspired by **Code Institute's** walkthroughs and tutorials.
+* Blog content reflects my own knowledge and interests, enhanced with the help of **AI tools**.
+* Images were sourced from [Pexels](https://pexels.com/).
+* Acknowledgments to **Code Institute** students for their projects that influenced my work.
+* Utilized **AI tools** like ChatGPT and Perplexity for content assistance.
+* Various **YouTube tutorials**, particularly from **Codemy**, were helpful in the development process.
+
+## Acknowledgments
+
+Thanks to [Code Institute](https://codeinstitute.net) for their resources and guidance. Special thanks to my mentor, Marko, for their support and the resources they shared with me.
+
+
