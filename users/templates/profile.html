@@ -6,66 +6,144 @@
 <div class="container mt-5 pt-5">
     <h2 class="my-4">User Profile</h2>
     <div class="row">
-        <!-- Order History Section on the left -->
+        <!-- Profile Update Section on the left -->
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-black text-white">
-                    <h5 class="mb-0">Order History</h5>
+                    <h5 class="mb-0">Update Profile</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="first_name"
+                                value="{{ user_form.instance.first_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="last_name"
+                                value="{{ user_form.instance.last_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email"
+                                value="{{ user_form.instance.email }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_profile_picture" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" name="profile_picture">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_bio" class="form-label">Bio</label>
+                            <textarea class="form-control" name="bio">{{ profile_form.instance.bio }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </form>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Section on the right -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-black text-white">
+                    <h5 class="mb-0">Your Orders</h5>
                 </div>
                 <div class="card-body">
                     {% if orders %}
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Order Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                            <tr>
-                                <td>{{ order.id }}</td>
-                                <td>{{ order.product_name }}</td>
-                                <td>{{ order.quantity }}</td>
-                                <td>${{ order.price }}</td>
-                                <td>{{ order.order_date|date:"F j, Y" }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <ul class="list-group">
+                        {% for order in orders %}
+                        <li class="list-group-item">
+                            Order #{{ order.id }} - {{ order.order_date }} - {{ order.get_status_display }}
+                        </li>
+                        {% endfor %}
+                    </ul>
                     {% else %}
                     <p>No orders found.</p>
                     {% endif %}
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Profile Details Section on the right -->
-        <div class="col-md-6">
+    <!-- Wishlist Section -->
+    <div class="row mt-4">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-black text-white">
-                    <h5 class="mb-0">Profile Details</h5>
+                    <h5 class="mb-0">Your Wishlist</h5>
                 </div>
                 <div class="card-body">
-                    <p><strong>Username:</strong> {{ user.username }}</p>
-                    <p><strong>Email:</strong> {{ user.email }}</p>
-
-                    {% if user.first_name or user.last_name %}
-                    <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                    {% if wishlist %}
+                    <ul class="list-group">
+                        {% for item in wishlist %}
+                        <li class="list-group-item">{{ item.product.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Your wishlist is empty.</p>
                     {% endif %}
-
-                    {% if user.date_joined %}
-                    <p><strong>Joined on:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
-                    {% endif %}
-                </div>
-                <div class="card-footer">
-                    <a href="{% url 'products' %}" class="btn btn-primary">Back to Products</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Delete Account Section -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Delete Account</h5>
+                </div>
+                <div class="card-body">
+                    <p>If you want to delete your account, please confirm:</p>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete My
+                        Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for confirming account deletion -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Account Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your account? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form action="" method="POST" id="deleteAccountForm">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete My Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<script>
+    // Handle the form action for account deletion in the modal
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButton = document.querySelector('.btn-danger[data-bs-toggle="modal"]');
+        const deleteForm = document.getElementById('deleteAccountForm');
+
+        deleteButton.addEventListener('click', function () {
+            // Set the action of the form to the current URL
+            deleteForm.action = window.location.href;
+        });
+    });
+</script>
 {% endblock %}

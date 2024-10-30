@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm
-from .models import UserProfile, Order
+from .models import UserProfile, Order, Wishlist  # Assuming you have a Wishlist model
 
 @login_required
 def user_profile(request):
@@ -31,10 +31,21 @@ def user_profile(request):
     # Fetch the user's order history
     orders = Order.objects.filter(user=user).order_by('-order_date')
 
+    # Fetch the user's wishlist items
+    wishlist = Wishlist.objects.filter(user=user)  # Adjust based on your actual Wishlist model
+
+    # Handle account deletion
+    if request.method == 'POST' and 'delete_account' in request.POST:
+        user_profile.delete()
+        user.delete()
+        messages.success(request, 'Your account has been deleted successfully.')
+        return redirect('home')
+
     return render(request, 'profile.html', {
         'user_form': user_form,
         'profile_form': profile_form,
-        'orders': orders,  # Include orders in the context
+        'orders': orders,
+        'wishlist': wishlist,
     })
 
 @login_required
@@ -46,15 +57,4 @@ def delete_account(request):
         user.delete()
         messages.success(request, 'Your account has been deleted successfully.')
         return redirect('home')
-    else:
-        return HttpResponseForbidden("You are not allowed to access this page.")
-
-def view_user_profile(request, username):
-    """View to display a public user profile by their username."""
-    user = get_object_or_404(User, username=username)
-    user_profile = get_object_or_404(UserProfile, user=user)
-
-    return render(request, 'user_profile/view_user_profile.html', {
-        'user_profile': user_profile,
-        'user': user
-    })
+    return render(request, 'confirm_delete.html')
