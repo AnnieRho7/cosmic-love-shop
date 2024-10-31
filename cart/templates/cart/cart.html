@@ -34,7 +34,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
-                                <th scope="col">Actions</th> <!-- Added actions column -->
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +55,7 @@
                                     <form action="{% url 'adjust_cart' item.product.id %}" method="POST">
                                         {% csrf_token %}
                                         <input type="hidden" name="product_size" value="{{ item.size }}">
-                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
-                                            class="form-control w-25 d-inline">
+                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control w-25 d-inline">
                                         <button type="submit" class="btn btn-sm btn-outline-primary">Update</button>
                                     </form>
                                 </td>
@@ -65,35 +64,27 @@
                                 </td>
                                 <td class="py-3">
                                     <!-- Trigger the delete modal -->
-                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#confirmDeleteModal{{ item.product.id }}">
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ item.product.id }}">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </td>
                             </tr>
 
                             <!-- Modal for Confirming Deletion -->
-                            <div class="modal fade" id="confirmDeleteModal{{ item.product.id }}" tabindex="-1"
-                                aria-labelledby="confirmDeleteModalLabel{{ item.product.id }}" aria-hidden="true">
+                            <div class="modal fade" id="confirmDeleteModal{{ item.product.id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel{{ item.product.id }}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="confirmDeleteModalLabel{{ item.product.id }}">
-                                                Confirm Removal</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <h5 class="modal-title" id="confirmDeleteModalLabel{{ item.product.id }}">Confirm Removal</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to remove <strong>{{ item.product.name }}</strong>
-                                            from
-                                            your cart?
+                                            Are you sure you want to remove <strong>{{ item.product.name }}</strong> from your cart?
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                             <!-- Form to remove item -->
-                                            <form action="{% url 'remove_from_cart' item.product.id %}" method="POST"
-                                                class="d-inline">
+                                            <form action="{% url 'remove_from_cart' item.product.id %}" method="POST" class="d-inline">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="product_size" value="{{ item.size }}">
                                                 <button type="submit" class="btn btn-danger">Remove</button>
@@ -111,8 +102,7 @@
                                     <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}
                                     <p class="mb-1 text-danger">
-                                        You could get free delivery by spending just <strong>${{ free_delivery_delta
-                                            }}</strong> more!
+                                        You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
                                     </p>
                                     {% endif %}
                                 </td>
@@ -125,15 +115,15 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                    <!-- Stripe Checkout Button -->
+                                    <button id="checkout-button" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>

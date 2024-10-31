@@ -112,8 +112,8 @@
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="cart-options">
                                     <a href="{% url 'view_cart' %}" class="dropdown-item">View Cart</a>
-                                    <!-- Updated link -->
-                                    <a href="" class="dropdown-item">Checkout</a>
+                                    <!-- Updated link for Checkout -->
+                                    <a href="#" id="checkout-button" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
 
@@ -166,9 +166,6 @@
         </div>
     </footer>
 
-
-
-
     <!-- Bootstrap 5 & Core JS -->
     {% block core_js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -182,7 +179,12 @@
         crossorigin="anonymous"></script>
     {% endblock %}
 
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}
+    <!-- Include Stripe.js from Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Include your custom Stripe JavaScript file -->
+    <script src="{% static 'js/stripe.js' %}"></script>
+    {% endblock %}
 
     <!-- Optional post-load JavaScript for each page -->
     {% block postload_js %}{% endblock %}
