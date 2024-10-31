@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
-import stripe
 from products.models import Product
 
-# Initialize Stripe with your secret key
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def view_cart(request):
     """ A view that renders the cart content page """
@@ -131,67 +128,3 @@ def remove_from_cart(request, item_id):
     request.session['cart'] = cart
 
     return redirect(reverse('view_cart'))  # Redirect back to the cart view
-
-def create_checkout_session(request):
-    """ A view that creates a Stripe checkout session """
-    if request.method == 'POST':
-        cart = request.session.get('cart', {})
-        cart_items = []  # Initialize list to hold items for Stripe
-
-        # Prepare items for Stripe from cart
-        for item_id, item_data in cart.items():
-            product = get_object_or_404(Product, pk=item_id)
-
-            if isinstance(item_data, dict) and 'items_by_size' in item_data:
-                for size, quantity in item_data['items_by_size'].items():
-                    cart_items.append({
-                        'price_data': {
-                            'currency': 'usd',
-                            'product_data': {
-                                'name': product.name,
-                                'images': [product.image.url],
-                            },
-                            'unit_amount': int(product.price * 100),  # Convert to cents
-                        },
-                        'quantity': quantity,
-                    })
-            else:
-                quantity = item_data
-                cart_items.append({
-                    'price_data': {
-                        'currency': 'usd',
-                        'product_data': {
-                            'name': product.name,
-                            'images': [product.image.url],
-                        },
-                        'unit_amount': int(product.price * 100),  # Convert to cents
-                    },
-                    'quantity': quantity,
-                })
-
-        try:
-            # Create a Checkout Session
-            session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                line_items=cart_items,
-                mode='payment',
-                success_url=request.build_absolute_uri(reverse('checkout_success')),
-                cancel_url=request.build_absolute_uri(reverse('view_cart')),
-            )
-
-            return JsonResponse({'id': session.id})  # Return session ID
-
-        except Exception as e:
-            messages.error(request, f'Error during checkout session creation: {str(e)}')
-            return redirect(reverse('view_cart'))  # Redirect back to cart on error
-    else:
-        return JsonResponse({'error': 'Invalid request method.'}), 400
-
-def checkout_success(request):
-    """ A view to display a successful checkout """
-    return render(request, 'checkout/success.html')  # Ensure this template exists
-
-def checkout_cancel(request):
-    """ A view to handle checkout cancellation """
-    messages.info(request, 'Checkout was canceled. You can continue shopping!')
-    return redirect(reverse('view_cart'))  # Redirect to the cart view

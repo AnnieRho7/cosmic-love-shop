@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load custom_filters %}
+{% load bag_tools %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -26,7 +28,7 @@
             <div class="col">
                 {% if cart_items %}
                 <div class="table-responsive rounded">
-                    <table class="table">
+                    <table class="table table-borderless">
                         <thead class="text-black">
                             <tr>
                                 <th scope="col">Product Info</th>
@@ -45,14 +47,14 @@
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                     <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <!-- Adjust quantity form -->
-                                    <form action="{% url 'adjust_cart' item.product.id %}" method="POST">
+                                    <form class="form update-form" action="{% url 'adjust_cart' item.product.id %}" method="POST">
                                         {% csrf_token %}
                                         <input type="hidden" name="product_size" value="{{ item.size }}">
                                         <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control w-25 d-inline">
@@ -115,13 +117,13 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <!-- Stripe Checkout Button -->
-                                    <button id="checkout-button" class="btn btn-black rounded-0 btn-lg">
+                                    <!-- Secure Checkout Button -->
+                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
                                         </span>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
