@@ -42,40 +42,32 @@ def user_profile(request):
 def manage_addresses(request):
     addresses = Address.objects.filter(user=request.user)
 
-    # Check if we're editing an address
+    # Check if we are editing an address
     editing_address_id = request.session.get('editing_address_id')
-
-    if editing_address_id:
-        # Get the address if we're editing one
-        address = get_object_or_404(Address, id=editing_address_id, user=request.user)
-        address_form = AddressForm(request.POST or None, instance=address)
-    else:
-        address_form = AddressForm(request.POST or None)
+    address_form = AddressForm(request.POST or None, instance=Address.objects.get(id=editing_address_id) if editing_address_id else None)
 
     if request.method == "POST":
-        # Handle adding a new address
-        if "add_address" in request.POST:
-            if address_form.is_valid():
-                address_form.instance.user = request.user
-                address_form.save()
-                messages.success(request, "Address added successfully.")
-                return redirect("manage_addresses")
+        # Adding a new address
+        if "add_address" in request.POST and address_form.is_valid():
+            address_form.instance.user = request.user
+            address_form.save()
+            messages.success(request, "Address added successfully.")
+            return redirect("manage_addresses")
 
-        # Handle editing an existing address
+        # Editing an address: Load address into session for editing
         elif "edit_address" in request.POST:
             address_id = request.POST.get("address_id")
-            request.session['editing_address_id'] = address_id  # Save address ID in session for editing
-            return redirect("manage_addresses")  # Redirect to the same view to load the form with existing data
+            request.session['editing_address_id'] = address_id
+            return redirect("manage_addresses")
 
-        # Handle updating an address after editing
-        elif "update_address" in request.POST:
-            if address_form.is_valid():
-                address_form.save()
-                del request.session['editing_address_id']  # Clear the session after update
-                messages.success(request, "Address updated successfully.")
-                return redirect("manage_addresses")
+        # Updating an existing address
+        elif "update_address" in request.POST and address_form.is_valid():
+            address_form.save()
+            del request.session['editing_address_id']  # Clear session after update
+            messages.success(request, "Address updated successfully.")
+            return redirect("manage_addresses")
 
-        # Handle deleting an address
+        # Deleting an address
         elif "delete_address" in request.POST:
             address_id = request.POST.get("address_id")
             address = get_object_or_404(Address, id=address_id, user=request.user)
@@ -83,63 +75,18 @@ def manage_addresses(request):
             messages.success(request, "Address deleted successfully.")
             return redirect("manage_addresses")
 
-    return render(request, 'addresses.html', {
-        'address_form': address_form,
-        'addresses': addresses,
-    })
-
-
-@login_required
-def manage_addresses(request):
-    addresses = Address.objects.filter(user=request.user)
-
-    # Check if we're editing an address
-    editing_address_id = request.session.get('editing_address_id')
-
-    if editing_address_id:
-        # Get the address if we're editing one
-        address = get_object_or_404(Address, id=editing_address_id, user=request.user)
-        address_form = AddressForm(request.POST or None, instance=address)
-    else:
-        address_form = AddressForm(request.POST or None)
-
-    if request.method == "POST":
-        # Handle adding a new address
-        if "add_address" in request.POST:
-            if address_form.is_valid():
-                address_form.instance.user = request.user
-                address_form.save()
-                messages.success(request, "Address added successfully.")
-                return redirect("manage_addresses")
-
-        # Handle editing an existing address
-        elif "edit_address" in request.POST:
-            address_id = request.POST.get("address_id")
-            request.session['editing_address_id'] = address_id  # Save address ID in session for editing
-            return redirect("manage_addresses")  # Redirect to the same view to load the form with existing data
-
-        # Handle updating an address after editing
-        elif "update_address" in request.POST:
-            if address_form.is_valid():
-                address_form.save()
-                del request.session['editing_address_id']  # Clear the session after update
-                messages.success(request, "Address updated successfully.")
-                return redirect("manage_addresses")
-
-        # Handle deleting an address
-        elif "delete_address" in request.POST:
-            address_id = request.POST.get("address_id")
-            address = get_object_or_404(Address, id=address_id, user=request.user)
-            address.delete()
-            messages.success(request, "Address deleted successfully.")
+        # Cancel editing an address
+        elif "cancel_edit" in request.POST:
+            if 'editing_address_id' in request.session:
+                del request.session['editing_address_id']  # Clear the session to cancel editing
             return redirect("manage_addresses")
 
     return render(request, 'addresses.html', {
         'address_form': address_form,
         'addresses': addresses,
+        'editing_address_id': editing_address_id,
     })
-
-
+    
     
 @login_required
 def delete_account(request):
