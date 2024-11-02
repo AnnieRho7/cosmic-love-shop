@@ -6,7 +6,6 @@ from django.db.models import Sum
 import uuid
 from products.models import Product  # Ensure you have a Product model defined
 
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30, blank=True)
@@ -16,6 +15,19 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username}'s Profile"
 
+class Address(models.Model):  # New Address Model
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses')
+    full_name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=20)
+    country = models.CharField(max_length=40)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40)
+    street_address1 = models.CharField(max_length=80)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.full_name} - {self.street_address1}, {self.town_or_city}'
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False, default='ORD0000')
@@ -35,16 +47,11 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
-        """
-        Generate a random, unique order number using UUID
-        """
+        """Generate a random, unique order number using UUID"""
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
-        """
+        """Update grand total each time a line item is added, accounting for delivery costs."""
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
         # Assuming standard delivery cost calculation (adjust as needed)
         if self.order_total < 50:  # Example threshold for free delivery
@@ -55,17 +62,13 @@ class Order(models.Model):
         self.save()
 
     def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the order number
-        if it hasn't been set already.
-        """
+        """Override the original save method to set the order number if it hasn't been set already."""
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.order_number
-
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
@@ -76,16 +79,12 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
-        """
-        Override the original save method to set the lineitem total
-        and update the order total.
-        """
+        """Override the original save method to set the lineitem total and update the order total."""
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
-
 
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -96,7 +95,6 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Wishlist - {self.product.name}"
-
 
 # Signal to automatically create a UserProfile when a User is created
 @receiver(post_save, sender=User)
