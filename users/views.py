@@ -38,13 +38,24 @@ def user_profile(request):
         'addresses': addresses,  # Pass user's addresses to template
     })
 
+
 @login_required
 def manage_addresses(request):
     addresses = Address.objects.filter(user=request.user)
 
     # Check if we are editing an address
     editing_address_id = request.session.get('editing_address_id')
-    address_form = AddressForm(request.POST or None, instance=Address.objects.get(id=editing_address_id) if editing_address_id else None)
+
+    # Try to get the address instance if editing_address_id exists
+    address_instance = None
+    if editing_address_id:
+        try:
+            address_instance = Address.objects.get(id=editing_address_id, user=request.user)
+        except Address.DoesNotExist:
+            # If the address does not exist, clear the session variable
+            del request.session['editing_address_id']
+
+    address_form = AddressForm(request.POST or None, instance=address_instance)
 
     if request.method == "POST":
         # Adding a new address
@@ -73,6 +84,9 @@ def manage_addresses(request):
             address = get_object_or_404(Address, id=address_id, user=request.user)
             address.delete()
             messages.success(request, "Address deleted successfully.")
+            # Clear editing session if this address was being edited
+            if 'editing_address_id' in request.session and request.session['editing_address_id'] == address_id:
+                del request.session['editing_address_id']
             return redirect("manage_addresses")
 
         # Cancel editing an address
@@ -86,7 +100,8 @@ def manage_addresses(request):
         'addresses': addresses,
         'editing_address_id': editing_address_id,
     })
-    
+
+
     
 @login_required
 def delete_account(request):
