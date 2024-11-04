@@ -10,4 +10,4 @@ stripe==11.1.0
 whitenoise==6.7.0
 django-allauth
 django-crispy-forms
-
+crispy-bootstrap5
