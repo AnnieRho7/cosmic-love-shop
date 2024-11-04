@@ -1,0 +1,310 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    flex: 1;
+    padding-top: 120px;
+}
+
+.main {
+    margin-top: 70px; /* Adjust this value based on the navbar height */
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('/media/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh; /* Maintain full height */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    color: white;
+    padding: 100px; /* Adjust top and bottom padding as needed */
+    text-align: center; /* Centers text within the box */
+}
+
+/* Hero Text Box */
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+    border-radius: 20px; /* Softer rounding */
+    color: #ffffff; /* Text color */
+    width: 90%; /* Set width to 90% to allow for responsiveness */
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Centers the box horizontally */
+    padding: 2rem; /* Uniform padding for spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    margin-top: 20px; /* Additional space above the text box */
+}
+
+/* Header Styling */
+.hero-text h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adjusted letter spacing */
+    font-weight: bold;
+    font-size: 2rem; /* Adjusted font size */
+    line-height: 1.2; /* Improved readability */
+    margin-bottom: 1rem; /* Space between header and subtitle */
+}
+
+/* Subtitle Styling */
+.hero-text p {
+    text-transform: none; /* Keep subtitle in normal case */
+    font-size: 1rem; /* Slightly smaller font size */
+    margin-top: 0.5rem; /* Add small space above the paragraph */
+}
+
+
+/* Navbar */
+.navbar-brand h1 {
+    font-size: 2rem; /* Adjust the brand font size */
+    color: black; /* Set the brand color */
+}
+
+.nav-link {
+    color: black;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #d7a9bd;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    border: none;
+}
+
+.dropdown-item {
+    font-size: 1rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Positive Statement Section */
+.positive-statement-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.positive-statement-section h2 {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.positive-statement-section p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.positive-statement-section .btn {
+    margin-top: 20px;
+}
+
+/* Best Sellers Section */
+.best-sellers-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.best-sellers-section h2 {
+    font-size: 2.5rem;
+    color: #FF6F61;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/* Subscription Section */
+.subscription-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.subscription-section h2 {
+    font-size: 2.5rem;
+}
+
+.subscription-section p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.subscription-section .input-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about-section {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 50px 0; /* Vertical padding for spacing */
+    color: #333; /* Text color */
+}
+
+/* Section Header */
+.about-section h2 {
+    font-size: 2.5rem; /* Larger font for the main header */
+    color: #FF6F61; /* Main color from your theme */
+}
+
+/* Lead Paragraph */
+.about-section .lead {
+    font-size: 1.2rem; /* Font size for the lead paragraph */
+    max-width: 800px; /* Max width for readability */
+    margin: 0 auto; /* Center the lead paragraph */
+}
+
+/* Subheading Styles */
+.about-section h3 {
+    font-size: 1.8rem; /* Font size for subheadings */
+    margin-top: 20px; /* Space above subheadings */
+}
+
+/* List Styles */
+.about-section ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.about-section ul li {
+    font-size: 1.1rem; /* Font size for list items */
+    margin: 10px 0; /* Space between list items */
+}
+
+/* Button Style */
+.about-section .btn {
+    background-color: #FF6F61; /* Button color */
+    color: white; /* Button text color */
+    transition: background-color 0.3s; /* Transition effect for hover */
+}
+
+.about-section .btn:hover {
+    background-color: #d57e7c; /* Lighter shade for hover effect */
+}
+
+/* Convenience Classes */
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover {
+    background: black;
+    color: white !important;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: black; /* Changed to black */
+    color: white; /* Changed text color to white */
+    text-align: left; /* Left align text */
+    padding: 2rem 1rem; /* Padding for spacing */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between copyright and social links */
+    align-items: center; /* Center vertically */
+    position: relative; /* Positioning */
+    bottom: 0; /* Stick to the bottom of the page */
+    width: 100%; /* Full width */
+    margin-top: auto; 
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 1rem; /* Space above social links */
+}
+
+.social-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    transition: color 0.3s; /* Smooth color transition on hover */
+    margin-left: 10px; /* Space between icons */
+}
+
+.social-links a:hover {
+    color: #FF6F61; /* Change to your accent color on hover */
+}
+
+/* Footer Text */
+.footer p {
+    margin: 0; /* Remove margin */
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .hero-section h1 {
+        font-size: 2.5rem; /* Smaller font for mobile */
+    }
+
+    .shop-now-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .positive-statement-section h2, .best-sellers-section h2, .subscription-section h2 {
+        font-size: 2rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0; /* Adjust padding for smaller screens */
+        flex-direction: column; /* Stack content on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .footer p {
+        font-size: 0.8rem; /* Slightly smaller font for mobile */
+    }
+
+    .social-links {
+        justify-content: center; /* Center social links on mobile */
+    }
+
+    .social-links img {
+        width: 20px; /* Smaller icons on mobile */
+        height: 20px; /* Ensure consistent height */
+    }
+
+    .about-section h2 {
+        font-size: 2rem; /* Adjust header size for mobile */
+    }
+
+    .about-section .lead {
+        font-size: 1rem; /* Adjust lead font size for mobile */
+    }
+
+    .about-section h3 {
+        font-size: 1.5rem; /* Adjust subheading size for mobile */
+    }
+}
