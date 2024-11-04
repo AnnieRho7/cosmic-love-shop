@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-35o=_bz$54vlkv4x#4%88^7dx!b=dfz*oz!3@^*025tcnp$&j@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net', 'cosmic-love-3fa571bb9ed2.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net',
