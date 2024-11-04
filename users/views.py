@@ -43,56 +43,50 @@ def user_profile(request):
 def manage_addresses(request):
     addresses = Address.objects.filter(user=request.user)
 
-    # Check if we are editing an address
+    # Retrieve address instance if in edit mode
     editing_address_id = request.session.get('editing_address_id')
-
-    # Try to get the address instance if editing_address_id exists
     address_instance = None
     if editing_address_id:
         try:
             address_instance = Address.objects.get(id=editing_address_id, user=request.user)
         except Address.DoesNotExist:
-            # If the address does not exist, clear the session variable
+            # Clear session variable if address does not exist
             del request.session['editing_address_id']
 
+    # Instantiate the form with address instance for editing, or blank for new address
     address_form = AddressForm(request.POST or None, instance=address_instance)
 
     if request.method == "POST":
-        # Adding a new address
         if "add_address" in request.POST and address_form.is_valid():
             address_form.instance.user = request.user
             address_form.save()
             messages.success(request, "Address added successfully.")
             return redirect("manage_addresses")
 
-        # Editing an address: Load address into session for editing
-        elif "edit_address" in request.POST:
-            address_id = request.POST.get("address_id")
-            request.session['editing_address_id'] = address_id
-            return redirect("manage_addresses")
-
-        # Updating an existing address
         elif "update_address" in request.POST and address_form.is_valid():
             address_form.save()
-            del request.session['editing_address_id']  # Clear session after update
             messages.success(request, "Address updated successfully.")
+            del request.session['editing_address_id']  # Clear session after update
             return redirect("manage_addresses")
 
-        # Deleting an address
+        elif "edit_address" in request.POST:
+            address_id = request.POST.get("address_id")
+            request.session['editing_address_id'] = address_id  # Set session variable for editing
+            return redirect("manage_addresses")
+
         elif "delete_address" in request.POST:
             address_id = request.POST.get("address_id")
             address = get_object_or_404(Address, id=address_id, user=request.user)
             address.delete()
             messages.success(request, "Address deleted successfully.")
-            # Clear editing session if this address was being edited
             if 'editing_address_id' in request.session and request.session['editing_address_id'] == address_id:
                 del request.session['editing_address_id']
             return redirect("manage_addresses")
 
-        # Cancel editing an address
-        elif "cancel_edit" in request.POST:
+        # Handle the cancel action triggered by the cancel button
+        elif request.GET.get('cancel'):
             if 'editing_address_id' in request.session:
-                del request.session['editing_address_id']  # Clear the session to cancel editing
+                del request.session['editing_address_id']  # Clear editing state
             return redirect("manage_addresses")
 
     return render(request, 'addresses.html', {
@@ -100,8 +94,7 @@ def manage_addresses(request):
         'addresses': addresses,
         'editing_address_id': editing_address_id,
     })
-
-
+    
     
 @login_required
 def delete_account(request):

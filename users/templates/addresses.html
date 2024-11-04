@@ -33,8 +33,10 @@
     <p>No addresses found.</p>
     {% endif %}
 
+    <!-- Button to toggle the form for adding a new address -->
     <button class="btn btn-primary mb-3" onclick="toggleAddressForm()">Add More Address</button>
 
+    <!-- Address Form -->
     <form method="POST" class="border p-4 rounded shadow-sm" id="address-form"
         style="display: {% if editing_address_id %}block{% else %}none{% endif %};">
         {% csrf_token %}
@@ -60,10 +62,13 @@
 
         <div class="d-flex gap-2">
             {% if editing_address_id %}
+            <!-- Edit Mode Buttons -->
             <button type="submit" name="update_address" class="btn btn-success">Save Changes</button>
-            <a href="{% url 'manage_addresses' %}" class="btn btn-secondary">Cancel</a>
+            <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
             {% else %}
+            <!-- Add New Address Mode Buttons -->
             <button type="submit" name="add_address" class="btn btn-primary">Save Address</button>
+            <button type="button" class="btn btn-secondary" onclick="cancelAddAddress()">Cancel</button>
             {% endif %}
         </div>
     </form>
@@ -97,6 +102,32 @@
         form.style.display = form.style.display === "none" ? "block" : "none";
     }
 
+    function cancelEdit() {
+        console.log("Cancel edit function called."); // Debug output
+        const form = document.getElementById("address-form");
+        form.reset();  // Clear any input
+        form.style.display = "none";  // Hide the form
+        console.log("Form reset and hidden."); // Debug output
+
+
+        window.location.href = "{% url 'manage_addresses' %}?cancel=true"; // Clear edit session on reload
+    }
+
+    // Cancel editing an address and clear input fields
+    function cancelEdit() {
+        const form = document.getElementById("address-form");
+
+        // Clear all input fields in the form
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.value = '';  // Reset each input to an empty string
+        });
+
+        form.style.display = "none";  // Hide the form
+    }
+
+
+    // Show the delete confirmation modal and set the ID
     function showDeleteModal(addressId) {
         document.getElementById("deleteAddressId").value = addressId;
         $('#deleteModal').modal('show');  // Bootstrap function to show the modal
