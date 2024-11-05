@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.conf import settings
 from products.models import Product
 
+import stripe
+
 
 def view_cart(request):
     """ A view that renders the cart content page """
