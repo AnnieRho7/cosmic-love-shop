@@ -9,11 +9,6 @@ html, body {
 
 body {
     flex: 1;
-    padding-top: 120px;
-}
-
-.main {
-    margin-top: 70px; /* Adjust this value based on the navbar height */
 }
 
 /* Hero Section */
@@ -26,7 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    padding: 100px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -39,7 +34,6 @@ body {
     margin: 0 auto;
     padding: 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 20px;
 }
 
 .hero-text h1 {
@@ -84,26 +78,6 @@ body {
 
 .dropdown-item:hover {
     background-color: #f8f9fa;
-}
-
-/* Positive Statement Section */
-.positive-statement-section {
-    padding: 50px 0;
-    text-align: center;
-}
-
-.positive-statement-section h2 {
-    font-size: 2.5rem;
-    color: black;
-}
-
-.positive-statement-section p {
-    font-size: 1.3rem;
-    margin-top: 10px;
-}
-
-.positive-statement-section .btn {
-    margin-top: 20px;
 }
 
 /* Best Sellers Section */
@@ -152,197 +126,6 @@ body {
     margin: 0 auto;
 }
 
-/* About Section */
-.about-section {
-    background-color: #f8f9fa;
-    padding: 50px 0;
-    color: #333;
-}
-
-.about-section h2 {
-    font-size: 2.5rem;
-    color: #FF6F61;
-}
-
-.about-section .lead {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-section h3 {
-    font-size: 1.8rem;
-    margin-top: 20px;
-}
-
-.about-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.about-section ul li {
-    font-size: 1.1rem;
-    margin: 10px 0;
-}
-
-.about-section .btn {
-    background-color: #FF6F61;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-.about-section .btn:hover {
-    background-color: #d57e7c;
-}
-
-/* Contact Info Styles */
-.contact-info {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Adds space between different blocks of content */
-    margin-bottom: 30px; /* Adds space below the section */
-}
-
-.contact-info h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.contact-info p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.contact-info a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* Social Links Styling */
-.contact-social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Adds space between the links */
-}
-
-.contact-social-icon {
-    font-size: 18px;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s;
-}
-
-.contact-social-icon:hover {
-    color: #3498db;
-}
-
-/* Instagram Gallery Styles */
-.instagram-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 0; /* Remove unnecessary space at the bottom */
-}
-
-.instagram-photo {
-    position: relative;
-    background-color: #eee;
-    padding-top: 100%; /* This keeps the aspect ratio square */
-    overflow: hidden;
-    margin-bottom: 0; /* Remove bottom margin */
-}
-
-/* Prevent iframe from causing extra space */
-.instagram-photo iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Adjust the Instagram section for better spacing */
-.instagram-gallery .col-6 {
-    padding: 0; /* Remove extra padding in columns */
-}
-
-.instagram-gallery .col-6 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Convenience for better mobile responsiveness */
-@media (max-width: 767px) {
-    .instagram-gallery .col-6 {
-        flex: 1 0 100%;
-        margin-bottom: 10px; /* Add small margin for mobile */
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .instagram-gallery .col-6 {
-        flex: 1 0 50%;
-    }
-}
-
-@media (min-width: 992px) {
-    .instagram-gallery .col-6 {
-        flex: 1 0 33.33%; /* Adjust columns to 3 in a row on larger screens */
-    }
-}
-
-/* Adjust the Follow Us button to make it a little more compact */
-.text-center a {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    background-color: #3498db;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    display: inline-block; /* Ensure it doesn't stretch too much */
-    margin-top: 10px; /* Space above the button */
-}
-
-.text-center a:hover {
-    background-color: #2980b9;
-}
-
-/* Convenience Classes */
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover {
-    background: black;
-    color: white !important;
-}
-
-.text-black {
-    color: #000 !important;
-}
-
 /* Footer */
 .footer {
     background-color: black;
@@ -380,19 +163,31 @@ body {
 
 /* Mobile Adjustments */
 @media (max-width: 767px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
+    .hero-section {
+        height: 50vh; /* Adjust height for mobile */
+        padding: 50px 20px; /* Adjust padding for mobile */
     }
 
-    .shop-now-button {
-        font-size: 1rem;
+    .hero-text h1 {
+        font-size: 1.5rem; /* Scale down the title for mobile */
+    }
+
+    .hero-text p {
+        font-size: 0.9rem; /* Scale down the paragraph for mobile */
+    }
+
+    .hero-text .btn {
         padding: 10px 20px;
+        font-size: 1rem; /* Adjust button size for mobile */
     }
 
-    .positive-statement-section h2,
     .best-sellers-section h2,
-    .subscription-section h2 {
+    .positive-statement-section h2 {
         font-size: 2rem;
+    }
+
+    .card-img-top {
+        height: 250px; /* Adjust card image height for mobile */
     }
 
     .footer {
@@ -414,45 +209,60 @@ body {
         height: 20px;
     }
 
-    .about-section h2 {
+    .subscription-section h2 {
         font-size: 2rem;
     }
 
-    .about-section .lead {
+    .subscription-section .input-group {
+        width: 100%;
+    }
+
+    .best-sellers-section .col-12 {
+        padding: 0 15px;
+    }
+}
+
+/* Medium Tablet Adjustments (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
         font-size: 1rem;
     }
 
-    .about-section h3 {
-        font-size: 1.5rem;
+    .best-sellers-section .col-md-4 {
+        width: 50%;
     }
 
-    .instagram-gallery .col-6 {
-        flex: 1 0 100%;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .instagram-gallery .col-6 {
-        flex: 1 0 50%;
+    .best-sellers-section .col-12 {
+        padding: 0 20px;
     }
 }
 
+/* Large Desktop Adjustments (992px and up) */
 @media (min-width: 992px) {
-    .instagram-gallery .col-6 {
-        flex: 1 0 25%;
+    .best-sellers-section .col-md-4 {
+        width: 33.33%;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
     }
 }
 
-.text-center a {
-    padding: 10px 20px;
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    background-color: #3498db;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
+/* Footer Adjustments for Desktop */
+@media (min-width: 992px) {
+    .footer {
+        padding: 2rem 1rem;
+    }
 
-.text-center a:hover {
-    background-color: #2980b9;
+    .footer p {
+        font-size: 1rem;
+    }
 }
