@@ -11,6 +11,10 @@ body {
     flex: 1;
 }
 
+main {
+    margin-top: 60px;
+}
+
 /* Hero Section */
 .hero-section {
     background-image: url('/media/hero.jpg');
@@ -21,8 +25,9 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    margin-top: 60px;
 }
 
 .hero-text {
@@ -126,6 +131,11 @@ body {
     margin: 0 auto;
 }
 
+body.contact-page main {
+    margin-top: 80px; /* Push down the main content */
+}
+
+
 /* Footer */
 .footer {
     background-color: black;
@@ -164,21 +174,21 @@ body {
 /* Mobile Adjustments */
 @media (max-width: 767px) {
     .hero-section {
-        height: 50vh; /* Adjust height for mobile */
-        padding: 50px 20px; /* Adjust padding for mobile */
+        height: 50vh;
+        padding: 50px 20px;
     }
 
     .hero-text h1 {
-        font-size: 1.5rem; /* Scale down the title for mobile */
+        font-size: 1.5rem;
     }
 
     .hero-text p {
-        font-size: 0.9rem; /* Scale down the paragraph for mobile */
+        font-size: 0.9rem;
     }
 
     .hero-text .btn {
         padding: 10px 20px;
-        font-size: 1rem; /* Adjust button size for mobile */
+        font-size: 1rem; 
     }
 
     .best-sellers-section h2,
@@ -187,7 +197,7 @@ body {
     }
 
     .card-img-top {
-        height: 250px; /* Adjust card image height for mobile */
+        height: 250px; /
     }
 
     .footer {
