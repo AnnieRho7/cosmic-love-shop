@@ -58,7 +58,7 @@
                                 <a class="nav-link" href="{% url 'about' %}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Contact</a>
+                                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                             </li>
                         </ul>
 
@@ -112,7 +112,7 @@
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="cart-options">
                                     <a href="{% url 'view_cart' %}" class="dropdown-item">View Cart</a>
-                                    <a href="#" id="checkout-button" class="dropdown-item">Checkout</a>
+                                    <a href="{% url 'checkout' %}" id="checkout-button" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
 

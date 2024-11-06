@@ -30,20 +30,6 @@
                                 <li class="list-group-item">
                                     <p>{{ address.street_address1 }}, {{ address.town_or_city }}, {{ address.county }}</p>
                                     <p>{{ address.postcode }}, {{ address.country }}</p>
-                                    <div class="d-flex justify-content-between mt-2">
-                                        <!-- Edit Address Form -->
-                                        <form method="POST" class="d-inline">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="address_id" value="{{ address.id }}">
-                                            <button type="submit" name="edit_address" class="btn btn-sm btn-secondary">Edit</button>
-                                        </form>
-                                        <!-- Delete Address Form -->
-                                        <form method="POST" class="d-inline">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="address_id" value="{{ address.id }}">
-                                            <button type="submit" name="delete_address" class="btn btn-sm btn-danger">Remove</button>
-                                        </form>
-                                    </div>
                                 </li>
                             {% endfor %}
                         </ul>
