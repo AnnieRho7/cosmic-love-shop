@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Terms and Conditions</h1>
+    
+
+        <div class="content">
+            <h2 class="mt-4">1. Introduction</h2>
+            <p>Welcome to [Your Website Name]. By accessing or using our website, you agree to comply with these Terms and Conditions. If you do not agree, please do not use our site.</p>
+
+            <h2>2. Use of Site</h2>
+            <p>You may only use the website for lawful purposes. You agree not to misuse our services or engage in any harmful or unlawful activities.</p>
+
+            <h2>3. Orders and Payments</h2>
+            <p>All orders placed on our website are subject to acceptance. You agree to provide accurate payment and shipping information during the checkout process.</p>
+
+            <h2>4. Shipping and Delivery</h2>
+            <p>We ship products according to the details provided during checkout. Delivery times may vary, and we are not responsible for delays caused by third-party shipping carriers.</p>
+
+            <h2>5. Returns and Refunds</h2>
+            <p>You may return items within [X] days of purchase. Please review our <a href="{% url 'return_refund_policy' %}">Return and Refund Policy</a> for full details.</p>
+
+            <h2>6. Limitation of Liability</h2>
+            <p>We are not liable for any damages arising from the use of this website or any products purchased, except as required by law.</p>
+
+            <h2>7. Governing Law</h2>
+            <p>These Terms and Conditions are governed by the laws of [Your Country/State].</p>
+
+            <h2>8. Contact Information</h2>
+            <p>If you have any questions regarding these Terms and Conditions, please contact us at [Your Contact Information].</p>
+        </div>
+    </div>
+</body>
+{% endblock %}

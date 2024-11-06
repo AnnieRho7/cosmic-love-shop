@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'about',
     'users',
     'contact',
+    'legal',
 ]
 
 MIDDLEWARE = [
