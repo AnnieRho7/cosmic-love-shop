@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db.models import Sum
 import uuid
-from products.models import Product  # Ensure you have a Product model defined
+from products.models import Product
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

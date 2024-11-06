@@ -1,53 +1,28 @@
-// Ensure you replace 'YOUR_PUBLIC_STRIPE_KEY' with your actual Stripe public key.
-const stripe = Stripe('YOUR_PUBLIC_STRIPE_KEY'); // Replace with your actual Stripe public key
+// Get the values passed from Django using json_script
+var stripe_public_key = JSON.parse(document.getElementById('id_stripe_public_key').textContent);
+var client_secret = JSON.parse(document.getElementById('id_client_secret').textContent);
 
-// Get the checkout button
-const checkoutButton = document.getElementById('checkout-button');
+// Initialize Stripe with the public key
+var stripe = Stripe(stripe_public_key);
+var elements = stripe.elements();
 
-checkoutButton.addEventListener('click', function () {
-    // Make a request to your server to create a checkout session
-    fetch('/cart/checkout/', {  // Update this line to match the URL in your urls.py
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCookie('csrftoken'), // Fetch CSRF token
-        },
-        body: JSON.stringify({
-            // Include any necessary data for the session if needed
-        }),
-    })
-    .then(function (response) {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+// Define styling for the card input element
+var style = {
+    base: {
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
         }
-        return response.json();
-    })
-    .then(function (sessionId) {
-        return stripe.redirectToCheckout({ sessionId: sessionId.id }); // Ensure the correct property for sessionId
-    })
-    .then(function (result) {
-        if (result.error) {
-            alert(result.error.message);
-        }
-    })
-    .catch(function (error) {
-        console.error('Error:', error);
-    });
-});
-
-// Function to get CSRF token from cookies
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Check if this cookie string begins with the name we want
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
+    },
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545'
     }
-    return cookieValue;
-}
+};
+
+// Create and mount the Stripe card input element
+var card = elements.create('card', {style: style});
+card.mount('#card-element');

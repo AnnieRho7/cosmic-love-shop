@@ -7,34 +7,10 @@ import stripe
 
 
 def view_cart(request):
-    """ A view that renders the cart content page """
-    cart = request.session.get('cart', {})  # Get the current session cart
-    cart_items = []  # Initialize the cart_items list
+    """ A view that renders the bag contents page """
 
-    # Check if there are items in the cart
-    for item_id, item_data in cart.items():
-        product = get_object_or_404(Product, pk=item_id)  # Fetch the product
+    return render(request, 'cart/cart.html')
 
-        # Check if item_data has sizes
-        if isinstance(item_data, dict) and 'items_by_size' in item_data:
-            for size, quantity in item_data['items_by_size'].items():
-                cart_items.append({
-                    'product': product,
-                    'quantity': quantity,
-                    'size': size,
-                })
-        else:
-            # Assuming item_data is the quantity when not using sizes
-            cart_items.append({
-                'product': product,
-                'quantity': item_data,
-            })
-
-    context = {
-        'cart_items': cart_items,  # Pass the cart items to the template
-    }
-
-    return render(request, 'cart/cart.html', context)  # Render the template with context
 
 def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """

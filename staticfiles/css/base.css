@@ -1,3 +1,4 @@
+/* Global Styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -20,50 +21,46 @@ body {
     background-image: url('/media/hero.jpg');
     background-size: cover;
     background-position: center;
-    height: 70vh; /* Maintain full height */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    padding: 100px; /* Adjust top and bottom padding as needed */
-    text-align: center; /* Centers text within the box */
+    padding: 100px;
+    text-align: center;
 }
 
-/* Hero Text Box */
 .hero-text {
-    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
-    border-radius: 20px; /* Softer rounding */
-    color: #ffffff; /* Text color */
-    width: 90%; /* Set width to 90% to allow for responsiveness */
-    max-width: 600px; /* Set a maximum width */
-    margin: 0 auto; /* Centers the box horizontally */
-    padding: 2rem; /* Uniform padding for spacing */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    margin-top: 20px; /* Additional space above the text box */
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
 }
 
-/* Header Styling */
 .hero-text h1 {
     text-transform: uppercase;
-    letter-spacing: 1px; /* Adjusted letter spacing */
+    letter-spacing: 1px;
     font-weight: bold;
-    font-size: 2rem; /* Adjusted font size */
-    line-height: 1.2; /* Improved readability */
-    margin-bottom: 1rem; /* Space between header and subtitle */
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
-/* Subtitle Styling */
 .hero-text p {
-    text-transform: none; /* Keep subtitle in normal case */
-    font-size: 1rem; /* Slightly smaller font size */
-    margin-top: 0.5rem; /* Add small space above the paragraph */
+    text-transform: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
-
 
 /* Navbar */
 .navbar-brand h1 {
-    font-size: 2rem; /* Adjust the brand font size */
-    color: black; /* Set the brand color */
+    font-size: 2rem;
+    color: black;
 }
 
 .nav-link {
@@ -77,7 +74,6 @@ body {
     color: #d7a9bd;
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
     border: none;
 }
@@ -158,50 +154,172 @@ body {
 
 /* About Section */
 .about-section {
-    background-color: #f8f9fa; /* Light background for contrast */
-    padding: 50px 0; /* Vertical padding for spacing */
-    color: #333; /* Text color */
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    color: #333;
 }
 
-/* Section Header */
 .about-section h2 {
-    font-size: 2.5rem; /* Larger font for the main header */
-    color: #FF6F61; /* Main color from your theme */
+    font-size: 2.5rem;
+    color: #FF6F61;
 }
 
-/* Lead Paragraph */
 .about-section .lead {
-    font-size: 1.2rem; /* Font size for the lead paragraph */
-    max-width: 800px; /* Max width for readability */
-    margin: 0 auto; /* Center the lead paragraph */
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Subheading Styles */
 .about-section h3 {
-    font-size: 1.8rem; /* Font size for subheadings */
-    margin-top: 20px; /* Space above subheadings */
+    font-size: 1.8rem;
+    margin-top: 20px;
 }
 
-/* List Styles */
 .about-section ul {
-    list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none;
+    padding: 0;
 }
 
 .about-section ul li {
-    font-size: 1.1rem; /* Font size for list items */
-    margin: 10px 0; /* Space between list items */
+    font-size: 1.1rem;
+    margin: 10px 0;
 }
 
-/* Button Style */
 .about-section .btn {
-    background-color: #FF6F61; /* Button color */
-    color: white; /* Button text color */
-    transition: background-color 0.3s; /* Transition effect for hover */
+    background-color: #FF6F61;
+    color: white;
+    transition: background-color 0.3s;
 }
 
 .about-section .btn:hover {
-    background-color: #d57e7c; /* Lighter shade for hover effect */
+    background-color: #d57e7c;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds space between different blocks of content */
+    margin-bottom: 30px; /* Adds space below the section */
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Social Links Styling */
+.contact-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between the links */
+}
+
+.contact-social-icon {
+    font-size: 18px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.contact-social-icon:hover {
+    color: #3498db;
+}
+
+/* Instagram Gallery Styles */
+.instagram-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 0; /* Remove unnecessary space at the bottom */
+}
+
+.instagram-photo {
+    position: relative;
+    background-color: #eee;
+    padding-top: 100%; /* This keeps the aspect ratio square */
+    overflow: hidden;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Prevent iframe from causing extra space */
+.instagram-photo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Adjust the Instagram section for better spacing */
+.instagram-gallery .col-6 {
+    padding: 0; /* Remove extra padding in columns */
+}
+
+.instagram-gallery .col-6 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Convenience for better mobile responsiveness */
+@media (max-width: 767px) {
+    .instagram-gallery .col-6 {
+        flex: 1 0 100%;
+        margin-bottom: 10px; /* Add small margin for mobile */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .instagram-gallery .col-6 {
+        flex: 1 0 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .instagram-gallery .col-6 {
+        flex: 1 0 33.33%; /* Adjust columns to 3 in a row on larger screens */
+    }
+}
+
+/* Adjust the Follow Us button to make it a little more compact */
+.text-center a {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #3498db;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Ensure it doesn't stretch too much */
+    margin-top: 10px; /* Space above the button */
+}
+
+.text-center a:hover {
+    background-color: #2980b9;
 }
 
 /* Convenience Classes */
@@ -225,47 +343,45 @@ body {
     color: #000 !important;
 }
 
-/* Footer Styles */
+/* Footer */
 .footer {
-    background-color: black; /* Changed to black */
-    color: white; /* Changed text color to white */
-    text-align: left; /* Left align text */
-    padding: 2rem 1rem; /* Padding for spacing */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between copyright and social links */
-    align-items: center; /* Center vertically */
-    position: relative; /* Positioning */
-    bottom: 0; /* Stick to the bottom of the page */
-    width: 100%; /* Full width */
-    margin-top: auto; 
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
 }
 
-/* Social Links */
 .social-links {
-    margin-top: 1rem; /* Space above social links */
+    margin-top: 1rem;
 }
 
 .social-links a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* Link color */
-    transition: color 0.3s; /* Smooth color transition on hover */
-    margin-left: 10px; /* Space between icons */
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+    margin-left: 10px;
 }
 
 .social-links a:hover {
-    color: #FF6F61; /* Change to your accent color on hover */
+    color: #FF6F61;
 }
 
-/* Footer Text */
 .footer p {
-    margin: 0; /* Remove margin */
-    font-size: 0.9rem; /* Smaller font size */
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 /* Mobile Adjustments */
 @media (max-width: 767px) {
     .hero-section h1 {
-        font-size: 2.5rem; /* Smaller font for mobile */
+        font-size: 2.5rem;
     }
 
     .shop-now-button {
@@ -273,38 +389,70 @@ body {
         padding: 10px 20px;
     }
 
-    .positive-statement-section h2, .best-sellers-section h2, .subscription-section h2 {
+    .positive-statement-section h2,
+    .best-sellers-section h2,
+    .subscription-section h2 {
         font-size: 2rem;
     }
 
     .footer {
-        padding: 1.5rem 0; /* Adjust padding for smaller screens */
-        flex-direction: column; /* Stack content on small screens */
-        align-items: center; /* Center items */
+        padding: 1.5rem 0;
+        flex-direction: column;
+        align-items: center;
     }
 
     .footer p {
-        font-size: 0.8rem; /* Slightly smaller font for mobile */
+        font-size: 0.8rem;
     }
 
     .social-links {
-        justify-content: center; /* Center social links on mobile */
+        justify-content: center;
     }
 
     .social-links img {
-        width: 20px; /* Smaller icons on mobile */
-        height: 20px; /* Ensure consistent height */
+        width: 20px;
+        height: 20px;
     }
 
     .about-section h2 {
-        font-size: 2rem; /* Adjust header size for mobile */
+        font-size: 2rem;
     }
 
     .about-section .lead {
-        font-size: 1rem; /* Adjust lead font size for mobile */
+        font-size: 1rem;
     }
 
     .about-section h3 {
-        font-size: 1.5rem; /* Adjust subheading size for mobile */
+        font-size: 1.5rem;
     }
+
+    .instagram-gallery .col-6 {
+        flex: 1 0 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .instagram-gallery .col-6 {
+        flex: 1 0 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .instagram-gallery .col-6 {
+        flex: 1 0 25%;
+    }
+}
+
+.text-center a {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #3498db;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.text-center a:hover {
+    background-color: #2980b9;
 }

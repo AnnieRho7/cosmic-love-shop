@@ -1,4 +1,3 @@
-# cart/admin.py
 from django.contrib import admin
 from users.models import Order, OrderLineItem
 
@@ -27,5 +26,4 @@ class OrderAdmin(admin.ModelAdmin):
 
     ordering = ('-date',)
 
-# Register the Order model with the custom OrderAdmin class
 admin.site.register(Order, OrderAdmin)
