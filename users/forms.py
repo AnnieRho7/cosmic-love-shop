@@ -58,4 +58,19 @@ class AddressForm(forms.ModelForm):
             'full_name', 'phone_number', 'country', 'postcode', 
             'town_or_city', 'street_address1', 'street_address2', 'county'
         ]
-        
+
+
+class NewsletterSubscriptionForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your email',
+                'aria-label': 'Email',
+            }
+        )
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].label = False

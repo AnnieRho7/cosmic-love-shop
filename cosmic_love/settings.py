@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import mailchimp_marketing
 from pathlib import Path
 from decouple import config
+from mailchimp_marketing.api_client import ApiClientError
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -120,16 +122,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'optional'  # or 'none'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
-
 WSGI_APPLICATION = 'cosmic_love.wsgi.application'
 
 # Database
@@ -204,3 +196,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# MAILCHIMP 
+MAILCHIMP_API_KEY = config('MAILCHIMP_API_KEY')
+MAILCHIMP_AUDIENCE_ID = config('MAILCHIMP_AUDIENCE_ID')
+MAILCHIMP_REGION = config('MAILCHIMP_REGION')
+
+try:
+    mailchimp = mailchimp_marketing.Client()
+    mailchimp.set_config({
+        "api_key": MAILCHIMP_API_KEY,
+        "server": MAILCHIMP_REGION
+    })
+
+    response = mailchimp.ping.get()
+    if response.get("health_status") == "Everything's Chimpy!":
+        print("Mailchimp API connected successfully!")
+except ApiClientError as error:
+    print(f"Mailchimp API connection failed: {error.text}")
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.mailchimp.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = config('MAILCHIMP_API_KEY')
+    EMAIL_HOST_PASSWORD = config('MAILCHIMP_API_KEY')

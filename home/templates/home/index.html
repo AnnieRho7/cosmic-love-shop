@@ -34,7 +34,8 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description|truncatewords:20 }}</p>
-                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">View Product</a>
+                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">View
+                                Product</a>
                         </div>
                     </div>
                 </div>
@@ -48,16 +49,31 @@
     </section>
 
     <!-- Subscription Section -->
+
     <section class="subscription-section py-5 text-center" style="background-color: #f8f9fa;">
         <div class="container">
             <h2 class="mb-4">Stay Connected</h2>
-            <p class="lead">Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers, and more.</p>
-            <form class="d-flex justify-content-center">
+            <p class="lead">Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers,
+                and more.</p>
+            <form class="d-flex justify-content-center" action="{% url 'users:newsletter_signup' %}" method="POST"
+                id="newsletter-form">
+                {% csrf_token %}
                 <div class="input-group" style="max-width: 500px;">
-                    <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                        aria-label="Email" required>
                     <button class="btn btn-primary" type="submit">Subscribe</button>
                 </div>
             </form>
+            <!-- Add a container for messages -->
+            <div id="newsletter-messages" class="mt-3">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </section>
 </main>
