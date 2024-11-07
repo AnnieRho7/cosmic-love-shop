@@ -12,5 +12,4 @@ urlpatterns = [
     path('addresses/', manage_addresses, name='manage_addresses'),
     path('delete-account/', delete_account, name='delete_account'),
     path('newsletter/signup/', newsletter_signup, name='newsletter_signup'),
-    path('newsletter/toggle/', toggle_newsletter_subscription, name='toggle_newsletter'),
 ]

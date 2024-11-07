@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<main>
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
@@ -105,7 +104,7 @@
             </div>
         </div>
     </div>
-</main>
+
 <div class="btt-button shadow-sm rounded-0 border border-black">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
@@ -120,23 +119,23 @@
             $('.btt-link').click(function (e) {
                 e.preventDefault(); // Prevent default action
                 console.log('Back to Top clicked'); // Log click event
-                window.scrollTo(0, 0); // Scroll to top
+                $('html, body').animate({ scrollTop: 0 }, 'slow'); // Animate scrolling to the top
             });
-
+    
             // Sort Selector Change Event
             $('#sort-selector').change(function () {
                 console.log('Sort selector changed'); // Log change event
                 var selector = $(this);
                 var currentUrl = new URL(window.location);
                 var selectedVal = selector.val();
-
+    
                 console.log('Selected Value:', selectedVal); // Log the selected value
-
+    
                 if (selectedVal !== "reset") {
                     // Extract sort key and direction
                     var sort = selectedVal.split("_")[0];  
                     var direction = selectedVal.split("_")[1];  
-
+    
                     currentUrl.searchParams.set("sort", sort);
                     currentUrl.searchParams.set("direction", direction);
                 } else {
@@ -144,11 +143,12 @@
                     currentUrl.searchParams.delete("sort");
                     currentUrl.searchParams.delete("direction");
                 }
-
+    
                 // Log the new URL to which it will redirect
                 console.log('Redirecting to:', currentUrl.toString()); // Log the new URL
                 window.location.href = currentUrl; // Redirect to the new URL
             });
         });
     </script>
+    
 {% endblock %}

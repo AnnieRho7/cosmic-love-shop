@@ -96,8 +96,16 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Wishlist - {self.product.name}"
+    
+    
+class NewsletterSubscriber(models.Model):
+    email = models.EmailField(unique=True)
+    date_subscribed = models.DateTimeField(auto_now_add=True)
 
-# Signal to automatically create a UserProfile when a User is created
+    def __str__(self):
+        return self.email
+    
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
