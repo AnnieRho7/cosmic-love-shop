@@ -101,6 +101,7 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'home' 
 
 # Stripe settings
 FREE_DELIVERY_THRESHOLD = 50

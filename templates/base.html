@@ -133,15 +133,14 @@
     </header>
 
     <!-- Message Container for Django messages -->
-    {% if messages %}
-    <div class="message-container">
-        <div class="container">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-            {% endfor %}
+    <div class="alert-banner">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        {% endfor %}
     </div>
-    {% endif %}
 
     <!-- Header block for page-specific headers -->
     {% block page_header %}{% endblock %}
@@ -177,6 +176,22 @@
 
     <!-- Bootstrap 5 & Core JS -->
     {% block core_js %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBanners = document.querySelectorAll('.alert-banner .alert');
+
+            alertBanners.forEach(alert => {
+                setTimeout(() => {
+                    alert.classList.add('fade'); // Add fade class to start the transition
+
+                    // Wait for the transition to end before removing it
+                    alert.addEventListener('transitionend', () => {
+                        alert.remove();
+                    });
+                }, 5000); // 5-second delay before fading out
+            });
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
