@@ -104,6 +104,10 @@ class NewsletterSubscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        verbose_name = 'Newsletter Subscriber'
+        verbose_name_plural = 'Newsletter Subscribers'
     
 
 @receiver(post_save, sender=User)

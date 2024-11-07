@@ -33,8 +33,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description|truncatewords:20 }}</p>
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">View
-                            Product</a>
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">View Product</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +47,6 @@
 </section>
 
 <!-- Subscription Section -->
-
 <section class="section subscription-section py-5 text-center" style="background-color: #f8f9fa;">
     <div class="container">
         <h2 class="mb-4">Stay Connected</h2>
@@ -60,7 +58,34 @@
                 <input type="email" name="email" class="form-control" placeholder="Enter your email address" required>
                 <button class="btn btn-dark" type="submit">Subscribe</button>
             </div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
         </form>
     </div>
 </section>
+
+{% block postloadjs %}
+<script type="text/javascript">
+    // Auto-hide alerts after 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(function () {
+                    alert.remove();
+                }, 500);
+            });
+        }, 5000);
+    });
+</script>
 {% endblock %}
+
+{% endblock content %}

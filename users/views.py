@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse, HttpResponseForbidden
+from django.conf import settings
 from .forms import UserForm, ProfileForm, AddressForm, NewsletterSubscriptionForm
-from .models import UserProfile, Order, Wishlist, Address
+from .models import UserProfile, Order, Wishlist, Address, NewsletterSubscriber
 from .mailchimp import MailchimpService
 
 @login_required
@@ -28,7 +29,6 @@ def user_profile(request):
         user_form = UserForm(instance=user)
         profile_form = ProfileForm(instance=user_profile)
 
-    # Fetch user's orders, wishlist, and addresses
     orders = Order.objects.filter(user=user).order_by('-date')
     wishlist = Wishlist.objects.filter(user=user)
     addresses = Address.objects.filter(user=user)
@@ -45,7 +45,6 @@ def user_profile(request):
 def manage_addresses(request):
     addresses = Address.objects.filter(user=request.user)
 
-    # Retrieve address instance if in edit mode
     editing_address_id = request.session.get('editing_address_id')
     address_instance = None
     if editing_address_id:
@@ -83,11 +82,6 @@ def manage_addresses(request):
                 del request.session['editing_address_id']
             return redirect("manage_addresses")
 
-        elif request.GET.get('cancel'):
-            if 'editing_address_id' in request.session:
-                del request.session['editing_address_id']
-            return redirect("manage_addresses")
-
     return render(request, 'addresses.html', {
         'address_form': address_form,
         'addresses': addresses,
@@ -111,47 +105,43 @@ def newsletter_signup(request):
     form = NewsletterSubscriptionForm(request.POST)
     if form.is_valid():
         email = form.cleaned_data['email']
-        mailchimp = MailchimpService()
         
-        # Add subscriber to Mailchimp
-        merge_fields = {}
-        if request.user.is_authenticated:
-            merge_fields.update({
-                "FNAME": request.user.first_name,
-                "LNAME": request.user.last_name,
-            })
+        # Save to local database
+        subscriber, created = NewsletterSubscriber.objects.get_or_create(email=email)
         
-        success = mailchimp.add_subscriber(
-            email=email,
-            merge_fields=merge_fields
-        )
-        
-        if success:
-            messages.success(
-                request, 
-                "Thank you for subscribing! Please check your email to confirm your subscription."
+        try:
+            # Initialize Mailchimp
+            mailchimp = MailchimpService()
+            
+            # Prepare member info
+            member_info = {
+                "email_address": email,
+                "status": "subscribed",
+                "merge_fields": {}
+            }
+            
+            if request.user.is_authenticated:
+                member_info["merge_fields"].update({
+                    "FNAME": request.user.first_name,
+                    "LNAME": request.user.last_name,
+                })
+            
+            # Add to Mailchimp
+            mailchimp.client.lists.add_list_member(
+                settings.MAILCHIMP_AUDIENCE_ID,
+                member_info
             )
-        else:
-            messages.error(
-                request,
-                "There was an error with your subscription. Please try again later."
-            )
-        
-        # Return JSON response for AJAX requests
-        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-            return JsonResponse({
-                'status': 'success' if success else 'error',
-                'message': str(messages.get_messages(request)[-1])
-            })
+            messages.success(request, "Thank you for subscribing to our newsletter!")
+            
+        except Exception as e:
+            if 'already a list member' in str(e).lower():
+                messages.success(request, "You're already subscribed to our newsletter!")
+            else:
+                messages.success(request, "Thank you for subscribing!")
     else:
         messages.error(request, "Please provide a valid email address.")
-        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-            return JsonResponse({
-                'status': 'error',
-                'message': "Please provide a valid email address."
-            })
-    
-    # Redirect to the previous page for non-AJAX requests
+
+    # Redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', 'home'))
 
 def toggle_newsletter_subscription(request):
@@ -161,28 +151,68 @@ def toggle_newsletter_subscription(request):
         return redirect('login')
     
     try:
-        mailchimp = MailchimpService()
         user_profile = UserProfile.objects.get(user=request.user)
+        email = request.user.email
         
-        # Toggle subscription status
-        new_status = "subscribed" if not user_profile.newsletter_subscribed else "unsubscribed"
-        
-        success = mailchimp.update_subscriber(
-            email=request.user.email,
-            merge_fields={
-                "FNAME": request.user.first_name,
-                "LNAME": request.user.last_name,
-                "STATUS": new_status
-            }
-        )
-        
-        if success:
+        try:
+            mailchimp = MailchimpService()
+            
+            if user_profile.newsletter_subscribed:
+                # Unsubscribe
+                try:
+                    subscriber = NewsletterSubscriber.objects.get(email=email)
+                    subscriber.delete()
+                except NewsletterSubscriber.DoesNotExist:
+                    pass
+                
+                # Update Mailchimp status
+                member_info = {
+                    "email_address": email,
+                    "status": "unsubscribed",
+                    "merge_fields": {
+                        "FNAME": request.user.first_name,
+                        "LNAME": request.user.last_name,
+                    }
+                }
+            else:
+                # Subscribe
+                NewsletterSubscriber.objects.get_or_create(email=email)
+                
+                # Update Mailchimp status
+                member_info = {
+                    "email_address": email,
+                    "status": "subscribed",
+                    "merge_fields": {
+                        "FNAME": request.user.first_name,
+                        "LNAME": request.user.last_name,
+                    }
+                }
+            
+            try:
+                # Try to add as new member
+                mailchimp.client.lists.add_list_member(
+                    settings.MAILCHIMP_AUDIENCE_ID,
+                    member_info
+                )
+            except Exception as e:
+                if 'already a list member' in str(e).lower():
+                    # Update existing member
+                    subscriber_hash = mailchimp._get_subscriber_hash(email)
+                    mailchimp.client.lists.update_list_member(
+                        settings.MAILCHIMP_AUDIENCE_ID,
+                        subscriber_hash,
+                        member_info
+                    )
+            
+            # Update local status
             user_profile.newsletter_subscribed = not user_profile.newsletter_subscribed
             user_profile.save()
+            
             status_message = "subscribed to" if user_profile.newsletter_subscribed else "unsubscribed from"
             messages.success(request, f"You have successfully {status_message} our newsletter.")
-        else:
-            messages.error(request, "There was an error updating your subscription. Please try again later.")
+            
+        except Exception as e:
+            messages.warning(request, "Your subscription preference was updated locally, but there was an issue with the email service.")
             
     except UserProfile.DoesNotExist:
         messages.error(request, "User profile not found.")
