@@ -7,8 +7,6 @@ from .views import (
     delete_account,
 )
 
-app_name = 'users'
-
 urlpatterns = [
     path('profile/', user_profile, name='profile'),
     path('addresses/', manage_addresses, name='manage_addresses'),

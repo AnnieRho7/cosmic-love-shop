@@ -55,7 +55,7 @@
             <h2 class="mb-4">Stay Connected</h2>
             <p class="lead">Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers,
                 and more.</p>
-            <form class="d-flex justify-content-center" action="{% url 'users:newsletter_signup' %}" method="POST"
+            <form class="d-flex justify-content-center" action="{% url 'newsletter_signup' %}" method="POST"
                 id="newsletter-form">
                 {% csrf_token %}
                 <div class="input-group" style="max-width: 500px;">
