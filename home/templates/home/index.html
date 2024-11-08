@@ -58,14 +58,6 @@
                 <input type="email" name="email" class="form-control" placeholder="Enter your email address" required>
                 <button class="btn btn-dark" type="submit">Subscribe</button>
             </div>
-
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} mt-3" role="alert">
-                {{ message }}
-            </div>
-            {% endfor %}
-            {% endif %}
         </form>
     </div>
 </section>

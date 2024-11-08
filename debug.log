@@ -69,3 +69,16 @@ Traceback (most recent call last):
 django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
 WARNING 2024-11-07 16:37:36,162 log Not Found: /favicon.ico
 WARNING 2024-11-07 16:38:33,514 log Not Found: /favicon.ico
+INFO 2024-11-08 08:19:58,282 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-08 08:24:25,660 log Not Found: /favicon.ico
+INFO 2024-11-08 08:25:06,583 autoreload /workspace/cosmic-love-shop/about/urls.py changed, reloading.
+INFO 2024-11-08 08:25:07,496 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-08 08:25:13,139 log Not Found: /favicon.ico
+WARNING 2024-11-08 08:27:54,294 log Not Found: /favicon.ico
+WARNING 2024-11-08 08:27:57,765 log Not Found: /favicon.ico
+INFO 2024-11-08 08:36:06,789 autoreload /workspace/cosmic-love-shop/contact/models.py changed, reloading.
+INFO 2024-11-08 08:36:07,849 autoreload Watching for file changes with StatReloader
+INFO 2024-11-08 08:36:24,154 autoreload /workspace/cosmic-love-shop/contact/forms.py changed, reloading.
+INFO 2024-11-08 08:36:24,982 autoreload Watching for file changes with StatReloader
+INFO 2024-11-08 08:37:33,142 autoreload /workspace/cosmic-love-shop/contact/views.py changed, reloading.
+INFO 2024-11-08 08:37:33,969 autoreload Watching for file changes with StatReloader
