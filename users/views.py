@@ -5,7 +5,7 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse, HttpResponseForbidden
 from django.conf import settings
 from .forms import UserForm, ProfileForm, AddressForm, NewsletterSubscriptionForm
-from .models import UserProfile, Order, Wishlist, Address, NewsletterSubscriber
+from .models import UserProfile, Order, Wishlist, Address, NewsletterSubscriber, Product 
 from .mailchimp import MailchimpService
 
 @login_required
@@ -105,15 +105,11 @@ def newsletter_signup(request):
     form = NewsletterSubscriptionForm(request.POST)
     if form.is_valid():
         email = form.cleaned_data['email']
-        
-        # Save to local database
         subscriber, created = NewsletterSubscriber.objects.get_or_create(email=email)
         
         try:
-            # Initialize Mailchimp
             mailchimp = MailchimpService()
             
-            # Prepare member info
             member_info = {
                 "email_address": email,
                 "status": "subscribed",
@@ -126,7 +122,7 @@ def newsletter_signup(request):
                     "LNAME": request.user.last_name,
                 })
             
-            # Add to Mailchimp
+
             mailchimp.client.lists.add_list_member(
                 settings.MAILCHIMP_AUDIENCE_ID,
                 member_info
@@ -141,8 +137,8 @@ def newsletter_signup(request):
     else:
         messages.error(request, "Please provide a valid email address.")
 
-    # Redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', 'home'))
+
 
 def toggle_newsletter_subscription(request):
     """Toggle newsletter subscription status for logged-in users"""
@@ -158,14 +154,13 @@ def toggle_newsletter_subscription(request):
             mailchimp = MailchimpService()
             
             if user_profile.newsletter_subscribed:
-                # Unsubscribe
+
                 try:
                     subscriber = NewsletterSubscriber.objects.get(email=email)
                     subscriber.delete()
                 except NewsletterSubscriber.DoesNotExist:
                     pass
-                
-                # Update Mailchimp status
+
                 member_info = {
                     "email_address": email,
                     "status": "unsubscribed",
@@ -177,8 +172,6 @@ def toggle_newsletter_subscription(request):
             else:
                 # Subscribe
                 NewsletterSubscriber.objects.get_or_create(email=email)
-                
-                # Update Mailchimp status
                 member_info = {
                     "email_address": email,
                     "status": "subscribed",
@@ -189,14 +182,12 @@ def toggle_newsletter_subscription(request):
                 }
             
             try:
-                # Try to add as new member
                 mailchimp.client.lists.add_list_member(
                     settings.MAILCHIMP_AUDIENCE_ID,
                     member_info
                 )
             except Exception as e:
                 if 'already a list member' in str(e).lower():
-                    # Update existing member
                     subscriber_hash = mailchimp._get_subscriber_hash(email)
                     mailchimp.client.lists.update_list_member(
                         settings.MAILCHIMP_AUDIENCE_ID,
@@ -204,7 +195,6 @@ def toggle_newsletter_subscription(request):
                         member_info
                     )
             
-            # Update local status
             user_profile.newsletter_subscribed = not user_profile.newsletter_subscribed
             user_profile.save()
             
@@ -218,3 +208,43 @@ def toggle_newsletter_subscription(request):
         messages.error(request, "User profile not found.")
     
     return redirect('profile')
+
+@login_required
+def add_to_wishlist(request, product_id):
+    if request.method == 'POST':
+        product = get_object_or_404(Product, id=product_id)
+        wishlist_item, created = Wishlist.objects.get_or_create(
+            user=request.user,
+            product=product
+        )
+        
+        if created:
+            status = 'added'
+            message = 'Product added to wishlist'
+        else:
+            wishlist_item.delete()
+            status = 'removed'
+            message = 'Product removed from wishlist'
+        
+        updated_wishlist = Wishlist.objects.filter(user=request.user)
+        wishlist_items = [{'id': item.id, 'product_id': item.product.id, 'product_name': item.product.name} for item in updated_wishlist]
+        
+        return JsonResponse({
+            'status': status,
+            'message': message,
+            'wishlist': wishlist_items
+        })
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
+@login_required
+def remove_from_wishlist(request, item_id):
+    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
+    wishlist_item.delete()
+    messages.success(request, 'Item removed from wishlist')
+    return redirect('profile')
+
+def is_in_wishlist(request, product_id):
+    if not request.user.is_authenticated:
+        return JsonResponse({'in_wishlist': False})
+    is_in = Wishlist.objects.filter(user=request.user, product_id=product_id).exists()
+    return JsonResponse({'in_wishlist': is_in})

@@ -142,14 +142,17 @@ body.contact-page main {
 .alert-banner {
     position: fixed;
     top: 70px;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 600px;
     z-index: 1050;
-    display: flex;
-    justify-content: center;
 }
+
 .alert-banner .alert {
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
 }
 
 .auth-page {
@@ -307,6 +310,9 @@ body.contact-page main {
 
     .best-sellers-section .col-12 {
         padding: 0 20px;
+    }
+    .alert-banner {
+        max-width: 90%;
     }
 }
 
