@@ -62,25 +62,52 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
 
-                <!-- Add to Cart Form -->
-                <form method="post" action="{% url 'add_to_cart' product.id %}">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1"
-                                required>
-                        </div>
-                        <div class="form-group col">
-                            <button type="submit" class="btn btn-outline-black mt-4">Add to Cart</button>
-                        </div>
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-                <!-- End of Add to Cart Form -->
-
+                <!-- Wishlist Button -->
+                {% if user.is_authenticated %}
+                <div class="mt-3">
+                    <button class="btn wishlist-btn" data-product-id="{{ product.id }}" data-add-to-wishlist-url="{% url 'add_to_wishlist' product.id %}">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Add to Wishlist Button Click Event
+        $('.wishlist-btn').click(function () {
+            var productId = $(this).data('product-id');
+            var $this = $(this);
+            var addToWishlistUrl = $(this).data('add-to-wishlist-url');
+
+            $.ajax({
+                url: addToWishlistUrl,
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    console.log('AJAX success:', data);
+                    if (data.status === 'added') {
+                        $this.find('i').removeClass('far').addClass('fas');
+                        // messages.success(data.message);
+                    } else {
+                        $this.find('i').removeClass('fas').addClass('far');
+                        // messages.success(data.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('AJAX error:', error);
+                    // messages.error('There was an error adding the product to your wishlist.');
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}

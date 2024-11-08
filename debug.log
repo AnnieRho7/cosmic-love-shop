@@ -2610,3 +2610,4 @@ INFO 2024-11-08 10:57:22,054 autoreload /workspace/cosmic-love-shop/users/views.
 INFO 2024-11-08 10:57:23,248 autoreload Watching for file changes with StatReloader
 INFO 2024-11-08 10:57:23,375 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-08 10:57:30,847 log Not Found: /favicon.ico
+WARNING 2024-11-08 11:02:57,024 log Not Found: /favicon.ico
