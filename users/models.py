@@ -37,6 +37,13 @@ class Address(models.Model):
 
 class Order(models.Model):
     """Order model for storing customer purchase information and totals."""
+    ORDER_STATUS = [
+        ('RECEIVED', 'Order Received'),
+        ('PROCESSING', 'Processing'),
+        ('SHIPPED', 'Shipped'),
+        ('DELIVERED', 'Delivered')
+    ]
+    
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -52,6 +59,12 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    status = models.CharField(
+        max_length=20,
+        choices=ORDER_STATUS,
+        default='RECEIVED',
+        verbose_name='Order Status'
+    )
 
     def _generate_order_number(self):
         """Generate a random, unique order number using UUID."""

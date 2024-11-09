@@ -6,7 +6,6 @@ Cosmic Love is an e-commerce website dedicated to offering beautifully handcraft
 
 A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.herokuapp.com/).
 
-![Cosmic Love Responsiveness](readme-images/amirespon.png)
 
 ## User Experience - UX
 
@@ -186,7 +185,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 * Admin users manage products and view orders through the admin panel.
 
-![Admin Backend](readme-images/admin.png)
+![Admin Backend](/media/readme-images/admin.png)
 
 ## Known Bugs and Limitations
 
