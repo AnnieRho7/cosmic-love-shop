@@ -2616,3 +2616,88 @@ INFO 2024-11-08 11:06:08,863 autoreload Watching for file changes with StatReloa
 WARNING 2024-11-08 11:06:14,039 log Not Found: /favicon.ico
 INFO 2024-11-08 11:06:16,918 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
 INFO 2024-11-08 11:06:17,289 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 11:06:15,705 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:22:23,671 log Not Found: /favicon.ico
+INFO 2024-11-09 11:26:59,570 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 11:27:01,117 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:28:30,831 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
+INFO 2024-11-09 11:28:31,723 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:28:59,160 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
+INFO 2024-11-09 11:29:00,038 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:30:05,073 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
+INFO 2024-11-09 11:30:05,962 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:30:44,223 log Not Found: /favicon.ico
+INFO 2024-11-09 11:37:01,986 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 11:37:03,554 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:39:26,950 autoreload /workspace/cosmic-love-shop/cosmic_love/urls.py changed, reloading.
+INFO 2024-11-09 11:39:27,768 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:47:12,368 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 11:47:13,897 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:49:02,596 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:49:09,548 log Not Found: /favicon.ico
+INFO 2024-11-09 11:51:54,492 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:51:54,739 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:51:55,321 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:51:55,604 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:52:01,447 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:52:02,285 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:52:05,322 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:52:06,340 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:52:12,444 log Not Found: /favicon.ico
+INFO 2024-11-09 11:55:15,677 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 11:55:16,559 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 11:55:56,359 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 11:55:57,225 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:56:00,130 log Not Found: /favicon.ico
+INFO 2024-11-09 11:58:19,723 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:58:21,080 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 11:58:23,820 log Not Found: /favicon.ico
+INFO 2024-11-09 11:59:45,661 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 11:59:46,502 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 12:00:11,975 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 12:00:12,818 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 12:03:44,333 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 12:06:38,987 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 12:06:49,174 log Not Found: /favicon.ico
+INFO 2024-11-09 12:07:32,073 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 12:07:33,080 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 12:07:35,702 log Not Found: /favicon.ico
+WARNING 2024-11-09 12:07:36,971 log Not Found: /favicon.ico
+ERROR 2024-11-09 12:07:40,547 log Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/views.py", line 23, in inner
+    response = func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/views.py", line 117, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/__init__.py", line 104, in get_urls
+    return self._urls(page, protocol, domain)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/__init__.py", line 122, in _urls
+    paginator_page = self.paginator.page(page)
+                     ^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/__init__.py", line 73, in paginator
+    return paginator.Paginator(self._items(), self.limit)
+                               ^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/contrib/sitemaps/__init__.py", line 61, in _items
+    return self.items()
+           ^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/cosmic_love/sitemaps.py", line 23, in items
+    return Product.objects.all()
+           ^^^^^^^
+NameError: name 'Product' is not defined
+INFO 2024-11-09 12:08:41,323 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 12:08:42,689 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 12:08:47,878 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 12:08:48,715 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 12:08:52,323 log Not Found: /favicon.ico
+INFO 2024-11-09 12:09:29,481 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
+INFO 2024-11-09 12:09:30,338 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 12:09:34,708 log Not Found: /favicon.ico

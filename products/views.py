@@ -5,8 +5,6 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 
-# Create your views here.
-
 def all_products(request):
     products = Product.objects.all()
     query = None
@@ -43,11 +41,25 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}' if sort and direction else 'None_None'
 
+    # Add meta description for product listing page
+    if categories:
+        category_names = ', '.join(categories)
+        meta_description = f"Shop our {category_names} collection at Cosmic Love. Handcrafted gemstone jewellery made with love. Unique pieces in silver and brass."
+        meta_title = f"Shop {category_names} | Cosmic Love Jewellery"
+    elif query:
+        meta_description = f"Search results for '{query}' - Handcrafted gemstone jewellery at Cosmic Love. Unique pieces made with love."
+        meta_title = f"Search: {query} | Cosmic Love Jewellery"
+    else:
+        meta_description = "Shop our collection of handmade gemstone jewellery. Featuring unique pieces in silver and brass, each item is handcrafted with love."
+        meta_title = "Shop Handmade Jewellery | Cosmic Love"
+
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'meta_description': meta_description,
+        'meta_title': meta_title,
     }
 
     return render(request, 'products/products.html', context)
@@ -55,11 +67,24 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
-
+    
     product = get_object_or_404(Product, pk=product_id)
+    
+    # Generate meta description for product
+    meta_description = f"{product.name} - {product.description[:100]}... Handcrafted gemstone jewellery by Cosmic Love."
+    if len(meta_description) > 160:  # Ensure meta description isn't too long
+        meta_description = meta_description[:157] + "..."
+        
+    meta_title = f"{product.name} | Cosmic Love Jewellery"
+    
+    # Add category to title if available
+    if product.category:
+        meta_title = f"{product.name} - {product.category.friendly_name} | Cosmic Love Jewellery"
 
     context = {
         'product': product,
+        'meta_description': meta_description,
+        'meta_title': meta_title,
     }
 
     return render(request, 'products/product_detail.html', context)

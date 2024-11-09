@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net',
+    'https://cosmic-love-3fa571bb9ed2.herokuapp.com',
 ]
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -58,6 +60,7 @@ INSTALLED_APPS = [
     'users',
     'contact',
     'legal',
+    'robots',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +95,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'cart.contexts.cart_contents',
+                'cosmic_love.context_processors.meta_tags',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -108,7 +112,6 @@ FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'eur'
 
-# Use decouple to load the Stripe keys from the .env file
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY') 
 
@@ -117,11 +120,19 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',  # Default backend
-    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 SITE_ID = 1
+
+if DEBUG:
+    SITE_DOMAIN = '8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net'
+else:
+    SITE_DOMAIN = 'cosmic-love-3fa571bb9ed2.herokuapp.com'
+
+SITE_PROTOCOL = 'https'
+SITEMAP_INCLUDE_HTTPS = True
 
 WSGI_APPLICATION = 'cosmic_love.wsgi.application'
 

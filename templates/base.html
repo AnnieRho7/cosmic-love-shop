@@ -4,11 +4,24 @@
 <html lang="en">
 
 <head>
-    <!-- Meta block to support older IE versions and viewport settings -->
+    <!-- Meta block -->
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ meta_description }}">
+    <meta property="og:title" content="{{ meta_title|default:'Cosmic Love - Handcrafted Gemstone Jewellery' }}">
+    <meta property="og:description" content="{{ meta_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cosmic Love">
+    <!-- Keywords meta tag -->
+    <meta name="keywords"
+        content="handmade jewellery, gemstone jewellery, boho jewellery, minimal jewellery, handcrafted earrings, handcrafted necklaces, handcrafted bracelets, silver jewellery, brass jewellery">
+    <!-- Additional SEO meta tags -->
+    <meta name="author" content="Cosmic Love">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
     {% endblock %}
 
     {% block extra_meta %}{% endblock %}
@@ -25,7 +38,7 @@
 
     {% block extra_css %}{% endblock %}
 
-    <title>Cosmic Love - {% block extra_title %}{% endblock %}</title>
+    <title>{{ meta_title|default:"Cosmic Love - Handcrafted Gemstone Jewellery" }}</title>
 </head>
 
 <body>
@@ -172,7 +185,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- Bootstrap 5 & Core JS -->
     {% block core_js %}
