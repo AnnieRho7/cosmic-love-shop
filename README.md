@@ -158,29 +158,29 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 * Displays featured products and collections.
 * Provides a hero image with a call-to-action button to explore the shop.
 
-![Homepage](readme-images/homepage.png)
+![Homepage](/media/readme-images/homepage.png)
 
 ### Navigation Desktop
 
 * The navigation bar is consistent and responsive, adapting based on user authentication and roles.
 
-![Navigation Desktop](readme-images/nav-desk.png)
+![Navigation Desktop](/media/readme-images/navbar-desktop.png)
 
 ### Navigation Mobile
 
-![Navigation Mobile](readme-images/nav-mob.png)
+![Navigation Mobile](/media/readme-images/navbar-mobile.png)
 
 ### Product Details
 
-* Users can view detailed information and images of individual products. Authenticated users can also leave reviews.
+* Users can view detailed information and images of individual products. Authenticated users can also add to wishlist
 
-![Product Details](readme-images/product-detail.png)
+![Product Details](/media/readme-images/product-detail.png)
 
 ### Cart Functionality
 
 * Users can add items to their cart and proceed to checkout seamlessly.
 
-![Cart Page](readme-images/cart.png)
+![Cart Page](/media/readme-images/checkout.png)
 
 ### Admin Backend
 
