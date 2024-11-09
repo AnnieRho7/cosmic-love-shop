@@ -10,11 +10,9 @@ from cart.contexts import cart_contents
 from products.models import Product
 
 def checkout(request):
-    
     """
     Handle the checkout process for orders.
     """
-    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -27,8 +25,8 @@ def checkout(request):
     cart = request.session.get('cart', {})
 
     if not cart:
-        messages.error(request, "There's nothing in your cart at the moment")
-        return redirect(reverse('products'))
+        messages.warning(request, "There's nothing in your cart at the moment.")
+        return render(request, 'checkout/checkout.html')
 
     current_cart = cart_contents(request)
     total = current_cart['grand_total']
@@ -45,7 +43,6 @@ def checkout(request):
                 order.user = request.user
             else:
                 order.user = None
-
 
             order.save()
 
@@ -66,14 +63,12 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(quantity, int):
-
                         line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=quantity,
                         )
                     else:
-
                         line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -131,20 +126,5 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-
-    return render(request, 'checkout/checkout_success.html', {'order': order})
-
-
-def checkout_success(request, order_number):
-    """ 
-    View for displaying order success page.
-    """
-    try:
-        order = Order.objects.get(order_number=order_number)
-        if request.user.is_authenticated and order.user != request.user:
-            return redirect(reverse('home'))
-    except Order.DoesNotExist:
-        messages.error(request, "Order not found.")
-        return redirect(reverse('home'))
 
     return render(request, 'checkout/checkout_success.html', {'order': order})

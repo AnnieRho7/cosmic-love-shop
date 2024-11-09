@@ -3283,3 +3283,36 @@ WARNING 2024-11-09 16:17:11,295 log Not Found: /favicon.ico
 WARNING 2024-11-09 16:18:10,914 log Not Found: /favicon.ico
 WARNING 2024-11-09 16:19:34,045 log Forbidden (CSRF cookie not set.): /checkout/webhook/
 WARNING 2024-11-09 16:21:03,730 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 16:26:16,764 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 16:32:36,876 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 16:32:37,790 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:32:41,746 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:35:50,347 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 16:37:10,202 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:38:40,575 log Not Found: /favicon.ico
+INFO 2024-11-09 16:43:29,437 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 16:43:30,761 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:44:02,172 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 16:44:03,103 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:44:08,575 log Not Found: /favicon.ico
+ERROR 2024-11-09 16:44:11,277 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 29, in checkout
+    return render(request, 'checkout/checkout.html', context)
+                                                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'context' where it is not associated with a value
+INFO 2024-11-09 16:44:21,777 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 16:44:22,672 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:44:24,833 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:45:30,554 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 16:47:15,921 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 16:47:57,946 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 16:51:39,020 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 16:51:39,997 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:51:43,457 log Not Found: /favicon.ico
