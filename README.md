@@ -109,7 +109,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 6. **Address**
    - Represents the user's saved addresses.
-   - Stores the address details, such as street, city, state, country, and post code.
+   - Stores the address details, such as street, city, country, and post code.
 
 
 ### Database Relationships
@@ -206,12 +206,8 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
    - **Temporary Fix**: Currently investigating better responsive typography.
 
 ### 5. **Advanced Product Search and Filters**
-   - The current product search and filter functionality is not working as expected. While the basic search feature is in place, the advanced filters (such as price range, category, rating, and brand) are either not returning accurate results or are not functioning properly in certain cases.
-   - **Possible Causes**: 
-     - Incorrect form handling or missing query parameters in the backend.
-     - Frontend elements (filters) may not be properly linked to the product listing or may not trigger the search functionality correctly.
-     - JavaScript or AJAX issues causing filters to not update the displayed results dynamically.
-   - **Next Steps**: Investigating the backend query logic, ensuring proper AJAX handling, and validating the UI interactions for accurate filtering.
+   - The product search and filter functionality is currently not returning accurate results. The filters (e.g., price range, category, rating, brand) are either malfunctioning or not updating the results dynamically.
+   - **Temporary Fix**: Investigating the backend query logic, AJAX handling, and UI interactions to resolve the issues with the filters.
 
 ---
 
@@ -222,7 +218,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
    - **Benefits**: Faster, more flexible payment options for users; supports credit/debit card payments and PayPal.
 
 ### 2. **Advanced Product Search and Filters**
-   - Implement an enhanced search functionality with advanced filtering options (e.g., price range, category, rating, brand).
+   - Implement an enhanced search functionality with advanced filtering options.
    - **Benefits**: Users can quickly find products that match their preferences, improving user experience and conversion rates.
 
 ### 3. **Order Tracking**
@@ -301,12 +297,11 @@ These implementations help search engines better understand and index the site's
 ### Frameworks and Libraries Used
 
 * [Django](https://www.djangoproject.com/) - Web framework for building scalable web applications.
-* [Django REST Framework](https://www.django-rest-framework.org/) - Toolkit for building APIs (if used, otherwise remove).
 * [Stripe](https://stripe.com/) - Payment gateway integration.
 * [Mailchimp Marketing API](https://mailchimp.com/developer/marketing/) - To handle newsletter subscriptions.
-* [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Comprehensive authentication and account management (sign up, login, etc.).
+* [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Comprehensive authentication and account management
 * [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Beautiful forms with Bootstrap styling.
-* [django-storages](https://django-storages.readthedocs.io/en/latest/) - Storage backends for Django (likely for handling static and media files).
+* [django-storages](https://django-storages.readthedocs.io/en/latest/) - Storage backends for Django
 * [whitenoise](http://whitenoise.evans.io/en/stable/) - Simplifies serving static files in production.
 
 ### Python Packages Used
@@ -356,7 +351,7 @@ For detailed validation results, including screenshots from the HTML and PEP 8 v
 
 ### Heroku
 
-The project was deployed via [Heroku](https://www.heroku.com/). The live link can be found [here](insert-live-link-here).
+The project was deployed via [Heroku](https://www.heroku.com/). The live link can be found [here](https://cosmic-love-3fa571bb9ed2.herokuapp.com/).
 
 To deploy:
 * Log in to Heroku and create a new app.
@@ -368,35 +363,35 @@ To deploy:
 
 To fork the repository:
 1. Log in to your GitHub account.
-2. Navigate to the repository [here](insert-repo-link-here).
+2. Navigate to the repository [here](https://github.com/AnnieRho7/cosmic-love-shop).
 3. Click the 'Fork' button in the top right corner.
 
 ### Cloning the Repo with GitPod
 
 1. Log in to GitHub.
-2. Navigate to the repository [here](insert-repo-link-here).
+2. Navigate to the repository [here](https://github.com/AnnieRho7/cosmic-love-shop).
 3. Click 'Code' and copy the URL.
 4. Open a new workspace in GitPod and clone the repo.
 
 ### Download and Extract the Zip Directly from GitHub
 
 1. Log in to GitHub.
-2. Navigate to the repository [here](insert-repo-link-here).
+2. Navigate to the repository [here](https://github.com/AnnieRho7/cosmic-love-shop).
 3. Select 'Download Zip' and extract it.
 
 ## Credits
 
 [Back to the top](#top)
 
-* The project was inspired by **Code Institute's** walkthroughs and tutorials.
-* Blog content reflects my own knowledge and interests, enhanced with the help of **AI tools**.
-* Images were sourced from [Pexels](https://pexels.com/).
-* Acknowledgments to **Code Institute** students for their projects that influenced my work.
-* Utilized **AI tools** like ChatGPT and Perplexity for content assistance.
-* Various **YouTube tutorials**, particularly from **Codemy**, were helpful in the development process.
+* The project was inspired by **Code Institute's** tutorials and resources, which helped guide the development of the e-commerce functionality.
+* The concept, design, and implementation are based on my personal vision for showcasing my handmade jewellery collection, blending creativity with a user-friendly shopping experience.
+* All product images and visuals featured on the site are my own, capturing the intricate details and craftsmanship of each jewelry piece.
+* Special thanks to **Code Institute** for the foundational knowledge and support throughout the learning process, which played a key role in bringing this project to life.
+* I leveraged **AI tools** like ChatGPT and Perplexity to help with content creation, product descriptions, and problem-solving during the development stages.
+* I found numerous helpful **YouTube tutorials**, especially from **Codemy** and other web development channels, which assisted in refining the front-end design and adding advanced features to the site.
 
 ## Acknowledgments
 
-Thanks to [Code Institute](https://codeinstitute.net) for their resources and guidance. Special thanks to my mentor, Marko, for their support and the resources they shared with me.
+Thanks to [Code Institute](https://codeinstitute.net) for their resources and guidance. Special thanks to my mentor, Marko, for their support and the resources shared with me.
 
 
