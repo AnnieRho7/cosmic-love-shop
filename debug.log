@@ -3264,3 +3264,20 @@ INFO 2024-11-09 16:07:21,847 autoreload /workspace/cosmic-love-shop/users/models
 INFO 2024-11-09 16:07:22,650 autoreload Watching for file changes with StatReloader
 INFO 2024-11-09 16:10:41,988 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
 INFO 2024-11-09 16:10:42,777 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:11:32,838 log Not Found: /favicon.ico
+INFO 2024-11-09 16:11:59,774 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 16:12:00,133 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 16:14:19,838 autoreload /workspace/cosmic-love-shop/cart/contexts.py changed, reloading.
+INFO 2024-11-09 16:14:22,076 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:14:30,519 autoreload /workspace/cosmic-love-shop/cart/contexts.py changed, reloading.
+INFO 2024-11-09 16:14:31,403 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:14:36,816 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 16:14:37,167 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 16:14:37,954 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:14:48,454 log Not Found: /favicon.ico
+INFO 2024-11-09 16:16:31,661 autoreload /workspace/cosmic-love-shop/cart/contexts.py changed, reloading.
+INFO 2024-11-09 16:16:33,000 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:16:43,430 autoreload /workspace/cosmic-love-shop/cart/contexts.py changed, reloading.
+INFO 2024-11-09 16:16:44,294 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 16:17:11,295 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:18:10,914 log Not Found: /favicon.ico
