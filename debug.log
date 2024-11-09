@@ -2701,3 +2701,147 @@ WARNING 2024-11-09 12:08:52,323 log Not Found: /favicon.ico
 INFO 2024-11-09 12:09:29,481 autoreload /workspace/cosmic-love-shop/cosmic_love/sitemaps.py changed, reloading.
 INFO 2024-11-09 12:09:30,338 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-09 12:09:34,708 log Not Found: /favicon.ico
+INFO 2024-11-09 13:26:24,891 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 13:35:15,294 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:36:02,093 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:36:17,326 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:36:25,197 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:39:41,457 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:41:15,156 log Not Found: /favicon.ico
+ERROR 2024-11-09 13:41:16,371 log Internal Server Error: /products/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/products/views.py", line 65, in all_products
+    return render(request, 'products/products.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/base.py", line 563, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 34: 'else', expected 'endblock'. Did you forget to register or load this tag?
+WARNING 2024-11-09 13:41:44,290 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:42:27,664 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:43:56,884 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:45:29,542 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:45:46,763 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:46:25,911 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:46:37,322 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:47:48,672 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:48:02,163 log Not Found: /favicon.ico
+INFO 2024-11-09 13:52:34,206 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 13:52:35,650 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 13:55:28,745 autoreload /workspace/cosmic-love-shop/users/views.py changed, reloading.
+INFO 2024-11-09 13:55:29,640 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 13:56:05,349 autoreload /workspace/cosmic-love-shop/users/views.py changed, reloading.
+INFO 2024-11-09 13:56:06,253 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 13:56:59,179 autoreload /workspace/cosmic-love-shop/users/urls.py changed, reloading.
+INFO 2024-11-09 13:57:00,771 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 13:57:12,195 autoreload /workspace/cosmic-love-shop/users/urls.py changed, reloading.
+INFO 2024-11-09 13:57:13,079 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 13:58:02,977 autoreload /workspace/cosmic-love-shop/users/urls.py changed, reloading.
+INFO 2024-11-09 13:58:03,840 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 13:58:12,044 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 13:58:12,049 log Not Found: /check-wishlist-status/2/
+WARNING 2024-11-09 13:58:12,053 log Not Found: /check-wishlist-status/3/
+WARNING 2024-11-09 13:58:12,058 log Not Found: /favicon.ico
+WARNING 2024-11-09 13:58:12,063 log Not Found: /check-wishlist-status/12/
+WARNING 2024-11-09 13:58:12,067 log Not Found: /check-wishlist-status/9/
+WARNING 2024-11-09 13:58:12,070 log Not Found: /check-wishlist-status/7/
+WARNING 2024-11-09 13:58:12,075 log Not Found: /check-wishlist-status/5/
+WARNING 2024-11-09 13:58:12,080 log Not Found: /check-wishlist-status/4/
+WARNING 2024-11-09 13:58:12,083 log Not Found: /check-wishlist-status/8/
+WARNING 2024-11-09 13:58:12,088 log Not Found: /check-wishlist-status/10/
+WARNING 2024-11-09 13:58:12,091 log Not Found: /check-wishlist-status/11/
+WARNING 2024-11-09 13:58:12,095 log Not Found: /check-wishlist-status/6/
+WARNING 2024-11-09 13:58:19,687 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 13:58:22,552 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 13:58:22,556 log Not Found: /favicon.ico
+WARNING 2024-11-09 14:02:28,982 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 14:02:28,995 log Not Found: /favicon.ico
+WARNING 2024-11-09 14:02:32,530 log Not Found: /check-wishlist-status/6/
+WARNING 2024-11-09 14:02:32,535 log Not Found: /check-wishlist-status/8/
+WARNING 2024-11-09 14:02:32,538 log Not Found: /check-wishlist-status/2/
+WARNING 2024-11-09 14:02:32,542 log Not Found: /check-wishlist-status/4/
+WARNING 2024-11-09 14:02:32,547 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 14:02:32,550 log Not Found: /check-wishlist-status/5/
+WARNING 2024-11-09 14:02:32,555 log Not Found: /check-wishlist-status/7/
+WARNING 2024-11-09 14:02:32,560 log Not Found: /check-wishlist-status/3/
+WARNING 2024-11-09 14:02:32,600 log Not Found: /check-wishlist-status/10/
+WARNING 2024-11-09 14:02:32,605 log Not Found: /check-wishlist-status/9/
+WARNING 2024-11-09 14:02:32,608 log Not Found: /check-wishlist-status/12/
+WARNING 2024-11-09 14:02:32,611 log Not Found: /check-wishlist-status/11/
+WARNING 2024-11-09 14:02:39,877 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 14:02:54,006 log Not Found: /check-wishlist-status/1/
+WARNING 2024-11-09 14:02:54,037 log Not Found: /check-wishlist-status/2/
+WARNING 2024-11-09 14:02:54,041 log Not Found: /check-wishlist-status/5/
+WARNING 2024-11-09 14:02:54,044 log Not Found: /check-wishlist-status/8/
+WARNING 2024-11-09 14:02:54,048 log Not Found: /check-wishlist-status/12/
+WARNING 2024-11-09 14:02:54,053 log Not Found: /check-wishlist-status/7/
+WARNING 2024-11-09 14:02:54,057 log Not Found: /check-wishlist-status/4/
+WARNING 2024-11-09 14:02:54,061 log Not Found: /check-wishlist-status/6/
+WARNING 2024-11-09 14:02:54,066 log Not Found: /check-wishlist-status/3/
+WARNING 2024-11-09 14:02:54,071 log Not Found: /check-wishlist-status/10/
+WARNING 2024-11-09 14:02:54,075 log Not Found: /check-wishlist-status/11/
+WARNING 2024-11-09 14:02:54,079 log Not Found: /check-wishlist-status/9/
+INFO 2024-11-09 14:06:39,771 autoreload /workspace/cosmic-love-shop/users/views.py changed, reloading.
+INFO 2024-11-09 14:06:41,144 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 14:06:45,874 log Not Found: /favicon.ico

@@ -5,8 +5,9 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse, HttpResponseForbidden
 from django.conf import settings
 from .forms import UserForm, ProfileForm, AddressForm, NewsletterSubscriptionForm
-from .models import UserProfile, Order, Wishlist, Address, NewsletterSubscriber, Product 
+from .models import UserProfile, Order, Wishlist, Address, NewsletterSubscriber, Product
 from .mailchimp import MailchimpService
+
 
 @login_required
 def user_profile(request):
@@ -40,6 +41,7 @@ def user_profile(request):
         'wishlist': wishlist,
         'addresses': addresses,
     })
+
 
 @login_required
 def manage_addresses(request):
@@ -88,6 +90,7 @@ def manage_addresses(request):
         'editing_address_id': editing_address_id,
     })
 
+
 @login_required
 def delete_account(request):
     """View to delete the user's account directly from the profile."""
@@ -98,6 +101,7 @@ def delete_account(request):
         messages.success(request, 'Your account has been deleted successfully.')
         return redirect('home')
     return HttpResponseForbidden()
+
 
 @require_http_methods(["POST"])
 def newsletter_signup(request):
@@ -170,7 +174,6 @@ def toggle_newsletter_subscription(request):
                     }
                 }
             else:
-                # Subscribe
                 NewsletterSubscriber.objects.get_or_create(email=email)
                 member_info = {
                     "email_address": email,
@@ -209,42 +212,102 @@ def toggle_newsletter_subscription(request):
     
     return redirect('profile')
 
+
 @login_required
 def add_to_wishlist(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, id=product_id)
-        wishlist_item, created = Wishlist.objects.get_or_create(
+        wishlist_item = Wishlist.objects.filter(
             user=request.user,
             product=product
-        )
+        ).first()
         
-        if created:
-            status = 'added'
-            message = 'Product added to wishlist'
-        else:
+        if wishlist_item:
             wishlist_item.delete()
             status = 'removed'
             message = 'Product removed from wishlist'
+            is_in_wishlist = False
+        else:
+
+            Wishlist.objects.create(
+                user=request.user,
+                product=product
+            )
+            status = 'added'
+            message = 'Product added to wishlist'
+            is_in_wishlist = True
         
-        updated_wishlist = Wishlist.objects.filter(user=request.user)
-        wishlist_items = [{'id': item.id, 'product_id': item.product.id, 'product_name': item.product.name} for item in updated_wishlist]
+        updated_wishlist = Wishlist.objects.filter(user=request.user).select_related('product')
+        
+        wishlist_items = [{
+            'id': item.id,
+            'product_id': item.product.id,
+            'product_name': item.product.name,
+        } for item in updated_wishlist]
         
         return JsonResponse({
             'status': status,
             'message': message,
-            'wishlist': wishlist_items
+            'in_wishlist': is_in_wishlist,
+            'wishlist': wishlist_items,
+            'product_id': product_id
         })
+        
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
 
 @login_required
 def remove_from_wishlist(request, item_id):
     wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
+    product_id = wishlist_item.product.id
     wishlist_item.delete()
     messages.success(request, 'Item removed from wishlist')
+    
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return JsonResponse({
+            'status': 'removed',
+            'message': 'Product removed from wishlist',
+            'in_wishlist': False
+        })
     return redirect('profile')
 
-def is_in_wishlist(request, product_id):
-    if not request.user.is_authenticated:
-        return JsonResponse({'in_wishlist': False})
-    is_in = Wishlist.objects.filter(user=request.user, product_id=product_id).exists()
-    return JsonResponse({'in_wishlist': is_in})
+
+@login_required
+def check_wishlist_status(request, product_id):
+    """Check if a product is in user's wishlist"""
+    try:
+        is_in_wishlist = Wishlist.objects.filter(
+            user=request.user,
+            product_id=product_id
+        ).exists()
+        
+        return JsonResponse({
+            'in_wishlist': is_in_wishlist,
+            'product_id': product_id
+        })
+    except Exception as e:
+        return JsonResponse({
+            'error': str(e),
+            'in_wishlist': False
+        }, status=400)
+
+
+@login_required
+def get_wishlist(request):
+    """Get all wishlist items for the current user"""
+    try:
+        wishlist_items = Wishlist.objects.filter(user=request.user)
+        items = [{
+            'id': item.id,
+            'product_id': item.product.id,
+            'product_name': item.product.name,
+            'in_wishlist': True
+        } for item in wishlist_items]
+        
+        return JsonResponse({
+            'wishlist': items
+        })
+    except Exception as e:
+        return JsonResponse({
+            'error': str(e)
+        }, status=400)

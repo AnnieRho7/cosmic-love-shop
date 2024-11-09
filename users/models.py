@@ -92,7 +92,7 @@ class Wishlist(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ('user', 'product')  # Ensure a user can't have the same product in their wishlist
+        unique_together = ('user', 'product')
 
     def __str__(self):
         return f"{self.user.username}'s Wishlist - {self.product.name}"
