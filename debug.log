@@ -2845,3 +2845,374 @@ WARNING 2024-11-09 14:02:54,079 log Not Found: /check-wishlist-status/9/
 INFO 2024-11-09 14:06:39,771 autoreload /workspace/cosmic-love-shop/users/views.py changed, reloading.
 INFO 2024-11-09 14:06:41,144 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-09 14:06:45,874 log Not Found: /favicon.ico
+INFO 2024-11-09 14:17:40,505 autoreload /workspace/cosmic-love-shop/checkout/urls.py changed, reloading.
+INFO 2024-11-09 14:17:41,742 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:17:49,768 autoreload /workspace/cosmic-love-shop/checkout/urls.py changed, reloading.
+INFO 2024-11-09 14:17:50,672 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:19:17,137 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 14:19:18,015 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:20:01,752 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:20:02,669 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:20:18,006 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:20:18,897 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:20:36,682 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:22:36,716 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:22:37,236 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:22:37,937 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:22:38,738 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:22:44,685 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:22:45,113 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:22:45,576 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:22:46,077 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:25:52,703 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:25:53,383 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:25:54,036 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:25:54,517 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:29:28,037 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:29:28,619 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:29:29,401 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:29:29,863 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:31:01,482 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:31:02,074 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 14:31:02,441 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:31:03,024 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:33:09,785 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:33:19,965 autoreload /workspace/cosmic-love-shop/checkout/webhook.py changed, reloading.
+INFO 2024-11-09 14:33:20,892 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 14:33:47,323 autoreload /workspace/cosmic-love-shop/checkout/urls.py changed, reloading.
+INFO 2024-11-09 14:33:48,211 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 14:33:55,026 log Not Found: /favicon.ico
+INFO 2024-11-09 14:34:10,276 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 14:34:10,682 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:00:15,539 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 15:00:15,725 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 15:00:17,640 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:00:17,682 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:01:18,819 autoreload /workspace/cosmic-love-shop/checkout/webhook.py changed, reloading.
+INFO 2024-11-09 15:01:19,733 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:02:22,061 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:02:22,432 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:02:23,235 log Not Found: /favicon.ico
+INFO 2024-11-09 15:05:21,576 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:05:21,958 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:05:22,827 log Not Found: /favicon.ico
+INFO 2024-11-09 15:08:27,565 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:08:27,927 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:08:28,809 log Not Found: /favicon.ico
+WARNING 2024-11-09 15:08:30,467 log Not Found: /favicon.ico
+INFO 2024-11-09 15:08:32,559 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:08:32,907 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:09:49,094 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:09:57,789 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:09:58,150 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:16:23,262 autoreload /workspace/cosmic-love-shop/checkout/forms.py changed, reloading.
+INFO 2024-11-09 15:16:24,615 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-09 15:16:27,182 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 70, in checkout
+    order_form = OrderForm()
+                 ^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/forms.py", line 35, in __init__
+    placeholder = placeholders[field]
+                  ~~~~~~~~~~~~^^^^^^^
+KeyError: 'postcode'
+WARNING 2024-11-09 15:16:27,324 log Not Found: /favicon.ico
+INFO 2024-11-09 15:16:43,067 autoreload /workspace/cosmic-love-shop/checkout/forms.py changed, reloading.
+INFO 2024-11-09 15:16:44,034 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:17:40,249 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:17:40,621 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:17:41,193 log Not Found: /favicon.ico
+INFO 2024-11-09 15:18:42,251 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:18:42,536 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:18:42,598 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:18:42,720 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "users_order" violates not-null constraint
+DETAIL:  Failing row contains (1, 2024-11-09 15:18:42.599032+00, null, Ireland, null, 0.00, annierhodes17@gmail.com, Annie Rhodes, 0.00, D3ABF1100D734678813646BF0685FD34, 0.00, 0856752654, 00000, Bayview, null, Killiney).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 46, in checkout
+    order.save()
+  File "/workspace/cosmic-love-shop/users/models.py", line 69, in save
+    super().save(*args, **kwargs)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "user_id" of relation "users_order" violates not-null constraint
+DETAIL:  Failing row contains (1, 2024-11-09 15:18:42.599032+00, null, Ireland, null, 0.00, annierhodes17@gmail.com, Annie Rhodes, 0.00, D3ABF1100D734678813646BF0685FD34, 0.00, 0856752654, 00000, Bayview, null, Killiney).
+
+WARNING 2024-11-09 15:18:59,309 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:21:00,793 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:21:01,739 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:21:05,729 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:21:06,087 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:21:06,587 log Not Found: /favicon.ico
+INFO 2024-11-09 15:21:43,592 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:21:43,864 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:21:43,918 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:21:44,069 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 58, in checkout
+    for size, quantity in item_data.items():
+                          ^^^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'items'
+INFO 2024-11-09 15:24:59,122 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:25:00,051 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:25:02,939 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:25:03,282 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:25:03,930 log Not Found: /favicon.ico
+INFO 2024-11-09 15:25:27,633 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:25:27,961 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:25:28,019 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+ERROR 2024-11-09 15:25:28,045 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 63, in checkout
+    size=None if not product.has_sizes else None,
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Product' object has no attribute 'has_sizes'
+INFO 2024-11-09 15:28:22,847 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:28:24,641 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:28:26,727 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:28:27,634 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:28:40,835 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:28:41,716 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:28:50,137 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:28:50,477 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:28:51,008 log Not Found: /favicon.ico
+INFO 2024-11-09 15:32:35,006 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 15:32:36,058 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:32:39,328 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:32:39,666 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:32:40,589 log Not Found: /favicon.ico
+INFO 2024-11-09 15:33:23,164 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:33:24,236 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:33:49,698 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:33:51,339 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:33:56,714 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:33:57,041 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:33:57,810 log Not Found: /favicon.ico
+INFO 2024-11-09 15:35:44,735 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:35:45,078 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:35:45,757 log Not Found: /favicon.ico
+INFO 2024-11-09 15:36:20,265 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:36:20,593 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:36:20,598 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+ERROR 2024-11-09 15:36:20,671 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 57, in checkout
+    quantity = item_data.get('quantity', 1)
+               ^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+INFO 2024-11-09 15:39:23,801 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:39:24,120 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:39:24,762 log Not Found: /favicon.ico
+INFO 2024-11-09 15:40:55,035 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:40:56,575 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:41:00,881 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:41:01,891 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:41:07,162 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:41:08,132 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:41:39,853 autoreload /workspace/cosmic-love-shop/checkout/forms.py changed, reloading.
+INFO 2024-11-09 15:41:40,739 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:41:43,134 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:41:43,455 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:41:43,475 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 93, in checkout
+    'order_form': order_form,
+                  ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'order_form' where it is not associated with a value
+WARNING 2024-11-09 15:41:43,592 log Not Found: /favicon.ico
+INFO 2024-11-09 15:42:46,038 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:42:46,979 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 15:42:49,103 log Not Found: /favicon.ico
+INFO 2024-11-09 15:42:51,284 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:42:51,646 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:43:16,355 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:43:16,605 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:43:16,759 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:43:16,834 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 67, in checkout
+    quantity = item_data.get('quantity', 1)
+               ^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+INFO 2024-11-09 15:44:12,630 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:44:13,546 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:44:17,040 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:44:17,366 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:44:18,050 log Not Found: /favicon.ico
+INFO 2024-11-09 15:44:41,653 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:44:41,863 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:44:41,979 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:44:42,251 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 81, in checkout
+    line_item.save()
+  File "/workspace/cosmic-love-shop/users/models.py", line 83, in save
+    super().save(*args, **kwargs)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 1012, in save_base
+    post_save.send(
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/signals.py", line 11, in update_on_save
+    instance.order.update_total()
+  File "/workspace/cosmic-love-shop/users/models.py", line 59, in update_total
+    self.delivery_cost = self.order_total * 0.1  # Example delivery percentage
+                         ~~~~~~~~~~~~~~~~~^~~~~
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+INFO 2024-11-09 15:45:38,100 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 15:45:38,988 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:45:42,093 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 15:45:43,076 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:45:45,121 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:45:45,453 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+WARNING 2024-11-09 15:45:46,204 log Not Found: /favicon.ico
+INFO 2024-11-09 15:46:10,976 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:46:11,225 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:46:11,300 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:46:11,435 log Internal Server Error: /checkout/checkout/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 81, in checkout
+    line_item.save()
+  File "/workspace/cosmic-love-shop/users/models.py", line 84, in save
+    super().save(*args, **kwargs)
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/db/models/base.py", line 1012, in save_base
+    post_save.send(
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/signals.py", line 11, in update_on_save
+    instance.order.update_total()
+  File "/workspace/cosmic-love-shop/users/models.py", line 58, in update_total
+    if self.order_total < Decimal('50.00'):
+                          ^^^^^^^
+NameError: name 'Decimal' is not defined
+INFO 2024-11-09 15:46:53,445 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 15:46:54,536 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:46:57,375 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 15:46:57,733 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:46:58,221 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:46:58,467 log Not Found: /favicon.ico
+INFO 2024-11-09 15:46:58,541 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+INFO 2024-11-09 15:47:20,922 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+WARNING 2024-11-09 15:47:21,182 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+INFO 2024-11-09 15:47:21,237 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
+ERROR 2024-11-09 15:47:21,831 log Internal Server Error: /checkout/checkout/success/AFFC833D8F7540B9BE29B24AAB9661D4/
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cosmic-love-shop/checkout/views.py", line 147, in checkout_success
+    return render(request, 'checkout/checkout_success.html', {'order': order})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: checkout/checkout_success.html
+WARNING 2024-11-09 15:49:44,511 log Not Found: /favicon.ico

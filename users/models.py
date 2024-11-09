@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db.models import Sum
+from decimal import Decimal
 import uuid
 from products.models import Product
 
@@ -53,12 +54,13 @@ class Order(models.Model):
 
     def update_total(self):
         """Update grand total each time a line item is added, accounting for delivery costs."""
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        # Assuming standard delivery cost calculation (adjust as needed)
-        if self.order_total < 50:  # Example threshold for free delivery
-            self.delivery_cost = self.order_total * 0.1  # Example delivery percentage
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or Decimal('0')
+        
+        if self.order_total < Decimal('50.00'):
+            self.delivery_cost = self.order_total * Decimal('0.1')
         else:
-            self.delivery_cost = 0
+            self.delivery_cost = Decimal('0')
+            
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
@@ -74,8 +76,6 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    color = models.CharField(max_length=30, null=True, blank=True)
-    gemstone = models.CharField(max_length=30, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 

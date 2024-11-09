@@ -157,6 +157,30 @@ body.contact-page main {
     margin-top: 80px;
 }
 
+/* Order Confirmation*/
+.order-confirmation-wrapper {
+    background-color: #fafafa;
+    margin-bottom: 2rem;
+}
+
+.order-confirmation-wrapper .row {
+    padding: 1rem 0;
+}
+
+.order-confirmation-wrapper .row:not(:last-child) {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.text-md-right {
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .text-md-right {
+        text-align: left;
+    }
+}
+
 /* Alert Banner Container Styling */
 .alert-banner {
     position: fixed;
