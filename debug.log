@@ -3645,3 +3645,5 @@ INFO 2024-11-09 21:25:33,403 autoreload /workspace/cosmic-love-shop/checkout/adm
 INFO 2024-11-09 21:25:34,317 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-09 21:27:23,453 log Not Found: /favicon.ico
 WARNING 2024-11-09 21:29:39,006 log Not Found: /favicon.ico
+INFO 2024-11-09 21:37:24,260 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
+INFO 2024-11-09 21:37:24,623 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200

@@ -189,32 +189,70 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 ## Known Bugs and Limitations
 
-During the development and testing phase, a few issues were identified. These are documented here for transparency and future improvement.
+### 1. **Responsiveness Issues**
+   - Some pages (e.g., profile, checkout) have layout problems on smaller screens (mobile/tablet).
+   - **Temporary Fix**: No workaround available yet. Being addressed in future updates.
 
-### Validation Errors
+### 2. **CSS Styling Inconsistencies**
+   - Certain styles (e.g., buttons, fonts) may not render correctly across all browsers and devices.
+   - **Temporary Fix**: Best viewed on Chrome; other browsers may have display issues.
 
-* Document any known HTML/CSS validation errors encountered.
+### 3. **Content Overlap on Small Screens**
+   - Text and images might overlap or not wrap correctly on smaller devices.
+   - **Temporary Fix**: Resize the browser or use the desktop version on mobile.
 
-**Impact**: Low - May affect HTML validation scores.
+### 4. **Font Size Inconsistencies**
+   - Fonts may be too large or small depending on screen size.
+   - **Temporary Fix**: Currently investigating better responsive typography.
 
-### Responsiveness Issues
-
-* Document any responsive design limitations, particularly on smaller screen sizes.
-
-**Impact**: Medium - Affects user experience on mobile devices.
-
-### Performance Optimization
-
-* Document any performance-related issues or areas for improvement.
-
-**Impact**: Low to Medium - Core functionality not affected.
+### 5. **Advanced Product Search and Filters**
+   - The current product search and filter functionality is not working as expected. While the basic search feature is in place, the advanced filters (such as price range, category, rating, and brand) are either not returning accurate results or are not functioning properly in certain cases.
+   - **Possible Causes**: 
+     - Incorrect form handling or missing query parameters in the backend.
+     - Frontend elements (filters) may not be properly linked to the product listing or may not trigger the search functionality correctly.
+     - JavaScript or AJAX issues causing filters to not update the displayed results dynamically.
+   - **Next Steps**: Investigating the backend query logic, ensuring proper AJAX handling, and validating the UI interactions for accurate filtering.
 
 ---
 
-### Possible Future Features
+## Possible Future Features
 
-* Integration with payment gateways for easier checkout.
-* Enhanced search functionality for products.
+### 1. **Payment Gateway Integration**
+   - Integrate more popular payment gateways for a seamless and secure checkout experience.
+   - **Benefits**: Faster, more flexible payment options for users; supports credit/debit card payments and PayPal.
+
+### 2. **Advanced Product Search and Filters**
+   - Implement an enhanced search functionality with advanced filtering options (e.g., price range, category, rating, brand).
+   - **Benefits**: Users can quickly find products that match their preferences, improving user experience and conversion rates.
+
+### 3. **Order Tracking**
+   - Provide real-time order tracking to allow users to track the status of their orders from placement to delivery.
+   - **Benefits**: Users can stay informed about their purchases, reducing customer service inquiries and improving user satisfaction.
+
+### 4. **User Ratings and Reviews**
+   - Add a feature for users to rate and review products they've purchased.
+   - **Benefits**: Helps other users make informed purchasing decisions; builds a sense of community and trust around products.
+
+### 5. **Wishlist Sharing**
+   - Allow users to share their wishlist with friends and family via email or social media.
+   - **Benefits**: Users can easily share their favorite products or wishlists with others, enhancing engagement and social sharing.
+
+### 6. **Multi-Currency Support**
+   - Implement support for multiple currencies to allow international users to view prices and complete transactions in their local currency.
+   - **Benefits**: Expands your reach to international markets and improves accessibility for global customers.
+
+### 7. **Discount and Promo Code System**
+   - Introduce a discount and promo code system for marketing campaigns and special offers.
+   - **Benefits**: Encourage repeat purchases, increase customer loyalty, and promote special deals or seasonal sales.
+
+### 8. **Mobile App Integration**
+   - Develop a mobile app version of the website to provide users with a more convenient, app-native experience.
+   - **Benefits**: Push notifications, a smoother user interface, and access to features like barcode scanning or location-based services.
+
+---
+
+These features are intended to improve user experience, increase conversion rates, and enhance the functionality of the platform. They are planned for future updates and development.
+
 
 ## Search Engine Optimization (SEO)
 
@@ -259,24 +297,40 @@ These implementations help search engines better understand and index the site's
 * [CSS 3](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://www.javascript.com/)
 * [Python](https://www.python.org/)
-* [Django](https://www.djangoproject.com/)
 
-### Django Packages Used
+### Frameworks and Libraries Used
 
-* List any Django packages you used for your project, e.g.,:
-  - [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Comprehensive authentication and account management.
-  - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - A Django app for beautiful forms styling.
-  - [whitenoise](http://whitenoise.evans.io/en/stable/) - Simplifies serving static files in production.
+* [Django](https://www.djangoproject.com/) - Web framework for building scalable web applications.
+* [Django REST Framework](https://www.django-rest-framework.org/) - Toolkit for building APIs (if used, otherwise remove).
+* [Stripe](https://stripe.com/) - Payment gateway integration.
+* [Mailchimp Marketing API](https://mailchimp.com/developer/marketing/) - To handle newsletter subscriptions.
+* [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Comprehensive authentication and account management (sign up, login, etc.).
+* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Beautiful forms with Bootstrap styling.
+* [django-storages](https://django-storages.readthedocs.io/en/latest/) - Storage backends for Django (likely for handling static and media files).
+* [whitenoise](http://whitenoise.evans.io/en/stable/) - Simplifies serving static files in production.
 
-### Frameworks - Libraries - Programs Used
+### Python Packages Used
 
-* [Bootstrap](https://getbootstrap.com/)
-* [JQuery](https://jquery.com/)
-* [Git](https://git-scm.com/)
-* [GitHub](https://github.com/)
-* [Heroku](https://id.heroku.com)
-* [VSCode](https://code.visualstudio.com/)
-* [Fontawesome](https://fontawesome.com/)
+* [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for Python.
+* [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) - Binary version of `psycopg2` for easy installation.
+* [python-decouple](https://pypi.org/project/python-decouple/) - To manage configuration via environment variables.
+* [PyJWT](https://pyjwt.readthedocs.io/en/stable/) - JSON Web Token authentication library.
+* [oauthlib](https://oauthlib.readthedocs.io/en/latest/) - To handle OAuth-based authentication.
+* [requests-oauthlib](https://requests-oauthlib.readthedocs.io/en/latest/) - OAuth 1 and OAuth 2 authentication with requests.
+
+### Tools and Technologies for Deployment
+
+* [Gunicorn](https://gunicorn.org/) - WSGI HTTP server for Python web apps.
+* [Heroku](https://www.heroku.com/) - Cloud platform for deploying and managing applications.
+* [Git](https://git-scm.com/) - Version control system.
+* [GitHub](https://github.com/) - Platform for hosting code and collaborating.
+* [VSCode](https://code.visualstudio.com/) - Code editor used for development.
+
+### Frontend Tools and Libraries
+
+* [Bootstrap 5](https://getbootstrap.com/) - Frontend framework for responsive design.
+* [jQuery](https://jquery.com/) - JavaScript library for simplified DOM manipulation.
+* [FontAwesome](https://fontawesome.com/) - Icon toolkit for web applications.
 
 ## Development & Testing
 
@@ -294,7 +348,7 @@ For detailed validation results, including screenshots from the HTML and PEP 8 v
 
 ### Lighthouse Performance
 
-![Lighthouse Accessibility Score](./readme-images/light-house.png)
+![Lighthouse Accessibility Score](/media/readme-images/lighthouse.png)
 
 ## Deployment
 
