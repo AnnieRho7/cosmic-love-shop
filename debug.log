@@ -3216,3 +3216,51 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: checkout/checkout_success.html
 WARNING 2024-11-09 15:49:44,511 log Not Found: /favicon.ico
+INFO 2024-11-09 15:54:14,376 autoreload /workspace/cosmic-love-shop/cart/views.py changed, reloading.
+INFO 2024-11-09 15:54:15,362 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:56:16,535 autoreload /workspace/cosmic-love-shop/cart/views.py changed, reloading.
+INFO 2024-11-09 15:56:17,472 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:57:05,362 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:57:06,281 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:58:40,674 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
+INFO 2024-11-09 15:58:41,584 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:58:49,846 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:58:50,983 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:59:28,756 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:59:29,669 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:59:52,061 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:59:53,029 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 15:59:58,220 autoreload /workspace/cosmic-love-shop/home/models.py changed, reloading.
+INFO 2024-11-09 15:59:59,120 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:00:17,458 autoreload /workspace/cosmic-love-shop/home/views.py changed, reloading.
+INFO 2024-11-09 16:00:18,357 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:01:25,571 autoreload /workspace/cosmic-love-shop/legal/views.py changed, reloading.
+INFO 2024-11-09 16:01:26,529 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:02:04,288 autoreload /workspace/cosmic-love-shop/products/models.py changed, reloading.
+INFO 2024-11-09 16:02:05,206 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:02:56,288 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
+INFO 2024-11-09 16:02:57,790 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:03:05,868 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
+INFO 2024-11-09 16:03:06,831 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:03:51,612 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:03:52,526 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:04:10,944 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:04:11,900 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:04:57,833 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:04:58,800 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:05:16,197 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:05:17,092 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:05:35,433 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:05:36,341 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:05:54,777 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:05:55,790 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:06:28,460 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:06:29,393 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:06:56,724 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:06:57,450 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:07:11,705 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:07:13,627 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:07:21,847 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:07:22,650 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 16:10:41,988 autoreload /workspace/cosmic-love-shop/users/models.py changed, reloading.
+INFO 2024-11-09 16:10:42,777 autoreload Watching for file changes with StatReloader

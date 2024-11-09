@@ -6,6 +6,9 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 
 def all_products(request):
+    """ 
+    A view to show a list of products 
+    """
     products = Product.objects.all()
     query = None
     categories = None
@@ -41,7 +44,6 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}' if sort and direction else 'None_None'
 
-    # Add meta description for product listing page
     if categories:
         category_names = ', '.join(categories)
         meta_description = f"Shop our {category_names} collection at Cosmic Love. Handcrafted gemstone jewellery made with love. Unique pieces in silver and brass."
@@ -66,18 +68,19 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ 
+    A view to show individual product details 
+    """
     
     product = get_object_or_404(Product, pk=product_id)
     
-    # Generate meta description for product
     meta_description = f"{product.name} - {product.description[:100]}... Handcrafted gemstone jewellery by Cosmic Love."
-    if len(meta_description) > 160:  # Ensure meta description isn't too long
+    if len(meta_description) > 160:
         meta_description = meta_description[:157] + "..."
         
     meta_title = f"{product.name} | Cosmic Love Jewellery"
     
-    # Add category to title if available
+
     if product.category:
         meta_title = f"{product.name} - {product.category.friendly_name} | Cosmic Love Jewellery"
 

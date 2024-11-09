@@ -8,6 +8,7 @@ import uuid
 from products.models import Product
 
 class UserProfile(models.Model):
+    """User profile model for storing user details and preferences."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
@@ -17,7 +18,9 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username}'s Profile"
 
-class Address(models.Model):  # New Address Model
+
+class Address(models.Model):
+    """Delivery address model for storing user shipping information."""
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses')
     full_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=20)
@@ -31,7 +34,9 @@ class Address(models.Model):  # New Address Model
     def __str__(self):
         return f'{self.full_name} - {self.street_address1}, {self.town_or_city}'
 
+
 class Order(models.Model):
+    """Order model for storing customer purchase information and totals."""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -49,7 +54,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
-        """Generate a random, unique order number using UUID"""
+        """Generate a random, unique order number using UUID."""
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
@@ -73,7 +78,9 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
+
 class OrderLineItem(models.Model):
+    """Individual order line item linking products to orders."""
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
@@ -87,7 +94,9 @@ class OrderLineItem(models.Model):
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
 
+
 class Wishlist(models.Model):
+    """User wishlist for saving products for later purchase."""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
@@ -99,6 +108,7 @@ class Wishlist(models.Model):
     
     
 class NewsletterSubscriber(models.Model):
+    """Newsletter subscriber model for marketing communications."""
     email = models.EmailField(unique=True)
     date_subscribed = models.DateTimeField(auto_now_add=True)
 
@@ -108,13 +118,16 @@ class NewsletterSubscriber(models.Model):
     class Meta:
         verbose_name = 'Newsletter Subscriber'
         verbose_name_plural = 'Newsletter Subscribers'
-    
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
+    """Signal to create user profile when user is created."""
     if created:
         UserProfile.objects.create(user=instance)
 
+
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+    """Signal to save user profile when user is saved."""
     instance.userprofile.save()

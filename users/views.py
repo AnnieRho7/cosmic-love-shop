@@ -11,7 +11,9 @@ from .mailchimp import MailchimpService
 
 @login_required
 def user_profile(request):
-    """View for users to view and update their own profile and order history."""
+    """
+    View for users to view and update their own profile and order history.
+    """
     user = request.user
     user_profile, _ = UserProfile.objects.get_or_create(user=user)
 
@@ -45,6 +47,9 @@ def user_profile(request):
 
 @login_required
 def manage_addresses(request):
+    """
+    A view to handle how addesses are handled.
+    """
     addresses = Address.objects.filter(user=request.user)
 
     editing_address_id = request.session.get('editing_address_id')
@@ -93,7 +98,9 @@ def manage_addresses(request):
 
 @login_required
 def delete_account(request):
-    """View to delete the user's account directly from the profile."""
+    """
+    View to delete the user's account directly from the profile.
+    """
     if request.method == 'POST':
         user = request.user
         UserProfile.objects.filter(user=user).delete()
@@ -105,7 +112,9 @@ def delete_account(request):
 
 @require_http_methods(["POST"])
 def newsletter_signup(request):
-    """Handle newsletter subscriptions"""
+    """
+    Handle newsletter subscriptions
+    """
     form = NewsletterSubscriptionForm(request.POST)
     if form.is_valid():
         email = form.cleaned_data['email']
@@ -145,7 +154,9 @@ def newsletter_signup(request):
 
 
 def toggle_newsletter_subscription(request):
-    """Toggle newsletter subscription status for logged-in users"""
+    """
+    Toggle newsletter subscription status for logged-in users
+    """
     if not request.user.is_authenticated:
         messages.error(request, "Please log in to manage your newsletter subscription.")
         return redirect('login')
@@ -215,6 +226,9 @@ def toggle_newsletter_subscription(request):
 
 @login_required
 def add_to_wishlist(request, product_id):
+    """
+    a view to add to wishlist.
+    """
     if request.method == 'POST':
         product = get_object_or_404(Product, id=product_id)
         wishlist_item = Wishlist.objects.filter(
@@ -258,6 +272,9 @@ def add_to_wishlist(request, product_id):
 
 @login_required
 def remove_from_wishlist(request, item_id):
+    """
+    A view to remove from wishlist.
+    """
     wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
     product_id = wishlist_item.product.id
     wishlist_item.delete()
@@ -274,7 +291,9 @@ def remove_from_wishlist(request, item_id):
 
 @login_required
 def check_wishlist_status(request, product_id):
-    """Check if a product is in user's wishlist"""
+    """
+    Check if a product is in user's wishlist
+    """
     try:
         is_in_wishlist = Wishlist.objects.filter(
             user=request.user,
@@ -294,7 +313,9 @@ def check_wishlist_status(request, product_id):
 
 @login_required
 def get_wishlist(request):
-    """Get all wishlist items for the current user"""
+    """
+    Get all wishlist items for the current user
+    """
     try:
         wishlist_items = Wishlist.objects.filter(user=request.user)
         items = [{
