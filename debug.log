@@ -3281,3 +3281,5 @@ INFO 2024-11-09 16:16:43,430 autoreload /workspace/cosmic-love-shop/cart/context
 INFO 2024-11-09 16:16:44,294 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-09 16:17:11,295 log Not Found: /favicon.ico
 WARNING 2024-11-09 16:18:10,914 log Not Found: /favicon.ico
+WARNING 2024-11-09 16:19:34,045 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 16:21:03,730 log Forbidden (CSRF cookie not set.): /checkout/webhook/

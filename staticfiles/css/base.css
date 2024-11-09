@@ -27,7 +27,6 @@ main {
     color: white;
     padding: 10px;
     text-align: center;
-    margin-top: 60px;
 }
 
 .hero-text {
@@ -89,6 +88,25 @@ main {
     background-color: #f8f9fa;
 }
 
+.wishlist-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+}
+
+.wishlist-btn:hover {
+    cursor: pointer;
+}
+
+.wishlist-btn.active i {
+    color: red;
+}
+
+.wishlist-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 /* Best Sellers Section */
 .best-sellers-section {
     padding: 50px 0;
@@ -136,21 +154,48 @@ main {
 }
 
 body.contact-page main {
-    margin-top: 80px; /* Push down the main content */
+    margin-top: 80px;
+}
+
+/* Order Confirmation*/
+.order-confirmation-wrapper {
+    background-color: #fafafa;
+    margin-bottom: 2rem;
+}
+
+.order-confirmation-wrapper .row {
+    padding: 1rem 0;
+}
+
+.order-confirmation-wrapper .row:not(:last-child) {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.text-md-right {
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .text-md-right {
+        text-align: left;
+    }
 }
 
 /* Alert Banner Container Styling */
 .alert-banner {
     position: fixed;
     top: 70px;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 600px;
     z-index: 1050;
-    display: flex;
-    justify-content: center;
 }
+
 .alert-banner .alert {
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
 }
 
 .auth-page {
@@ -308,6 +353,9 @@ body.contact-page main {
 
     .best-sellers-section .col-12 {
         padding: 0 20px;
+    }
+    .alert-banner {
+        max-width: 90%;
     }
 }
 

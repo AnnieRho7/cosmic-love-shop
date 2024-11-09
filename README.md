@@ -117,21 +117,17 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
    - Represents completed purchases by users.
    - Contains order details, status, and payment information.
 
-5. **Review**
-   - Represents user reviews for products.
-   - Linked to both User and Product.
 
 ### Relationships
 
 - **User - Product**: One-to-Many relationship, where a user can leave multiple reviews for different products.
 - **User - Order**: One-to-Many relationship, where a user can have multiple orders.
-- **Product - Review**: One-to-Many relationship, where a product can have multiple reviews.
 
 ---
 
 ### Media
 
-* All images used on the site are sourced from [Pexels](https://www.pexels.com/).
+* Some images used on the site are sourced from [Pexels](https://www.pexels.com/) and my own personal photos.
 * Graphics were created in [Canva](https://www.canva.com/).
 
 ## Features
@@ -199,10 +195,41 @@ During the development and testing phase, a few issues were identified. These ar
 
 ### Possible Future Features
 
-* User profile management and enhanced account functionality.
-* Wishlist feature for users to save products for later.
 * Integration with payment gateways for easier checkout.
 * Enhanced search functionality for products.
+
+## Search Engine Optimization (SEO)
+
+The following SEO features have been implemented to ensure better search engine visibility:
+
+### Meta Tags
+
+- **Custom meta descriptions** for all pages
+- **Dynamic titles** that reflect current page content
+- All key pages have relevant **meta descriptions** focused on handmade jewellery and gemstones
+
+### Sitemap
+
+A `sitemap.xml` file has been implemented that includes:
+
+- All static pages (home, about, contact)
+- Product listings and individual product pages
+- Dynamically updates with new products
+- Priority levels set higher (0.9) for product pages
+
+### Robots.txt
+
+A `robots.txt` file has been implemented to:
+
+- Allow search engines to crawl main content pages
+- Prevent crawling of private areas:
+  - Cart
+  - Checkout
+  - Admin pages
+  - User account pages
+- Direct search engines to the `sitemap.xml`
+
+These implementations help search engines better understand and index the site's content, improving visibility for potential customers searching for handmade jewellery and gemstone products.
 
 ## Technologies
 
