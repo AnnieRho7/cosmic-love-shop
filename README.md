@@ -33,30 +33,16 @@ A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.
   
 ### Agile Methodology
 
-The Agile Methodology was used to plan this project, utilizing GitHub’s Project Board. You can view the project board [here](insert-project-board-link-here).
+The Agile Methodology was used to plan this project, utilizing GitHub’s Project Board. You can view the project board [here](https://github.com/users/AnnieRho7/projects/3/views/1).
 
 ### The Scope
 
 * To create a user-friendly and visually appealing e-commerce platform for handmade jewellery.
-* To facilitate user interaction through reviews and a wishlist feature.
+* To facilitate user interaction through a wishlist feature.
 
 ## Design
 
-The design of this project follows a modern and elegant aesthetic to ensure a seamless shopping experience. Below are the key design elements:
-
-### Color Palette
-
-| **Color**           | **Hex Code** | **Usage**                                           |
-|---------------------|--------------|-----------------------------------------------------|
-| **Primary Color**    | `#8A2BE2`    | Used for buttons, links, and key elements           |
-| **Secondary Color**  | `#FF69B4`    | Accent color for hover effects and highlights       |
-
-### Fonts
-
-The site uses Google Fonts for consistent typography:
-
-- **Primary Font:** Montserrat (used for body text)
-- **Secondary Font:** Playfair Display (used for headings)
+The design of this project follows a modern and elegant aesthetic to ensure a seamless shopping experience.
 
 [Back to the top](#top)
 
@@ -67,24 +53,24 @@ The wireframes below illustrate the initial layout and design for different sect
 ### Desktop Wireframes
 
 1. **Home Page**  
-   ![Home Wireframe](./readme-images/home-wireframe.png)
+   ![Home Wireframe](/media/readme-images/home-wireframe.png)
 
 2. **About Page**  
-   ![About Wireframe](./readme-images/about-wireframe.png)
+   ![About Wireframe](/media/readme-images/about-wireframe.png)
 
 3. **Product Page**  
-   ![Product Wireframe](./readme-images/product-wireframe.png)
+   ![Product Wireframe](/media/readme-images/product-wireframe.png)
 
 4. **Cart Page**  
-   ![Cart Wireframe](./readme-images/cart-wireframe.png)
+   ![Cart Wireframe](/media/readme-images/cart-wireframe.png)
 
 5. **User Profile Page**  
-   ![Profile Wireframe](./readme-images/profile-wireframe.png)
+   ![Profile Wireframe](/media/readme-images/profile-wireframe.png)
 
 ### Mobile Wireframe
 
 1. **Mobile Layout**  
-   ![Mobile Wireframe](./readme-images/mobile-wireframe.png)
+   ![Mobile Wireframe](/media/readme-images/mobile-wireframe.png)
 
 ---
 
@@ -96,7 +82,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 ### ERD Diagram
 
-![E-commerce System ERD](./readme-images/erd.png)
+![E-commerce System ERD](/media/readme-images/erd-diagram.png)
 
 ### Entity Descriptions
 
@@ -117,18 +103,51 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
    - Represents completed purchases by users.
    - Contains order details, status, and payment information.
 
+5. **Wishlist**
+   - Represents the user's wishlist of products.
+   - Stores the user-product associations for the wishlist.
 
-### Relationships
 
-- **User - Product**: One-to-Many relationship, where a user can leave multiple reviews for different products.
-- **User - Order**: One-to-Many relationship, where a user can have multiple orders.
+6. **Address**
+   - Represents the user's saved addresses.
+   - Stores the address details, such as street, city, state, country, and post code.
+
+
+### Database Relationships
+
+#### User - Cart
+- **One-to-Many Relationship**: A user can have multiple items in their cart.
+- **One-to-One Relationship**: A cart is associated with a single user.
+
+#### User - Wishlist
+- **One-to-Many Relationship**: A user can add multiple items to their wishlist.
+- **One-to-One Relationship**: Each wishlist belongs to a single user.
+
+#### User - Order
+- **One-to-Many Relationship**: A user can have multiple orders.
+- **One-to-One Relationship**: An order is tied to a single user.
+
+#### User - Address
+- **One-to-Many Relationship**: A user can save multiple addresses.
+- **One-to-One Relationship**: Each saved address is associated with a single user.
+
+#### Cart - Product
+- **Many-to-Many Relationship**: A cart can contain multiple products, and a product can be added to multiple carts.
+
+#### Wishlist - Product
+- **Many-to-Many Relationship**: A wishlist can contain multiple products, and a product can appear in multiple wishlists.
+
+#### Order - Product
+- **Many-to-Many Relationship (via `OrderLineItem` model)**: 
+   - An order can include multiple products.
+   - Each product can appear in multiple orders.
 
 ---
 
 ### Media
 
-* Some images used on the site are sourced from [Pexels](https://www.pexels.com/) and my own personal photos.
-* Graphics were created in [Canva](https://www.canva.com/).
+- The main hero image on the site was sourced from [Pexels](https://www.pexels.com).
+- All product images were taken and edited by myself.
 
 ## Features
 

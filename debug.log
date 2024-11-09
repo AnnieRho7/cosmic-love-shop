@@ -3318,3 +3318,69 @@ INFO 2024-11-09 16:51:39,997 autoreload Watching for file changes with StatReloa
 WARNING 2024-11-09 16:51:43,457 log Not Found: /favicon.ico
 INFO 2024-11-09 17:01:28,163 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
 INFO 2024-11-09 17:01:29,500 autoreload Watching for file changes with StatReloader
+INFO 2024-11-09 17:24:13,609 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 17:24:16,922 log Not Found: /favicon.ico
+WARNING 2024-11-09 17:24:21,790 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 17:24:21,902 log Not Found: /favicon.ico
+WARNING 2024-11-09 17:24:25,412 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 17:24:25,483 log Not Found: /favicon.ico
+WARNING 2024-11-09 17:25:32,309 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 17:25:32,401 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:03:38,966 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:03:40,417 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:03:40,724 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:04:49,795 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:04:50,064 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:07:18,926 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:07:52,202 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:07:52,490 log Not Found: /favicon.ico
+INFO 2024-11-09 18:11:16,637 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 18:11:23,354 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:12:39,506 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:12:39,797 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:12:41,980 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:12:42,275 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:12:43,144 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:12:43,552 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:12:44,632 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:12:44,897 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:13:54,278 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:13:54,735 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:16:39,367 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:16:39,788 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:20:20,913 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:20:21,234 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:22:42,039 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:22:42,520 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:22:59,407 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 18:23:42,653 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:23:43,771 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:24:06,659 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:24:06,977 log Not Found: /favicon.ico
+INFO 2024-11-09 18:25:14,467 autoreload /workspace/cosmic-love-shop/cosmic_love/urls.py changed, reloading.
+INFO 2024-11-09 18:25:15,864 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 18:25:22,031 log Not Found: /media/hero.jpg
+INFO 2024-11-09 18:25:26,142 autoreload /workspace/cosmic-love-shop/cosmic_love/urls.py changed, reloading.
+INFO 2024-11-09 18:25:26,997 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 18:25:36,620 log Forbidden (CSRF cookie not set.): /checkout/webhook/
+WARNING 2024-11-09 18:25:45,882 log Not Found: /media/images/hero.jpg
+WARNING 2024-11-09 18:27:03,950 log Not Found: /media/hero.jpg
+INFO 2024-11-09 18:27:44,517 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 18:27:45,373 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 18:27:49,304 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:27:49,699 log Not Found: /favicon.ico
+INFO 2024-11-09 18:28:11,922 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 18:28:12,777 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-09 18:28:16,777 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:28:17,179 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:28:37,093 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:28:48,148 log Not Found: /media/hero.jpg
+WARNING 2024-11-09 18:29:49,237 log Not Found: /static/media/images/hero.jpg
+WARNING 2024-11-09 18:29:49,706 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:30:24,866 log Not Found: /static/media/images/hero.jpg
+WARNING 2024-11-09 18:31:18,892 log Not Found: /static/media/images/hero.jpeg
+WARNING 2024-11-09 18:31:19,201 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:31:36,233 log Not Found: /static/media/images/hero.jpeg
+WARNING 2024-11-09 18:31:36,649 log Not Found: /favicon.ico
+WARNING 2024-11-09 18:32:26,794 log Not Found: /media/images/hero.jpeg
+WARNING 2024-11-09 18:32:27,064 log Not Found: /favicon.ico
