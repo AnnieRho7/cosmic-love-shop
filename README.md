@@ -4,7 +4,7 @@ Cosmic Love is an e-commerce website dedicated to offering beautifully handcraft
 
 ## Live Site
 
-A live version of the site can be found [here](insert-live-link-here).
+A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.herokuapp.com/).
 
 ![Cosmic Love Responsiveness](readme-images/amirespon.png)
 

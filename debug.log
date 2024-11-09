@@ -3316,3 +3316,5 @@ WARNING 2024-11-09 16:47:57,946 log Forbidden (CSRF cookie not set.): /checkout/
 INFO 2024-11-09 16:51:39,020 autoreload /workspace/cosmic-love-shop/checkout/views.py changed, reloading.
 INFO 2024-11-09 16:51:39,997 autoreload Watching for file changes with StatReloader
 WARNING 2024-11-09 16:51:43,457 log Not Found: /favicon.ico
+INFO 2024-11-09 17:01:28,163 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-09 17:01:29,500 autoreload Watching for file changes with StatReloader
