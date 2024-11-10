@@ -3832,3 +3832,5 @@ WARNING 2024-11-10 02:56:36,531 log Forbidden (CSRF cookie not set.): /checkout/
 INFO 2024-11-10 02:56:36,647 _util message='Request to Stripe api' method=post url=https://api.stripe.com/v1/payment_intents
 INFO 2024-11-10 02:56:36,999 _util message='Stripe API response' path=https://api.stripe.com/v1/payment_intents response_code=200
 WARNING 2024-11-10 03:03:11,971 log Not Found: /favicon.ico
+INFO 2024-11-10 03:18:38,730 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-11-10 03:18:39,595 autoreload Watching for file changes with StatReloader
