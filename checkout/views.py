@@ -17,15 +17,20 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if not stripe_secret_key:
-        messages.error(request, "Stripe secret key is missing.")
+        messages.error(
+            request,
+            "Stripe secret key is missing."
+        )
         return redirect(reverse('products'))
 
     stripe.api_key = stripe_secret_key
-
     cart = request.session.get('cart', {})
 
     if not cart:
-        messages.warning(request, "There's nothing in your cart at the moment.")
+        messages.warning(
+            request,
+            "There's nothing in your cart at the moment."
+        )
         return render(request, 'checkout/checkout.html')
 
     current_cart = cart_contents(request)
@@ -51,7 +56,8 @@ def checkout(request):
                 currency=settings.STRIPE_CURRENCY,
                 metadata={
                     'order_id': str(order.id),
-                    'username': request.user.username if request.user.is_authenticated else 'guest'
+                    'username': request.user.username
+                    if request.user.is_authenticated else 'guest'
                 }
             )
 
@@ -76,23 +82,33 @@ def checkout(request):
                         )
                     line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, "One of the products in your cart wasn't found.")
+                    messages.error(
+                        request,
+                        "One of the products in your cart wasn't found."
+                    )
                     order.delete()
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
         else:
-            messages.error(request, "There was an error with your form. Please double-check your information.")
+            messages.error(
+                request,
+                "There was an error with your form. "
+                "Please double-check your information."
+            )
 
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
         metadata={
-            'username': request.user.username if request.user.is_authenticated else 'guest'
+            'username': request.user.username
+            if request.user.is_authenticated else 'guest'
         }
     )
-    
+
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,

@@ -6,6 +6,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def stripe_webhook(request):
     """Listen for webhooks from Stripe."""
     payload = request.body
@@ -14,7 +15,9 @@ def stripe_webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+            payload,
+            sig_header,
+            settings.STRIPE_WEBHOOK_SECRET
         )
     except ValueError as e:
         logger.error(f"Invalid payload: {e}")
@@ -33,7 +36,9 @@ def stripe_webhook(request):
         order_id = payment_intent.metadata.get('order_id')
 
         if not order_id:
-            logger.error('No order_id found in payment_intent metadata')
+            logger.error(
+                'No order_id found in payment_intent metadata'
+            )
             return HttpResponse(status=400)
 
         try:
@@ -45,20 +50,24 @@ def stripe_webhook(request):
             logger.error(f"Order {order_id} not found")
             return HttpResponse(status=404)
 
-
     elif event['type'] == 'payment_intent.payment_failed':
         payment_intent = event['data']['object']
         order_id = payment_intent.metadata.get('order_id')
 
         if not order_id:
-            logger.error('No order_id found in payment_intent metadata for failed payment')
+            logger.error(
+                'No order_id found in payment_intent metadata '
+                'for failed payment'
+            )
             return HttpResponse(status=400)
 
         try:
             order = Order.objects.get(order_number=order_id)
             order.status = 'Payment Failed'
             order.save()
-            logger.info(f"Order {order_id} marked as payment failed")
+            logger.info(
+                f"Order {order_id} marked as payment failed"
+            )
         except Order.DoesNotExist:
             logger.error(f"Order {order_id} not found")
             return HttpResponse(status=404)

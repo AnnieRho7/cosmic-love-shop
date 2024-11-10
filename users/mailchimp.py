@@ -1,6 +1,7 @@
 from django.conf import settings
 import mailchimp_marketing
 
+
 class MailchimpService:
     def __init__(self):
         self.client = mailchimp_marketing.Client()

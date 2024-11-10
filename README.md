@@ -34,10 +34,30 @@ A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.
 
 The Agile Methodology was used to plan this project, utilizing GitHub’s Project Board. You can view the project board [here](https://github.com/users/AnnieRho7/projects/3/views/1).
 
-### The Scope
+## CRUD Functionality
 
-* To create a user-friendly and visually appealing e-commerce platform for handmade jewellery.
-* To facilitate user interaction through a wishlist feature.
+The Cosmic Love e-commerce platform incorporates CRUD functionality to manage products and user interactions. The following CRUD operations are implemented:
+
+### Create
+- Admin users can add new products to the inventory through the admin panel.
+- Registered users can create an account to manage their orders and wishlist.
+
+### Read
+- Users can view the collection of handcrafted jewellery on the website.
+- Detailed product descriptions and images are available for each item.
+- Users can view their order history and track current orders.
+
+### Update
+- Admin users can edit product details, prices, and images through the admin panel.
+- Registered users can update their account information and shipping address.
+- Users can modify the quantities of items in their cart before checkout.
+
+### Delete
+- Admin users can remove products from the inventory if they are no longer available.
+- Users can remove items from their cart if they no longer wish to purchase them.
+- Registered users can delete products from their wishlist.
+
+These CRUD operations ensure a dynamic and interactive user experience, allowing for efficient management of products and user data.
 
 ## Design
 
@@ -333,13 +353,13 @@ These implementations help search engines better understand and index the site's
 
 ### Manual Testing
 
-For an overview of the manual tests conducted during the development of this project, please refer to the [Manual Testing Document](manual_testing.md).
+For an overview of the manual tests conducted during the development of this project, please refer to the [Manual Testing Document](/manual_testing.md).
 
 ### Validation Results
 
 For detailed validation results, including screenshots from the HTML and PEP 8 validators, please refer to the following document:
 
-- [Validation Screenshots](./validation-screenshots.md)
+- [Validation Screenshots](/validation.md)
 
 ### Lighthouse Performance
 

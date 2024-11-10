@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .models import Product
 
+
 def index(request):
     """
-    A view to return the index page 
+    A view to return the index page
     """
     featured_products = Product.objects.filter(is_featured=True)
 

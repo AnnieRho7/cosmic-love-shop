@@ -1,27 +1,36 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="auth-page py-5">
+        <h2 class="text-center mb-4">{% trans "Sign Out" %}</h2>
 
-<body>
-  <main class="auth-page">
+        <p class="confirmation-text text-center mb-4">
+          {% trans 'Are you sure you want to sign out?' %}
+        </p>
 
-    <h1>{% trans "Sign Out" %}</h1>
+        <form class="logout-form" method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+          {% endif %}
 
-    <p class="confirmation-text">{% trans 'Are you sure you want to sign out?' %}</p>
-
-    <form class="logout-form" method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <button class="primaryAction" type="submit">{% trans 'Sign Out' %}</button>
-      <a class="button secondaryAction" href="{% url 'profile' %}">{% trans 'Cancel' %}</a>
-    </form>
-
-  </main>
-</body>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary primaryAction" type="submit">
+              {% trans 'Sign Out' %}
+            </button>
+            <a class="btn btn-secondary secondaryAction" href="{% url 'profile' %}">
+              {% trans 'Cancel' %}
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
