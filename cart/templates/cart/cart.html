@@ -6,6 +6,7 @@
 {% block title %}Shopping Cart - Cosmic Love{% endblock %}
 
 {% block content %}
+
 <div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">
@@ -71,8 +72,11 @@
                                 <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                                 {% if free_delivery_delta > 0 %}
                                 <p class="mb-1 text-danger">
-                                    You could get free delivery by spending just <strong>€{{
-                                        free_delivery_delta|floatformat:2 }}</strong> more!
+                                    You could get free delivery by spending just <strong>€{{ free_delivery_delta|floatformat:2 }}</strong> more!
+                                </p>
+                                {% elif total == 0 %}
+                                <p class="mb-1 text-info">
+                                    Free delivery available on orders over €{{ free_delivery_threshold }}!
                                 </p>
                                 {% else %}
                                 <p class="mb-1 text-success">

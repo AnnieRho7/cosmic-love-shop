@@ -2,32 +2,14 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 from django.conf import settings
+from .contexts import cart_contents
 
 
 def view_cart(request):
-    cart_items = []
-    total = 0
-    
-
-    free_delivery_threshold = settings.FREE_DELIVERY_THRESHOLD
-    free_delivery_delta = 0
-    delivery = 0
-    
-    if total < free_delivery_threshold:
-        free_delivery_delta = free_delivery_threshold - total
-    else:
-        delivery = 0
-    
-    grand_total = total + delivery
-    
-    context = {
-        'cart_items': cart_items,
-        'total': total,
-        'delivery': delivery,
-        'free_delivery_delta': free_delivery_delta,
-        'free_delivery_threshold': free_delivery_threshold,
-        'grand_total': grand_total,
-    }
+    """
+    A view to display the shopping cart page
+    """
+    context = cart_contents(request)
     
     return render(request, 'cart/cart.html', context)
 
