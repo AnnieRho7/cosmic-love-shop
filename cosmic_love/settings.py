@@ -15,24 +15,24 @@ from pathlib import Path
 from decouple import config
 from mailchimp_marketing.api_client import ApiClientError
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-35o=_bz$54vlkv4x#4%88^7dx!b=dfz*oz!3@^*025tcnp$&j@'
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net', 'cosmic-love-3fa571bb9ed2.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net',
+    'annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net',
+    'cosmic-love-3fa571bb9ed2.herokuapp.com'
+]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-annierho7-cosmiclovesho-u6zjlvrek9h.ws.codeinstitute-ide.net',
+    'https://8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net',
+    'https://annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net',
     'https://cosmic-love-3fa571bb9ed2.herokuapp.com',
 ]
 
@@ -114,7 +114,7 @@ STRIPE_CURRENCY = 'eur'
 
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY') 
-STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
+STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"

@@ -3834,3 +3834,99 @@ INFO 2024-11-10 02:56:36,999 _util message='Stripe API response' path=https://ap
 WARNING 2024-11-10 03:03:11,971 log Not Found: /favicon.ico
 INFO 2024-11-10 03:18:38,730 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
 INFO 2024-11-10 03:18:39,595 autoreload Watching for file changes with StatReloader
+INFO 2024-12-19 11:07:00,895 autoreload Watching for file changes with StatReloader
+ERROR 2024-12-19 11:07:04,963 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:07:04,965 log Bad Request: /
+ERROR 2024-12-19 11:07:05,103 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:07:05,104 log Bad Request: /favicon.ico
+INFO 2024-12-19 11:09:49,920 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-12-19 11:09:50,729 autoreload Watching for file changes with StatReloader
+ERROR 2024-12-19 11:09:53,722 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:09:53,724 log Bad Request: /
+ERROR 2024-12-19 11:09:53,811 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:09:53,811 log Bad Request: /favicon.ico
+ERROR 2024-12-19 11:09:57,348 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:09:57,349 log Bad Request: /
+ERROR 2024-12-19 11:09:57,493 exception Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pip-modules/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net'. You may need to add '8000-annierho7-cosmiclovesho-auwn0b7q1mo.ws.codeinstitute-ide.net' to ALLOWED_HOSTS.
+WARNING 2024-12-19 11:09:57,493 log Bad Request: /favicon.ico
+INFO 2024-12-19 11:11:09,134 autoreload /workspace/cosmic-love-shop/cosmic_love/settings.py changed, reloading.
+INFO 2024-12-19 11:11:09,971 autoreload Watching for file changes with StatReloader
+WARNING 2024-12-19 11:11:13,838 log Not Found: /media/images/hero.jpg
