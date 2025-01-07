@@ -2,8 +2,13 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+from django.core.exceptions import PermissionDenied
 
 from .models import Product, Category
+from .forms import ProductForm
+from .decorators import superuser_required
 
 def all_products(request):
     """ 
@@ -91,3 +96,64 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+@login_required
+@superuser_required
+def product_management(request):
+    """ A view for product management """
+    products = Product.objects.all()
+    form = ProductForm()  # Add this for the "Add Product" modal
+
+    template = 'products/product_management.html'
+    context = {
+        'products': products,
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+@login_required
+@superuser_required
+def add_product(request):
+    """ Add a product """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('product_management'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    
+    return redirect(reverse('product_management'))
+
+@login_required
+@superuser_required
+def edit_product(request, product_id):
+    """ Edit a product """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_management'))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+
+    return redirect(reverse('product_management'))
+
+@login_required
+@superuser_required
+@require_POST
+def delete_product(request, product_id):
+    """ Delete a product """
+    try:
+        product = get_object_or_404(Product, pk=product_id)
+        product.delete()
+        messages.success(request, 'Product deleted!')
+    except Exception as e:
+        messages.error(request, f'Error deleting product: {e}')
+
+    return redirect(reverse('product_management'))

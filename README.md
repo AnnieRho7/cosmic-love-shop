@@ -18,7 +18,7 @@ A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.
 - Spiritual and wellness-oriented individuals
 - Jewellery enthusiasts seeking unique, handmade pieces
 - Gift-buyers looking for meaningful, one-of-a-kind accessories
-- Target age range: 25-55, predominantly female
+- Target age range: 25-55, female
 - Mid-to-high income bracket willing to invest in quality, artisan jewellery
 
 ### Revenue Streams
