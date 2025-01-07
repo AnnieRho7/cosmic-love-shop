@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -52,8 +53,8 @@ class Product(models.Model):
         null=True,
         blank=True
     )
-    image = models.ImageField(
-        upload_to='products/',
+    image = CloudinaryField(
+        'image', 
         null=True,
         blank=True
     )
