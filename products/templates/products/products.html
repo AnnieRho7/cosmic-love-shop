@@ -18,8 +18,7 @@
             <h2 class="logo-font">Products</h2>
             {% for c in current_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                <span class="p-2 mt-2 badge bg-light text-dark rounded-0 border border-dark">{{ c.friendly_name
-                    }}</span>
+                <span class="p-2 mt-2 badge bg-light text-dark rounded-0 border border-dark">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="w-50 mb-1">
@@ -48,8 +47,7 @@
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
                         {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term
-                            }}"</strong>{% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                     </p>
                 </div>
             </div>
@@ -59,11 +57,11 @@
                     <div class="card h-100 border-0">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid" src="{% static 'products/'|add:product.image %}" alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="/media/noimage.png" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid" src="{% static 'products/noimage.png' %}" alt="{{ product.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
@@ -83,8 +81,7 @@
                                         </p>
                                         {% endif %}
                                         {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
-                                            5</small>
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                         {% else %}
                                         <small class="text-muted">No Rating</small>
                                         {% endif %}
@@ -95,8 +92,7 @@
                                             class="btn wishlist-btn {% if product in user.userprofile.wishlist.all %}active{% endif %}"
                                             data-product-id="{{ product.id }}"
                                             data-add-to-wishlist-url="{% url 'add_to_wishlist' product.id %}">
-                                            <i
-                                                class="{% if product in user.userprofile.wishlist.all %}fas{% else %}far{% endif %} fa-heart"></i>
+                                            <i class="{% if product in user.userprofile.wishlist.all %}fas{% else %}far{% endif %} fa-heart"></i>
                                         </button>
                                     </div>
                                     {% endif %}

@@ -121,11 +121,6 @@ main {
     border: none;
 }
 
-.card-img-top {
-    height: 300px;
-    object-fit: cover;
-}
-
 .card-body {
     text-align: center;
 }

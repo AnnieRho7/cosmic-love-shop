@@ -7,6 +7,36 @@ Cosmic Love is an e-commerce website dedicated to offering beautifully handcraft
 A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.herokuapp.com/).
 
 
+## Business Model
+
+### Value Proposition
+- Unique, handcrafted wire-wrapped jewellery featuring semi-precious stones
+- PersonalisSed, high-quality accessories that connect customers to cosmic energy
+- Artisan-crafted pieces with attention to detail and individual stone properties
+
+### Customer Segments
+- Spiritual and wellness-oriented individuals
+- Jewellery enthusiasts seeking unique, handmade pieces
+- Gift-buyers looking for meaningful, one-of-a-kind accessories
+- Target age range: 25-55, predominantly female
+- Mid-to-high income bracket willing to invest in quality, artisan jewellery
+
+### Revenue Streams
+- Direct product sales through e-commerce platform
+- Potential future revenue streams:
+  - Custom design services
+  - Workshops and jewellery-making classes
+  - Wholesale to boutique stores
+  - Affiliate marketing with wellness and fashion influencers
+
+### Cost Structure
+- Raw materials (stones, wire, packaging)
+- Website maintenance and hosting
+- Marketing and advertising
+- Payment processing fees
+- Shipping and logistics
+
+
 ## User Experience - UX
 
 [Back to the top](#top)
