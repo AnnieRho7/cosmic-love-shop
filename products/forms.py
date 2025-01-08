@@ -6,14 +6,17 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['category', 'name', 'description', 'price', 'image', 'is_featured']
 
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        empty_label="Select Category",
+        required=False
+    )
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        categories = Category.objects.all()
-        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
-
-        self.fields['category'].choices = friendly_names
-
+        
         self.fields['name'].label = 'Product Name'
+        self.fields['category'].label = 'Category'
         self.fields['is_featured'].label = 'Feature on Homepage'
 
         for field_name, field in self.fields.items():

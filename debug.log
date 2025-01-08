@@ -5217,3 +5217,13 @@ INFO 2025-01-07 22:17:34,558 autoreload /workspace/cosmic-love-shop/products/vie
 INFO 2025-01-07 22:17:35,913 autoreload Watching for file changes with StatReloader
 INFO 2025-01-07 22:18:33,118 autoreload /workspace/cosmic-love-shop/products/views.py changed, reloading.
 INFO 2025-01-07 22:18:34,005 autoreload Watching for file changes with StatReloader
+INFO 2025-01-08 13:17:06,540 autoreload Watching for file changes with StatReloader
+WARNING 2025-01-08 13:21:07,765 log Not Found: /favicon.ico
+INFO 2025-01-08 13:27:01,039 autoreload /workspace/cosmic-love-shop/products/forms.py changed, reloading.
+INFO 2025-01-08 13:27:02,059 autoreload Watching for file changes with StatReloader
+INFO 2025-01-08 13:27:16,395 autoreload /workspace/cosmic-love-shop/products/forms.py changed, reloading.
+INFO 2025-01-08 13:27:17,945 autoreload Watching for file changes with StatReloader
+INFO 2025-01-08 13:29:53,852 autoreload /workspace/cosmic-love-shop/products/forms.py changed, reloading.
+INFO 2025-01-08 13:29:54,961 autoreload Watching for file changes with StatReloader
+WARNING 2025-01-08 13:30:17,070 log Not Found: /favicon.ico
+INFO 2025-01-08 14:17:48,109 autoreload Watching for file changes with StatReloader
