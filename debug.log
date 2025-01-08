@@ -5227,3 +5227,8 @@ INFO 2025-01-08 13:29:53,852 autoreload /workspace/cosmic-love-shop/products/for
 INFO 2025-01-08 13:29:54,961 autoreload Watching for file changes with StatReloader
 WARNING 2025-01-08 13:30:17,070 log Not Found: /favicon.ico
 INFO 2025-01-08 14:17:48,109 autoreload Watching for file changes with StatReloader
+INFO 2025-01-08 22:34:43,692 autoreload Watching for file changes with StatReloader
+INFO 2025-01-08 22:38:53,174 autoreload /workspace/cosmic-love-shop/users/views.py changed, reloading.
+INFO 2025-01-08 22:38:53,985 autoreload Watching for file changes with StatReloader
+WARNING 2025-01-08 23:00:28,213 log Not Found: /product_management/
+WARNING 2025-01-08 23:29:36,479 log Not Found: /product_management/

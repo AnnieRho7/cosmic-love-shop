@@ -24,53 +24,59 @@ from .mailchimp import MailchimpService
 
 @login_required
 def user_profile(request):
-    """Handle user profile view and updates."""
-    user = request.user
-    user_profile, _ = UserProfile.objects.get_or_create(
-        user=user
-    )
+   """Handle user profile view and updates."""
+   user = request.user
+   user_profile, _ = UserProfile.objects.get_or_create(
+       user=user
+   )
 
-    if request.method == 'POST':
-        user_form = UserForm(
-            request.POST,
-            instance=user
-        )
-        profile_form = ProfileForm(
-            request.POST,
-            request.FILES,
-            instance=user_profile
-        )
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(
-                request,
-                'Your profile has been updated successfully!'
-            )
-            return redirect('profile')
-        messages.error(
-            request,
-            'Please correct the errors below.'
-        )
-    else:
-        user_form = UserForm(instance=user)
-        profile_form = ProfileForm(instance=user_profile)
+   if request.method == 'POST':
+       user_form = UserForm(
+           request.POST,
+           instance=user
+       )
+       profile_form = ProfileForm(
+           request.POST,
+           request.FILES,
+           instance=user_profile
+       )
+       if user_form.is_valid() and profile_form.is_valid():
+           user_form.save()
+           profile_form.save()
+           messages.success(
+               request,
+               'Your profile has been updated successfully!'
+           )
+           return redirect('profile')
+       else:
+           form_errors = []
+           if user_form.errors:
+               for field, errors in user_form.errors.items():
+                   form_errors.append(f"{field}: {', '.join(errors)}")
+           if profile_form.errors:
+               for field, errors in profile_form.errors.items():
+                   form_errors.append(f"{field}: {', '.join(errors)}")
+           error_message = "Please correct these errors: " + " | ".join(form_errors)
+           messages.error(request, error_message)
+   else:
+       user_form = UserForm(instance=user)
+       profile_form = ProfileForm(instance=user_profile)
 
-    orders = Order.objects.filter(
-        user=user
-    ).order_by('-date')
-    wishlist = Wishlist.objects.filter(user=user)
-    addresses = Address.objects.filter(user=user)
+   orders = Order.objects.filter(
+       user=user
+   ).order_by('-date')
+   wishlist = Wishlist.objects.filter(user=user)
+   addresses = Address.objects.filter(user=user)
 
-    context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
-        'orders': orders,
-        'wishlist': wishlist,
-        'addresses': addresses,
-    }
+   context = {
+       'user_form': user_form,
+       'profile_form': profile_form,
+       'orders': orders,
+       'wishlist': wishlist,
+       'addresses': addresses,
+   }
 
-    return render(request, 'profile.html', context)
+   return render(request, 'profile.html', context)
 
 
 @login_required
