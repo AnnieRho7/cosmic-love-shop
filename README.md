@@ -102,24 +102,24 @@ The wireframes below illustrate the initial layout and design for different sect
 ### Desktop Wireframes
 
 1. **Home Page**  
-   ![Home Wireframe](/media/readme-images/home-wireframe.png)
+   ![Home Wireframe](/static/readme-images/home-wireframe.png)
 
 2. **About Page**  
-   ![About Wireframe](/media/readme-images/about-wireframe.png)
+   ![About Wireframe](/static/readme-images/about-wireframe.png)
 
 3. **Product Page**  
-   ![Product Wireframe](/media/readme-images/product-wireframe.png)
+   ![Product Wireframe](/static/readme-images/product-wireframe.png)
 
 4. **Cart Page**  
-   ![Cart Wireframe](/media/readme-images/cart-wireframe.png)
+   ![Cart Wireframe](/static/readme-images/cart-wireframe.png)
 
 5. **User Profile Page**  
-   ![Profile Wireframe](/media/readme-images/profile-wireframe.png)
+   ![Profile Wireframe](/static/readme-images/profile-wireframe.png)
 
 ### Mobile Wireframe
 
 1. **Mobile Layout**  
-   ![Mobile Wireframe](/media/readme-images/mobile-wireframe.png)
+   ![Mobile Wireframe](/static/readme-images/mobile-wireframe.png)
 
 ---
 
@@ -131,7 +131,7 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 
 ### ERD Diagram
 
-![E-commerce System ERD](/media/readme-images/erd-diagram.png)
+![E-commerce System ERD](/static/readme-images/erd-diagram.png)
 
 ### Entity Descriptions
 
@@ -207,35 +207,35 @@ The Entity-Relationship Diagram below illustrates the database structure and rel
 * Displays featured products and collections.
 * Provides a hero image with a call-to-action button to explore the shop.
 
-![Homepage](/media/readme-images/homepage.png)
+![Homepage](/static/readme-images/homepage.png)
 
 ### Navigation Desktop
 
 * The navigation bar is consistent and responsive, adapting based on user authentication and roles.
 
-![Navigation Desktop](/media/readme-images/navbar-desktop.png)
+![Navigation Desktop](/static/readme-images/navbar-desktop.png)
 
 ### Navigation Mobile
 
-![Navigation Mobile](/media/readme-images/navbar-mobile.png)
+![Navigation Mobile](/static/readme-images/navbar-mobile.png)
 
 ### Product Details
 
 * Users can view detailed information and images of individual products. Authenticated users can also add to wishlist
 
-![Product Details](/media/readme-images/product-detail.png)
+![Product Details](/static/readme-images/product-detail.png)
 
 ### Cart Functionality
 
 * Users can add items to their cart and proceed to checkout seamlessly.
 
-![Cart Page](/media/readme-images/checkout.png)
+![Cart Page](/static/readme-images/checkout.png)
 
 ### Admin Backend
 
 * Admin users manage products and view orders through the admin panel.
 
-![Admin Backend](/media/readme-images/admin.png)
+![Admin Backend](/static/readme-images/admin.png)
 
 ## Known Bugs and Limitations
 
@@ -393,7 +393,7 @@ For detailed validation results, including screenshots from the HTML and PEP 8 v
 
 ### Lighthouse Performance
 
-![Lighthouse Accessibility Score](/media/readme-images/lighthouse.png)
+![Lighthouse Accessibility Score](/static/readme-images/lighthouse.png)
 
 ## Deployment
 
