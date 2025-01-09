@@ -36,6 +36,28 @@ A live version of the site can be found [here](https://cosmic-love-3fa571bb9ed2.
 - Payment processing fees
 - Shipping and logistics
 
+## Marketing Strategy
+
+### Social Media Marketing
+- Created a Facebook business page to engage with customers and showcase products
+- Implemented social media links in the footer for easy access
+- Future plans to expand to Instagram and Pinterest for broader reach
+
+### Email Marketing
+- Newsletter subscription feature implemented using Mailchimp
+- Allows customers to stay updated with:
+  - New product launches
+  - Special offers
+  - Exclusive discounts
+  - Collection updates
+
+### Future Marketing Plans
+- Expand social media presence to other platforms
+- Implement influencer collaborations
+- Develop content marketing strategy
+- Create blog section for jewellery care tips and styling advice
+
+[Back to the top](#top)
 
 ## User Experience - UX
 
